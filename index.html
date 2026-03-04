@@ -405,6 +405,11 @@ hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
 <!-- SIDE NAV -->
 <nav class="sidenav" id="sidenav">
   <a href="#s1" data-label="Data Sourcing"></a>
+  <a href="#s1b" data-label="Preprocessing"></a>
+  <a href="#s1c" data-label="Public/Private Data"></a>
+  <a href="#s1d" data-label="Loading Files"></a>
+  <a href="#s1e" data-label="Public Sources"></a>
+  <a href="#s1f" data-label="Web Scraping"></a>
   <a href="#s2a" data-label="What is Cleaning"></a>
   <a href="#s2b" data-label="Data Types"></a>
   <a href="#s2c" data-label="Rows & Columns"></a>
@@ -419,6 +424,11 @@ hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
 <!-- TOP NAV -->
 <nav class="topnav" id="topnav">
   <a href="#s1">S1 · Sourcing</a>
+  <a href="#s1b">Preprocessing</a>
+  <a href="#s1c">Public/Private Data</a>
+  <a href="#s1d">Loading Files</a>
+  <a href="#s1e">Public Sources</a>
+  <a href="#s1f">Web Scraping</a>
   <a href="#s2a">S2 · Cleaning</a>
   <a href="#s2b">Data Types</a>
   <a href="#s2c">Rows & Cols</a>
@@ -659,6 +669,675 @@ GET https://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=
 
 <hr class="div">
 
+<!-- NEW SECTIONS INSERTED HERE -->
+
+<!-- ═══ NEW MODULE: DATA PREPROCESSING (from new screenshot) ═══ -->
+<section class="section" id="s1b">
+<div class="s-meta"><span class="s-chip s1">Session 1 · New Module</span><div class="s-line"></div></div>
+<h2 class="stitle">Introduction to Data Preprocessing</h2>
+<p class="s-desc">Before any algorithm touches your data, it must go through preprocessing — a series of transformation steps that convert raw, messy, real-world data into a form that a machine learning model can actually learn from.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1b',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1b',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1b',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1b-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">🌾 The Wheat-to-Bread Analogy</div>
+  <p>Raw data is like wheat harvested from a field. The wheat is real and valuable — but you cannot eat it directly. You must <strong>mill it into flour</strong> (clean), <strong>mix it with water and yeast</strong> (transform), <strong>knead it</strong> (normalise), and <strong>bake it</strong> (encode) before it becomes bread that humans can consume.</p>
+  <p style="margin:0">Data preprocessing is exactly this. The AI model is the person eating the bread. It cannot consume raw wheat (raw data). Each preprocessing step transforms the raw material into something the model can digest and learn from.</p>
+</div>
+
+<h4>What Is Data Preprocessing? — The 5-Step Pipeline</h4>
+<div class="flow">
+  <div class="flow-node" style="background:rgba(255,82,82,0.1);border-color:rgba(255,82,82,0.3);color:var(--red)">🌾 Raw Data<br><small>Messy, Real-World</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.3);color:var(--orange)">🧹 Clean<br><small>Fix Errors</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--blue)">🔄 Transform<br><small>Reshape</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(181,123,238,0.1);border-color:rgba(181,123,238,0.3);color:var(--purple)">📐 Normalise<br><small>Same Scale</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(62,207,142,0.1);border-color:rgba(62,207,142,0.3);color:var(--green)">🤖 ML-Ready<br><small>Model Input</small></div>
+</div>
+
+<div class="tbl"><table>
+  <thead><tr><th>Step</th><th>What You Do</th><th>Why It's Needed</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>1. Data Cleaning</td><td>Fix missing values, remove duplicates, fix invalid entries</td><td>Garbage In → Garbage Out. Errors in data = errors in model.</td><td>Age = -5 → investigate and fix</td></tr>
+    <tr><td>2. Data Integration</td><td>Combine data from multiple sources into one table</td><td>Real data rarely comes from one place</td><td>Merge customer table + purchase table + behaviour table</td></tr>
+    <tr><td>3. Data Transformation</td><td>Change the shape or structure of data to suit analysis</td><td>Models expect specific shapes and formats</td><td>Monthly data → weekly data via resampling</td></tr>
+    <tr><td>4. Data Reduction</td><td>Remove unnecessary columns, reduce dimensionality</td><td>Too many irrelevant columns confuse models, slow training</td><td>Drop columns that are 90% null or have near-zero variance</td></tr>
+    <tr><td>5. Data Encoding</td><td>Convert text categories into numbers</td><td>ML algorithms only understand numbers — not words</td><td>"Male"/"Female"/"Other" → 0/1/2</td></tr>
+  </tbody>
+</table></div>
+
+<div class="quiz" id="q_pp1">
+  <h5>🧠 Quick Check: Why can't we feed raw, uncleaned data directly into an ML model?</h5>
+  <div class="quiz-opts">
+    <button class="qopt" onclick="doQuiz('q_pp1',this,false)">Because models are too slow to process raw data</button>
+    <button class="qopt" onclick="doQuiz('q_pp1',this,true)">Because models learn patterns from data — if data has errors, missing values, or inconsistencies, the model learns the wrong patterns with full confidence</button>
+    <button class="qopt" onclick="doQuiz('q_pp1',this,false)">Because raw data is too large to fit in memory</button>
+  </div>
+  <div class="qfb" id="q_pp1-fb"></div>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s1b-2"><div class="lpanel-inner">
+<h4>Preprocessing in Python — What Each Step Looks Like</h4>
+<div class="code">
+<span class="cm"># The preprocessing pipeline — what you'll actually write in your Masters programme</span>
+<span class="cm"># Each line below corresponds to one preprocessing step</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># STEP 1: Load data</span>
+df = pd.<span class="fn">read_csv</span>(<span class="st">'customer_data.csv'</span>)
+<span class="fn">print</span>(df.shape)        <span class="cm"># → (85000, 18) — 85,000 rows, 18 columns</span>
+
+<span class="cm"># STEP 2: First look — always do this before anything else</span>
+df.<span class="fn">head</span>(<span class="nu">5</span>)             <span class="cm"># First 5 rows</span>
+df.<span class="fn">info</span>()              <span class="cm"># Data types + null counts</span>
+df.<span class="fn">describe</span>()          <span class="cm"># Stats: min, max, mean, std for numeric columns</span>
+df.<span class="fn">isnull</span>().<span class="fn">sum</span>()      <span class="cm"># Count missing values per column</span>
+
+<span class="cm"># STEP 3: Fix types</span>
+df[<span class="st">'price'</span>] = df[<span class="st">'price'</span>].<span class="fn">str.replace</span>(<span class="st">'₹'</span>,<span class="st">''</span>).<span class="fn">str.replace</span>(<span class="st">','</span>,<span class="st">''</span>).<span class="fn">astype</span>(<span class="st">'float'</span>)
+df[<span class="st">'order_date'</span>] = pd.<span class="fn">to_datetime</span>(df[<span class="st">'order_date'</span>], <span class="fn">dayfirst</span>=<span class="kw">True</span>)
+
+<span class="cm"># STEP 4: Handle missing values</span>
+df[<span class="st">'age'</span>].<span class="fn">fillna</span>(df[<span class="st">'age'</span>].<span class="fn">median</span>(), inplace=<span class="kw">True</span>)
+
+<span class="cm"># STEP 5: Remove duplicates</span>
+df.<span class="fn">drop_duplicates</span>(inplace=<span class="kw">True</span>)
+
+<span class="cm"># STEP 6: Encode categorical column for ML</span>
+df[<span class="st">'gender_encoded'</span>] = df[<span class="st">'gender'</span>].<span class="fn">map</span>({<span class="st">'Male'</span>: <span class="nu">0</span>, <span class="st">'Female'</span>: <span class="nu">1</span>, <span class="st">'Other'</span>: <span class="nu">2</span>})
+</div>
+
+<div class="box tip">
+  <div class="box-tag">💡 The Golden Rule of Preprocessing</div>
+  <p style="margin:0;font-size:14px">Always perform preprocessing steps in the correct ORDER. You cannot normalise data before fixing data types (you'd be normalising strings). You cannot encode categories before handling missing values (the NaN would become its own category). The sequence matters as much as each individual step.</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1b-3"><div class="lpanel-inner">
+<h4>Preprocessing Pipelines in Production — Scikit-learn's Pipeline Object</h4>
+<p>In industry, preprocessing steps must be repeatable, testable, and automatically applied to new data. This is done using <strong>Pipeline objects</strong> that chain all preprocessing steps together.</p>
+<div class="code">
+<span class="cm"># Industry-grade preprocessing pipeline</span>
+<span class="cm"># This exact pattern is used in companies like Razorpay, PhonePe, Paytm</span>
+
+<span class="kw">from</span> sklearn.pipeline <span class="kw">import</span> Pipeline
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler, OneHotEncoder
+<span class="kw">from</span> sklearn.impute <span class="kw">import</span> SimpleImputer
+<span class="kw">from</span> sklearn.compose <span class="kw">import</span> ColumnTransformer
+
+<span class="cm"># Define which columns are numeric vs categorical</span>
+numeric_cols    = [<span class="st">'age'</span>, <span class="st">'income'</span>, <span class="st">'credit_score'</span>, <span class="st">'loan_amount'</span>]
+categorical_cols = [<span class="st">'city_tier'</span>, <span class="st">'employment_type'</span>, <span class="st">'product_category'</span>]
+
+<span class="cm"># Build separate pipelines for each type</span>
+numeric_pipeline = Pipeline([
+    (<span class="st">'impute'</span>,  SimpleImputer(strategy=<span class="st">'median'</span>)),    <span class="cm"># fill NaN with median</span>
+    (<span class="st">'scale'</span>,   StandardScaler()),                      <span class="cm"># Z-score normalisation</span>
+])
+
+categorical_pipeline = Pipeline([
+    (<span class="st">'impute'</span>,  SimpleImputer(strategy=<span class="st">'most_frequent'</span>)),  <span class="cm"># fill NaN with mode</span>
+    (<span class="st">'encode'</span>,  OneHotEncoder(handle_unknown=<span class="st">'ignore'</span>)),    <span class="cm"># text → numbers</span>
+])
+
+<span class="cm"># Combine both into one transformer</span>
+preprocessor = ColumnTransformer([
+    (<span class="st">'num'</span>, numeric_pipeline, numeric_cols),
+    (<span class="st">'cat'</span>, categorical_pipeline, categorical_cols),
+])
+
+<span class="cm"># Apply the same preprocessing to BOTH training data AND new live data</span>
+<span class="cm"># This prevents "training-serving skew" — a major source of production failures</span>
+X_train_processed = preprocessor.<span class="fn">fit_transform</span>(X_train)
+X_new_processed   = preprocessor.<span class="fn">transform</span>(X_new)   <span class="cm"># Uses same rules, no refitting</span>
+</div>
+<div class="box case">
+  <div class="box-tag">⚡ Why Pipelines Prevent a Common Industry Disaster</div>
+  <p>A major Indian fintech company built a fraud detection model. During training, they manually computed the mean income as ₹4.2L and used it to fill nulls. The model performed brilliantly.</p>
+  <p>Six months later, in production, the live scoring code was filling income nulls with ₹6.8L (the current mean, which had shifted with the customer base). The training distribution and production distribution were different — the model was silently underperforming for 6 months before anyone noticed the fraud rate creeping up.</p>
+  <p style="margin:0">This is called <strong>training-serving skew</strong>. Scikit-learn Pipelines prevent it by storing the preprocessing parameters (mean, std, categories) from training time and reusing them exactly at prediction time. The preprocessing is locked in, not recomputed.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ PUBLIC AND PRIVATE DATA ═══ -->
+<section class="section" id="s1c">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 2</span><div class="s-line"></div></div>
+<h2 class="stitle">Public and Private Data</h2>
+<p class="s-desc">Not all data is created equal — and not all data is yours to use freely. Understanding the difference between public and private data is both a technical and an ethical cornerstone of data science.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1c',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1c',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1c',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1c-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📚 The Library vs Private Diary Analogy</div>
+  <p>A <strong>public library</strong> has books anyone can walk in and read. No permission needed. No cost. The books are there for public benefit — government reports, academic papers, historical records. This is <em>public data</em>.</p>
+  <p>Your <strong>personal diary</strong> is private. Someone reading it without your permission is a violation — legally and ethically. Even if they could physically access it, doing so is wrong. This is <em>private data</em>.</p>
+  <p style="margin:0">In data science, this distinction matters enormously. Using private data without authorisation is illegal (IT Act, PDPB in India), unethical, and has ended careers. Knowing which category your data falls into is the first question to ask — before writing a single line of code.</p>
+</div>
+
+<h4>The 4 Categories of Data by Access Rights</h4>
+<div class="card-row">
+  <div class="card g">
+    <div class="icon">🌐</div>
+    <h5>Open Public Data</h5>
+    <p>Free for anyone. No restrictions. Government releases, academic datasets, open-source repos. Examples: Census India, RBI data, WHO statistics, Kaggle datasets, Wikipedia.</p>
+  </div>
+  <div class="card b">
+    <div class="icon">🔑</div>
+    <h5>Licensed Public Data</h5>
+    <p>Publicly available but with usage restrictions. Must agree to terms. Examples: Google Maps API (free up to a limit), commercial weather APIs, Bloomberg financial data.</p>
+  </div>
+  <div class="card o">
+    <div class="icon">🏢</div>
+    <h5>Private Organisational Data</h5>
+    <p>Owned by a company. Employees can use it for work purposes. Sharing outside is prohibited. Examples: Flipkart's transaction database, Jio's subscriber records, HDFC's loan data.</p>
+  </div>
+  <div class="card pk">
+    <div class="icon">🔒</div>
+    <h5>Personal Private Data</h5>
+    <p>Belongs to individual people. Highest legal protection. Cannot be used without informed consent. Examples: Aadhaar, medical records, financial statements, biometric data, personal messages.</p>
+  </div>
+</div>
+
+<h4>India's Key Public Data Sources — Your Free AI Toolkit</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Source</th><th>What's Available</th><th>Best Used For</th><th>URL</th></tr></thead>
+  <tbody>
+    <tr><td>data.gov.in</td><td>6,000+ govt datasets: agriculture, transport, health, education, economy</td><td>Policy research, social impact AI, demographic models</td><td>data.gov.in</td></tr>
+    <tr><td>RBI DBIE</td><td>Banking statistics, interest rates, money supply, forex rates (1947–present)</td><td>Financial models, economic forecasting, banking research</td><td>dbie.rbi.org.in</td></tr>
+    <tr><td>Census India 2011</td><td>Population, housing, literacy, employment for every district and block</td><td>Market sizing, demographic targeting, urban planning AI</td><td>censusindia.gov.in</td></tr>
+    <tr><td>NSE/BSE</td><td>Historical stock prices, trading volumes, corporate actions (limited free)</td><td>Stock price prediction, portfolio optimisation, sentiment-price correlation</td><td>nseindia.com</td></tr>
+    <tr><td>Kaggle</td><td>10,000+ curated, cleaned datasets donated by companies and researchers</td><td>Practising ML, competitions, learning new domains</td><td>kaggle.com/datasets</td></tr>
+    <tr><td>UCI ML Repository</td><td>400+ classic ML datasets used in academic papers for 30+ years</td><td>Benchmarking algorithms, learning fundamentals</td><td>archive.ics.uci.edu</td></tr>
+    <tr><td>NITI Aayog</td><td>SDG India Index, district development data, aspirational district metrics</td><td>Government project AI, development economics</td><td>niti.gov.in</td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l2" id="s1c-2"><div class="lpanel-inner">
+<h4>Data Privacy Laws You Must Know</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Law / Regulation</th><th>Jurisdiction</th><th>What It Says (In Plain English)</th><th>Penalty for Violation</th></tr></thead>
+  <tbody>
+    <tr><td>Digital Personal Data Protection Act 2023 (DPDPA)</td><td>India</td><td>You must get clear consent before collecting personal data. People can ask for their data to be deleted. You cannot use data for purposes beyond what was stated at collection.</td><td>Up to ₹250 crore fine per violation</td></tr>
+    <tr><td>GDPR</td><td>European Union</td><td>Strongest privacy law globally. "Right to be forgotten." Data minimisation (only collect what you need). Explicit opt-in required.</td><td>Up to 4% of global annual revenue or €20M</td></tr>
+    <tr><td>IT Act 2000 + Amendments</td><td>India</td><td>Defines cyber crimes including unauthorised data access, identity theft, and data breach obligations for companies.</td><td>Up to 3 years imprisonment + fines</td></tr>
+    <tr><td>Health Data Guidelines (NHA)</td><td>India</td><td>Patient health data under Ayushman Bharat Digital Mission has special protections. Cannot be shared without patient consent even within hospital systems.</td><td>Regulatory action, loss of accreditation</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box danger">
+  <div class="box-tag">⚠️ The "Publicly Available" Trap</div>
+  <p>A common mistake: assuming that because data is technically accessible online, it can be freely used for any purpose. This is wrong in several important ways:</p>
+  <ul>
+    <li><strong>Website Terms of Service:</strong> LinkedIn prohibits scraping user data, even though profiles are publicly visible. HiQ Labs scraped LinkedIn data, won a court case, but the legal battle cost millions and changed policy.</li>
+    <li><strong>Aggregation attacks:</strong> Individual public data points combined create private profiles. Your name (public) + your employer (public) + your neighbourhood (public) + your health condition (public from a news article) = a detailed private profile you never consented to.</li>
+    <li><strong>Purpose limitation:</strong> Under DPDPA, data collected for one purpose (voting) cannot be used for another (commercial targeting) even if technically accessible.</li>
+  </ul>
+  <p style="margin:0">In your Masters programme, always check: (1) Do I have the legal right to use this data? (2) Was it collected with informed consent for this use? (3) Does using it respect the people it describes?</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1c-3"><div class="lpanel-inner">
+<div class="box case">
+  <div class="box-tag">🔐 Case Study: Aarogya Setu — India's Largest Health Data Dilemma</div>
+  <p>During COVID-19, India deployed Aarogya Setu — a contact tracing app that collected location data from 180 million users. It was one of the world's largest pandemic data collection exercises. But it raised profound public/private data questions:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What Actually Happened</th><th>Lesson Learned</th></tr></thead>
+    <tbody>
+      <tr><td>Was consent truly informed?</td><td>App was mandatory for government employees and railway passengers. "Voluntary" was disputed.</td><td>Coerced data collection is legally and ethically problematic even in a pandemic</td></tr>
+      <tr><td>Who owned the data?</td><td>Government, but source code was initially closed. Privacy advocates demanded open source audit.</td><td>Public interest data collection requires public accountability and transparency</td></tr>
+      <tr><td>Was data actually deleted?</td><td>Government promised deletion after 180 days. No independent audit confirmed this.</td><td>Data privacy commitments require enforceable mechanisms, not just promises</td></tr>
+      <tr><td>Could data be repurposed?</td><td>Policy was unclear. Could health data be used for future non-pandemic purposes?</td><td>Purpose limitation must be written into law before collection, not promised after</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">The Aarogya Setu experience directly shaped India's Digital Personal Data Protection Act 2023. Every data scientist working in public health, government AI, or social impact technology must understand this history to design systems that respect the people they're supposed to serve.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ LOADING DATA FROM FILES ═══ -->
+<section class="section" id="s1d">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 3</span><div class="s-line"></div></div>
+<h2 class="stitle">Loading Data from Files</h2>
+<p class="s-desc">Before you can clean or analyse data, you must load it into Python. Data comes in many file formats — each with its own structure, quirks, and best practices for loading.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1d',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1d',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1d',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1d-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📦 The Packaging Analogy</div>
+  <p>Data files are like different types of packaging for the same goods. A CSV file is like a flat cardboard box — simple, universal, everyone can open it. An Excel file is like a fancy gift box with multiple compartments (sheets). A JSON file is like Russian nesting dolls — data inside data inside data. A Parquet file is like vacuum-sealed packaging — compact and efficient for large quantities.</p>
+  <p style="margin:0">The content (data) is what matters, but you need to know how to open each packaging type correctly. Python's pandas library has a specific loading function for each format.</p>
+</div>
+
+<h4>The 6 Most Common Data File Formats</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Format</th><th>Extension</th><th>What It Looks Like</th><th>Best For</th><th>Load Command</th></tr></thead>
+  <tbody>
+    <tr><td>CSV (Comma-Separated Values)</td><td>.csv</td><td>Plain text with commas between values. Universally readable by any software.</td><td>Most common format. Tabular data exchange between systems. Kaggle datasets.</td><td><code>pd.read_csv('file.csv')</code></td></tr>
+    <tr><td>Excel</td><td>.xlsx / .xls</td><td>Microsoft Excel spreadsheets, possibly with multiple sheets, formatting, formulas.</td><td>Business reports, manual data entry, financial data, HR data.</td><td><code>pd.read_excel('file.xlsx')</code></td></tr>
+    <tr><td>JSON (JavaScript Object Notation)</td><td>.json</td><td>Nested key-value pairs, like a Python dictionary. Can represent complex hierarchical data.</td><td>API responses, web data, configuration files, nested records.</td><td><code>pd.read_json('file.json')</code></td></tr>
+    <tr><td>Parquet</td><td>.parquet</td><td>Binary columnar format. Compressed. Cannot open in a text editor.</td><td>Big data, data warehouses. 10-100x smaller than CSV for large datasets.</td><td><code>pd.read_parquet('file.parquet')</code></td></tr>
+    <tr><td>SQL Database</td><td>N/A (connection)</td><td>Structured tables in a database server. Accessed via SQL queries.</td><td>Live company databases, transactional systems, production data.</td><td><code>pd.read_sql(query, connection)</code></td></tr>
+    <tr><td>HDF5</td><td>.h5 / .hdf5</td><td>Hierarchical data format. Binary. Designed for very large scientific datasets.</td><td>Sensor data, scientific computing, deep learning datasets.</td><td><code>pd.read_hdf('file.h5')</code></td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l2" id="s1d-2"><div class="lpanel-inner">
+<h4>Loading CSV Files — The 10 Most Important Parameters</h4>
+<div class="code">
+<span class="cm"># pd.read_csv() has 50+ parameters. These 10 will solve 95% of real-world loading problems.</span>
+
+df = pd.<span class="fn">read_csv</span>(
+    <span class="st">'sales_data.csv'</span>,
+
+    <span class="cm"># 1. SEPARATOR: What separates the values? Default is comma.</span>
+    sep=<span class="st">','</span>,          <span class="cm"># or sep='\t' for tab-separated, sep=';' for semicolon</span>
+
+    <span class="cm"># 2. ENCODING: How are special characters encoded?</span>
+    encoding=<span class="st">'utf-8'</span>,  <span class="cm"># Use 'latin-1' or 'cp1252' if you see strange characters (₹, ñ, é)</span>
+
+    <span class="cm"># 3. SKIP ROWS: Sometimes CSVs have metadata at the top before the actual data</span>
+    skiprows=<span class="nu">2</span>,        <span class="cm"># Skip first 2 rows (e.g., a title and a blank line before headers)</span>
+
+    <span class="cm"># 4. HEADER: Which row contains column names?</span>
+    header=<span class="nu">0</span>,          <span class="cm"># Row 0 (first row) is the header. Use header=None if no column names.</span>
+
+    <span class="cm"># 5. NULL VALUES: What strings should be treated as missing?</span>
+    na_values=[<span class="st">'N/A'</span>, <span class="st">'na'</span>, <span class="st">'NA'</span>, <span class="st">'—'</span>, <span class="st">'n/a'</span>, <span class="st">'-'</span>, <span class="st">'NULL'</span>, <span class="st">'none'</span>],
+
+    <span class="cm"># 6. DATA TYPES: Force specific column types (prevents wrong auto-detection)</span>
+    dtype={<span class="st">'customer_id'</span>: <span class="st">'str'</span>, <span class="st">'pincode'</span>: <span class="st">'str'</span>},  <span class="cm"># IDs must always be string!</span>
+
+    <span class="cm"># 7. PARSE DATES: Automatically convert date columns to DateTime type</span>
+    parse_dates=[<span class="st">'order_date'</span>, <span class="st">'delivery_date'</span>],
+
+    <span class="cm"># 8. USECOLS: Load only specific columns (faster for large files)</span>
+    usecols=[<span class="st">'customer_id'</span>, <span class="st">'order_date'</span>, <span class="st">'amount'</span>, <span class="st">'city'</span>],
+
+    <span class="cm"># 9. NROWS: Load only the first N rows (great for testing on a small sample)</span>
+    nrows=<span class="nu">1000</span>,         <span class="cm"># Load just 1000 rows to test your code before running on 1 million</span>
+
+    <span class="cm"># 10. INDEX COL: Which column should be the row index?</span>
+    index_col=<span class="st">'order_id'</span>  <span class="cm"># Sets order_id as the row identifier instead of 0,1,2,3...</span>
+)
+</div>
+
+<h4>Loading Excel Files — The Hidden Complications</h4>
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">📊 Problem: Multiple Sheets in One Excel File <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>An Excel file from the Finance team has 4 sheets: "Q1_Sales", "Q2_Sales", "Q3_Sales", "Q4_Sales". You need to combine all 4.</p>
+    <div class="code" style="margin:8px 0">
+<span class="cm"># Load all sheets and combine them</span>
+all_sheets = pd.<span class="fn">read_excel</span>(<span class="st">'annual_sales.xlsx'</span>, sheet_name=<span class="kw">None</span>)  <span class="cm"># None = load all</span>
+combined = pd.<span class="fn">concat</span>(all_sheets.values(), ignore_index=<span class="kw">True</span>)
+<span class="fn">print</span>(combined.shape)  <span class="cm"># Now all 4 quarters in one dataframe</span>
+    </div>
+  </div>
+</div>
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">📊 Problem: Excel Has Merged Cells and Formatting <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>Business Excel files often have merged header cells, colour-coded cells, and rows that are summaries, not data. These cause loading errors or incorrect column assignments.</p>
+    <p><strong>Best practice:</strong> When receiving Excel files for analysis, ask the sender to "Save as CSV (comma delimited)" first. This strips all formatting and gives you clean tabular data. Alternatively, use the <code>skiprows</code> and <code>header</code> parameters to navigate past formatted sections.</p>
+  </div>
+</div>
+
+<h4>Loading JSON — Understanding Nested Data</h4>
+<div class="box example">
+  <div class="box-tag">📱 What API Responses Look Like (JSON)</div>
+  <div class="code" style="margin:8px 0">
+<span class="cm"># A Swiggy order API might return this JSON structure:</span>
+{
+  <span class="st">"order_id"</span>: <span class="st">"SWG-2024-001234"</span>,
+  <span class="st">"customer"</span>: {
+    <span class="st">"name"</span>: <span class="st">"Vineet Jhabak"</span>,
+    <span class="st">"phone"</span>: <span class="st">"9876543210"</span>,
+    <span class="st">"address"</span>: {<span class="st">"city"</span>: <span class="st">"Howrah"</span>, <span class="st">"pincode"</span>: <span class="st">"711101"</span>}  <span class="cm">← NESTED!</span>
+  },
+  <span class="st">"items"</span>: [                                                     <span class="cm">← LIST of items!</span>
+    {<span class="st">"name"</span>: <span class="st">"Biryani"</span>, <span class="st">"qty"</span>: <span class="nu">2</span>, <span class="st">"price"</span>: <span class="nu">280</span>},
+    {<span class="st">"name"</span>: <span class="st">"Raita"</span>,   <span class="st">"qty"</span>: <span class="nu">1</span>, <span class="st">"price"</span>: <span class="nu">60</span>}
+  ],
+  <span class="st">"total"</span>: <span class="nu">620</span>,
+  <span class="st">"status"</span>: <span class="st">"Delivered"</span>
+}
+
+<span class="cm"># Loading nested JSON into a flat DataFrame:</span>
+df = pd.<span class="fn">json_normalize</span>(data, record_path=[<span class="st">'items'</span>], meta=[<span class="st">'order_id'</span>, <span class="st">'total'</span>])
+<span class="cm"># Creates one row per item, with order_id and total repeated for each item</span>
+  </div>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1d-3"><div class="lpanel-inner">
+<h4>Handling Large Files — When Data is Too Big for Memory</h4>
+<div class="code">
+<span class="cm"># Problem: Your CSV file is 15 GB. Your laptop has 16 GB RAM. Loading it crashes Python.</span>
+<span class="cm"># Solution 1: Load in chunks — process the file piece by piece</span>
+
+chunk_size = <span class="nu">100_000</span>  <span class="cm"># Process 100,000 rows at a time</span>
+results = []
+
+<span class="kw">for</span> chunk <span class="kw">in</span> pd.<span class="fn">read_csv</span>(<span class="st">'huge_file.csv'</span>, chunksize=chunk_size):
+    <span class="cm"># Process each chunk: clean, filter, aggregate</span>
+    filtered = chunk[chunk[<span class="st">'city'</span>] == <span class="st">'Mumbai'</span>]
+    results.<span class="fn">append</span>(filtered)
+
+final_df = pd.<span class="fn">concat</span>(results, ignore_index=<span class="kw">True</span>)
+<span class="cm"># Only Mumbai rows loaded — manageable size</span>
+
+<span class="cm"># Solution 2: Use Parquet format (10x smaller than CSV)</span>
+<span class="cm"># Convert your huge CSV to Parquet once:</span>
+df.<span class="fn">to_parquet</span>(<span class="st">'data.parquet'</span>, compression=<span class="st">'snappy'</span>)
+<span class="cm"># Future loads are 10x faster with 90% less memory</span>
+
+<span class="cm"># Solution 3: Use DuckDB for SQL on files (no database server needed)</span>
+<span class="kw">import</span> duckdb
+result = duckdb.<span class="fn">execute</span>(<span class="st">"SELECT city, SUM(amount) FROM 'huge_file.csv' GROUP BY city"</span>).df()
+<span class="cm"># Runs SQL directly on the CSV file without loading it all into memory!</span>
+</div>
+<div class="box case">
+  <div class="box-tag">📦 Industry: How Meesho Handles 500GB Daily Data Exports</div>
+  <p>Meesho generates approximately 500 GB of raw transaction and event data daily. Loading this as CSV into pandas would require a server with 2+ TB RAM — impractical and expensive. Their solution uses a multi-format strategy:</p>
+  <ul style="font-size:13px;padding-left:20px;line-height:1.9">
+    <li>Raw clickstream events → Parquet in S3 (compressed from 500 GB to 42 GB)</li>
+    <li>Daily transaction summaries → Parquet partitioned by date and category</li>
+    <li>Real-time fraud scores → JSON via Kafka streams</li>
+    <li>ML training datasets → HDF5 for feature matrices</li>
+    <li>Business reports → Exported to Excel only at the final summary layer</li>
+  </ul>
+  <p style="margin:0;font-size:13px;color:var(--muted)">The format choice at each layer reduces total infrastructure cost by ~70% compared to storing everything as CSV. A data scientist joining Meesho's team must understand Parquet, Kafka, and HDF5 on Day 1 — not just CSV and Excel.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ LOADING FROM PUBLIC SOURCES ═══ -->
+<section class="section" id="s1e">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 4</span><div class="s-line"></div></div>
+<h2 class="stitle">Loading Data from Public Sources</h2>
+<p class="s-desc">The internet is overflowing with free, valuable data. The skill is knowing where to find the right source, how to access it (download vs API vs direct query), and how to load it efficiently into Python.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1e',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1e',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1e',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1e-1"><div class="lpanel-inner">
+<h4>The 3 Ways to Access Public Data</h4>
+<div class="card-row">
+  <div class="card g">
+    <div class="icon">📥</div>
+    <h5>Direct Download</h5>
+    <p>Go to a website, click "Download CSV/Excel". Simplest approach. Data is static (snapshot of one moment in time). Example: Census India district data.</p>
+  </div>
+  <div class="card b">
+    <div class="icon">⚡</div>
+    <h5>API Access</h5>
+    <p>Write code to request data programmatically. Can get real-time or live data. Reusable, automatable. Example: Weather API, NSE stock data, Open Exchange Rates.</p>
+  </div>
+  <div class="card p">
+    <div class="icon">🔍</div>
+    <h5>Web Scraping</h5>
+    <p>Write code to extract data from web pages that don't provide a download button or API. Flexible but requires checking Terms of Service first.</p>
+  </div>
+</div>
+
+<h4>Top Public Data Sources for Indian AI Projects</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Dataset</th><th>Source</th><th>What's Inside</th><th>Real AI Use Case</th></tr></thead>
+  <tbody>
+    <tr><td>IPL Ball-by-Ball Data</td><td>Kaggle / Cricsheet</td><td>Every delivery of every IPL match: bowler, batsman, runs, extras, wickets</td><td>Match outcome prediction, player performance ML, fantasy cricket AI</td></tr>
+    <tr><td>Air Quality Index (AQI)</td><td>data.gov.in / CPCB</td><td>Hourly AQI readings from 300+ stations across India, 2015–present</td><td>AQI forecasting, health alert systems, urban planning models</td></tr>
+    <tr><td>Swachh Bharat Mission Data</td><td>sbm.gov.in</td><td>Village-level toilet construction progress, open defecation free status</td><td>Sanitation impact prediction, resource allocation ML</td></tr>
+    <tr><td>NSE Historical Prices</td><td>nseindia.com</td><td>Daily open/high/low/close/volume for all NSE-listed stocks, 1994–present</td><td>Stock price prediction, portfolio optimisation, trading signal models</td></tr>
+    <tr><td>COVID-19 India State Data</td><td>covid19india.org API</td><td>Daily cases, deaths, recoveries, vaccinations per state and district</td><td>Epidemic modelling, vaccination rollout optimisation, healthcare capacity planning</td></tr>
+    <tr><td>India Crop Production</td><td>data.gov.in</td><td>District-level crop yields for 50+ crops over 40+ years</td><td>Agricultural yield prediction, MSP forecasting, food security models</td></tr>
+    <tr><td>NIFTY 50 Data</td><td>Yahoo Finance API</td><td>Daily index levels, PE ratios, constituent changes</td><td>Market direction forecasting, risk models, macro-economic sentiment</td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l2" id="s1e-2"><div class="lpanel-inner">
+<h4>Loading Data via APIs in Python</h4>
+<div class="code">
+<span class="cm"># Method 1: Load a public CSV directly from a URL (no download needed)</span>
+url = <span class="st">"https://raw.githubusercontent.com/datasets/covid-19/main/data/worldwide-aggregated.csv"</span>
+df = pd.<span class="fn">read_csv</span>(url)   <span class="cm"># Works exactly like reading a local file!</span>
+<span class="fn">print</span>(df.shape)         <span class="cm"># (n_rows, n_cols) — data loaded from the internet directly</span>
+
+<span class="cm"># Method 2: Use the requests library for JSON APIs</span>
+<span class="kw">import</span> requests
+
+response = requests.<span class="fn">get</span>(<span class="st">"https://api.covid19india.org/data.json"</span>)
+data = response.<span class="fn">json</span>()         <span class="cm"># Parse JSON response</span>
+df = pd.<span class="fn">DataFrame</span>(data[<span class="st">'cases_time_series'</span>])
+
+<span class="cm"># Method 3: Yahoo Finance for Indian stock data (free, no API key needed)</span>
+<span class="kw">import</span> yfinance <span class="kw">as</span> yf
+
+nifty = yf.<span class="fn">download</span>(<span class="st">"^NSEI"</span>, start=<span class="st">"2020-01-01"</span>, end=<span class="st">"2024-01-01"</span>)
+<span class="cm"># Downloads NIFTY 50 daily data for 4 years in 2 seconds</span>
+
+reliance = yf.<span class="fn">download</span>(<span class="st">"RELIANCE.NS"</span>, start=<span class="st">"2023-01-01"</span>)
+<span class="cm"># .NS suffix = NSE-listed stock (RELIANCE.BO = BSE-listed)</span>
+
+<span class="cm"># Method 4: Kaggle API (download datasets directly in Python)</span>
+<span class="kw">import</span> kaggle
+kaggle.api.<span class="fn">dataset_download_files</span>(<span class="st">'username/dataset-name'</span>, path=<span class="st">'./data'</span>, unzip=<span class="kw">True</span>)
+<span class="cm"># Downloads, saves, and unzips a Kaggle dataset to your local folder</span>
+</div>
+
+<div class="box story">
+  <div class="story-hd">
+    <div class="story-ico">🌾</div>
+    <div class="story-meta"><h5>Real Project: Building a Crop Price Prediction Model for Bihar Farmers</h5><span class="tag">Agriculture · Public Data · Social Impact</span></div>
+  </div>
+  <p>A team of data scientists at IIT Patna built a model to help Bihar farmers decide the best time to sell their produce. They used entirely <strong>free public data sources</strong>:</p>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Mandi Price Data — Agmarknet (data.gov.in)</h5><p>Historical daily prices for 300+ crops at 2,000+ mandis across India. Free download, updated daily.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Weather Data — IMD Open Data Portal</h5><p>Historical rainfall, temperature, humidity for every district. API access available for registered users (free academic registration).</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Crop Production Statistics — data.gov.in</h5><p>District-wise crop area and yield for 40+ years. Download as CSV.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Road Connectivity Data — PMGSY</h5><p>Which villages have paved road access (affects transport cost to mandi). Open government data.</p></div></div>
+  </div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">Total data acquisition cost: ₹0. The entire project was possible because India has invested heavily in open government data. The model predicts optimal selling week with 74% accuracy — potentially worth ₹12,000+ per year per farmer who uses it.</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1e-3"><div class="lpanel-inner">
+<h4>API Authentication — How Enterprise Public APIs Work</h4>
+<div class="code">
+<span class="cm"># Most high-quality public APIs require a FREE API key (just register)</span>
+<span class="cm"># This identifies you, enforces rate limits, and enables usage tracking</span>
+
+<span class="cm"># Example: OpenWeatherMap API (free tier: 60 calls/minute, 1M calls/month)</span>
+<span class="kw">import</span> requests, os
+
+API_KEY = os.environ.<span class="fn">get</span>(<span class="st">"WEATHER_API_KEY"</span>)  <span class="cm"># NEVER hardcode API keys in your code!</span>
+                                               <span class="cm"># Store in environment variables</span>
+
+response = requests.<span class="fn">get</span>(
+    <span class="st">"https://api.openweathermap.org/data/2.5/weather"</span>,
+    params={<span class="st">"q"</span>: <span class="st">"Howrah,IN"</span>, <span class="st">"appid"</span>: API_KEY, <span class="st">"units"</span>: <span class="st">"metric"</span>}
+)
+
+<span class="cm"># Always check if the request succeeded before using the data!</span>
+<span class="kw">if</span> response.status_code == <span class="nu">200</span>:
+    weather = response.<span class="fn">json</span>()
+    temp = weather[<span class="st">'main'</span>][<span class="st">'temp'</span>]
+    <span class="fn">print</span>(<span class="st">f"Current temperature in Howrah: {temp}°C"</span>)
+<span class="kw">elif</span> response.status_code == <span class="nu">401</span>:
+    <span class="fn">print</span>(<span class="st">"Invalid API key — check your credentials"</span>)
+<span class="kw">elif</span> response.status_code == <span class="nu">429</span>:
+    <span class="fn">print</span>(<span class="st">"Rate limit exceeded — too many requests, slow down"</span>)
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ WEB SCRAPING HTML TABLE ═══ -->
+<section class="section" id="s1f">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 5</span><div class="s-line"></div></div>
+<h2 class="stitle">Web Scraping HTML Tables</h2>
+<p class="s-desc">Web scraping is the automated extraction of data from websites. When there's no download button and no API, scraping is how data scientists get the data they need — ethically and legally.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1f',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1f',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1f',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1f-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📸 The Copy-Paste Automation Analogy</div>
+  <p>Imagine a Wikipedia page with a table of "All IPL Champions by Year." You could manually select the table, copy it, paste it into Excel, fix the formatting, save as CSV. That takes 20 minutes and is one snapshot in time.</p>
+  <p>Web scraping is a Python script that does this automatically in 2 seconds — and can be re-run whenever you need fresh data. The script "reads" the webpage, "finds" the table, and "copies" the data — just like you would manually, but programmatically.</p>
+  <p style="margin:0"><strong>Important:</strong> Before scraping any website, check: (1) The website's robots.txt file (what they allow scrapers to access). (2) Their Terms of Service. (3) Whether you're causing excessive server load. Scraping public data is generally legal; scraping in violation of ToS creates legal risk.</p>
+</div>
+
+<h4>How a Web Page Is Structured (What You're Actually Scraping)</h4>
+<div class="code">
+<span class="cm">&lt;!-- Every website is made of HTML tags. A table looks like this: --&gt;</span>
+&lt;<span class="kw">table</span>&gt;
+  &lt;<span class="kw">thead</span>&gt;
+    &lt;<span class="kw">tr</span>&gt;                                  <span class="cm">&lt;!-- table row --&gt;</span>
+      &lt;<span class="kw">th</span>&gt;Year&lt;/<span class="kw">th</span>&gt;                       <span class="cm">&lt;!-- table header --&gt;</span>
+      &lt;<span class="kw">th</span>&gt;IPL Champion&lt;/<span class="kw">th</span>&gt;
+      &lt;<span class="kw">th</span>&gt;Runner Up&lt;/<span class="kw">th</span>&gt;
+    &lt;/<span class="kw">tr</span>&gt;
+  &lt;/<span class="kw">thead</span>&gt;
+  &lt;<span class="kw">tbody</span>&gt;
+    &lt;<span class="kw">tr</span>&gt;
+      &lt;<span class="kw">td</span>&gt;2023&lt;/<span class="kw">td</span>&gt;                       <span class="cm">&lt;!-- table data cell --&gt;</span>
+      &lt;<span class="kw">td</span>&gt;Chennai Super Kings&lt;/<span class="kw">td</span>&gt;
+      &lt;<span class="kw">td</span>&gt;Gujarat Titans&lt;/<span class="kw">td</span>&gt;
+    &lt;/<span class="kw">tr</span>&gt;
+  &lt;/<span class="kw">tbody</span>&gt;
+&lt;/<span class="kw">table</span>&gt;
+
+<span class="cm"># When you "scrape" this table, you're extracting:</span>
+<span class="cm"># - The column headers from &lt;th&gt; tags: Year, IPL Champion, Runner Up</span>
+<span class="cm"># - The data rows from &lt;td&gt; tags: 2023, Chennai Super Kings, Gujarat Titans</span>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s1f-2"><div class="lpanel-inner">
+<h4>The 3 Tools for Web Scraping HTML Tables</h4>
+
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">🔥 Tool 1: pandas.read_html() — The 1-Line Miracle <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>If the data is in an actual HTML <code>&lt;table&gt;</code> tag, pandas can scrape it directly. No other libraries needed.</p>
+    <div class="code">
+<span class="cm"># Get all tables from a Wikipedia page in ONE LINE!</span>
+tables = pd.<span class="fn">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/Indian_Premier_League"</span>)
+
+<span class="fn">print</span>(<span class="kw">len</span>(tables))  <span class="cm"># → 12 (Wikipedia page has 12 tables)</span>
+
+<span class="cm"># Find the right table (check each one)</span>
+<span class="kw">for</span> i, table <span class="kw">in</span> <span class="fn">enumerate</span>(tables):
+    <span class="fn">print</span>(<span class="st">f"Table {i}: {table.shape} columns: {list(table.columns[:3])}"</span>)
+
+<span class="cm"># Once you find the right one (e.g., table index 3)</span>
+ipl_champions = tables[<span class="nu">3</span>]
+<span class="fn">print</span>(ipl_champions.<span class="fn">head</span>())
+<span class="cm"># Done! IPL history is now a pandas DataFrame — ready for analysis</span>
+    </div>
+    <p style="margin:0;font-size:13px;color:var(--muted)"><strong>Limitation:</strong> Only works on real HTML tables (&lt;table&gt; tags). Many modern websites render tables with JavaScript — those need BeautifulSoup or Selenium.</p>
+  </div>
+</div>
+
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">🍜 Tool 2: BeautifulSoup — When You Need More Control <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>BeautifulSoup lets you navigate the HTML structure and extract any data, not just table tags.</p>
+    <div class="code">
+<span class="kw">import</span> requests
+<span class="kw">from</span> bs4 <span class="kw">import</span> BeautifulSoup
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># Step 1: Download the webpage</span>
+url = <span class="st">"https://www.bseindia.com/sensex/sensex.html"</span>
+response = requests.<span class="fn">get</span>(url, headers={<span class="st">'User-Agent'</span>: <span class="st">'Mozilla/5.0'</span>})
+
+<span class="cm"># Step 2: Parse the HTML</span>
+soup = BeautifulSoup(response.content, <span class="st">'html.parser'</span>)
+
+<span class="cm"># Step 3: Find the table</span>
+table = soup.<span class="fn">find</span>(<span class="st">'table'</span>, {<span class="st">'class'</span>: <span class="st">'stock-data'</span>})  <span class="cm"># Find by CSS class</span>
+
+<span class="cm"># Step 4: Extract rows</span>
+rows = []
+<span class="kw">for</span> tr <span class="kw">in</span> table.<span class="fn">find_all</span>(<span class="st">'tr'</span>)[<span class="nu">1</span>:]:   <span class="cm"># Skip header row</span>
+    cells = [td.<span class="fn">get_text</span>(strip=<span class="kw">True</span>) <span class="kw">for</span> td <span class="kw">in</span> tr.<span class="fn">find_all</span>(<span class="st">'td'</span>)]
+    rows.<span class="fn">append</span>(cells)
+
+df = pd.<span class="fn">DataFrame</span>(rows, columns=[<span class="st">'Company'</span>, <span class="st">'Price'</span>, <span class="st">'Change'</span>, <span class="st">'Volume'</span>])
+    </div>
+  </div>
+</div>
+
+<div class="box warn">
+  <div class="box-tag">⚠️ Before You Scrape — The Ethics Checklist</div>
+  <ul style="font-size:14px;padding-left:20px;line-height:1.9">
+    <li><strong>Check robots.txt:</strong> Visit website.com/robots.txt — it specifies which pages allow scraping. Respect "Disallow" directives.</li>
+    <li><strong>Rate limiting:</strong> Add <code>time.sleep(1)</code> between requests. Hammering a server with 1000 requests/second is a DDoS attack, not data science.</li>
+    <li><strong>Personal data:</strong> Never scrape email addresses, phone numbers, or user profiles without explicit permission. DPDPA makes this a legal risk in India.</li>
+    <li><strong>Commercial vs research:</strong> Many ToS allow scraping for personal research but prohibit commercial use. Know which category your project falls into.</li>
+    <li><strong>If there's an API, use it:</strong> If a website provides an official API, using it is always preferable to scraping. It's more reliable, legal, and doesn't burden their servers.</li>
+  </ul>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1f-3"><div class="lpanel-inner">
+<div class="box case">
+  <div class="box-tag">📈 Industry Case: MoneyControl Scraping for Competitive Intelligence</div>
+  <p>A hedge fund's data team built an automated scraping system to collect quarterly earnings data from MoneyControl for all NSE-listed companies — 1,700+ companies, updated immediately when results are published.</p>
+  <p><strong>Why scraping instead of API?</strong> NSE/BSE APIs have delayed data and limited historical depth. MoneyControl has richer data (analyst notes, management commentary) not available through official APIs.</p>
+  <p><strong>Technical challenges solved:</strong></p>
+  <ul style="font-size:13px;padding-left:20px;line-height:1.9">
+    <li><strong>JavaScript-rendered tables:</strong> MoneyControl uses React. BeautifulSoup couldn't see the tables. Solution: Selenium (browser automation) to render JavaScript first, then parse.</li>
+    <li><strong>Rate limiting:</strong> Distributed scraping across 5 different IP addresses. 2-5 second random delays between requests. Stayed under 200 requests/minute.</li>
+    <li><strong>Format inconsistency:</strong> Different companies report numbers in crores vs lakhs vs millions. Post-scraping normalisation pipeline converted all to crores.</li>
+    <li><strong>Broken pages:</strong> ~3% of pages failed to load. Retry logic with exponential backoff.</li>
+  </ul>
+  <p style="margin:0;font-size:13px;color:var(--muted)">The system runs 4 times daily during earnings season. The fund's portfolio managers have earnings data 15-20 minutes before it appears in Bloomberg terminals — a significant edge worth millions.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
 <!-- ═══ S2A: DATA CLEANING INTRO ═══ -->
 <section class="section" id="s2a">
 <div class="s-meta"><span class="s-chip s2">Session 2 · Segment 1</span><div class="s-line"></div></div>
@@ -683,11 +1362,11 @@ GET https://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=
 <div class="data-demo"><table>
   <thead><tr><th>Student Name</th><th>Age</th><th>City</th><th>Score %</th><th>Email</th><th>Phone</th><th>Joined</th></tr></thead>
   <tbody>
-    <tr class="hl-row"><td>Ravi Kumar</td><td class="ok-cell">22</td><td class="ok-cell">Mumbai</td><td class="ok-cell">82</td><td class="ok-cell">ravi@gmail.com</td><td class="ok-cell">9876543210</td><td class="ok-cell">15-01-2024</td></tr>
+    <tr class="hl-row"><td>Ravi Kumar</td><td class="ok-cell">22</td><td class="ok-cell">Mumbai</td><td class="ok-cell">82</td><td class="ok-cell"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="691b081f00290e04080005470a0604">[email&#160;protected]</a></td><td class="ok-cell">9876543210</td><td class="ok-cell">15-01-2024</td></tr>
     <tr><td class="bad-cell">priya sharma</td><td class="bad-cell">-5</td><td class="warn-cell">mumbai</td><td class="bad-cell"></td><td class="bad-cell">priya@</td><td>9876543211</td><td>15-01-2024</td></tr>
-    <tr><td class="bad-cell">AMIT SINGH</td><td>21</td><td class="bad-cell">Mumb@i</td><td class="bad-cell">110</td><td>amit@gmail.com</td><td class="bad-cell">123</td><td class="warn-cell">January 15</td></tr>
-    <tr><td class="bad-cell">Ravi Kumar</td><td class="bad-cell">22</td><td class="bad-cell">Mumbai</td><td class="bad-cell">82</td><td class="bad-cell">ravi@gmail.com</td><td class="bad-cell">9876543210</td><td class="bad-cell">15-01-2024</td></tr>
-    <tr><td>Neha Joshi</td><td class="bad-cell">250</td><td>Delhi</td><td>77</td><td>neha@yahoo.com</td><td>9898989898</td><td>15-01-2024</td></tr>
+    <tr><td class="bad-cell">AMIT SINGH</td><td>21</td><td class="bad-cell">Mumb@i</td><td class="bad-cell">110</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fd9c909489bd9a909c9491d39e9290">[email&#160;protected]</a></td><td class="bad-cell">123</td><td class="warn-cell">January 15</td></tr>
+    <tr><td class="bad-cell">Ravi Kumar</td><td class="bad-cell">22</td><td class="bad-cell">Mumbai</td><td class="bad-cell">82</td><td class="bad-cell"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="354754435c755258545c591b565a58">[email&#160;protected]</a></td><td class="bad-cell">9876543210</td><td class="bad-cell">15-01-2024</td></tr>
+    <tr><td>Neha Joshi</td><td class="bad-cell">250</td><td>Delhi</td><td>77</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9bf5fef3fadbe2faf3f4f4b5f8f4f6">[email&#160;protected]</a></td><td>9898989898</td><td>15-01-2024</td></tr>
   </tbody>
 </table></div>
 <p style="font-size:12px;color:var(--muted)">🔴 Red = clear error | 🟡 Yellow = inconsistency | 🟢 Row 1 = clean benchmark</p>
@@ -1564,7 +2243,7 @@ IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">
 
 </div><!-- /wrap -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Progress bar
 window.addEventListener('scroll',()=>{
   const d=document.documentElement;
@@ -1594,6 +2273,7 @@ function doQuiz(id,el,correct){
   el.classList.add(correct?'ok':'no');
   if(!correct)c.querySelectorAll('.qopt').forEach(o=>{if(o.getAttribute('onclick').includes(',true)')&&o!==el)o.classList.add('ok')});
   const msgs={
+    q_pp1:"✅ Correct! ML models learn patterns. If those patterns come from corrupted, incomplete, or inconsistent data, the model learns the wrong patterns — with 100% confidence. This is why GIGO (Garbage In, Garbage Out) is the first law of data science.",
     q1:"✅ Correct! GPS data is structured (organised coordinates in a table) and geospatial (location data). Updated every 5 seconds, it's primary and internal to Swiggy.",
     q2:"✅ Correct! Prices need decimal precision (₹149.50 would become ₹149 as Integer). Always strip symbols first, then convert to Float.",
     q3:"✅ Correct! 45% missingness in a key column with a clear pattern (self-employed) is almost certainly MNAR. Simple imputation would introduce serious bias. This needs investigation, proxy variables, and domain expert input.",
@@ -1611,16 +2291,4 @@ const sideLinks=[...document.querySelectorAll('.sidenav a')];
 window.addEventListener('scroll',()=>{
   const pos=window.scrollY+120;
   let cur='';
-  sections.forEach(s=>{if(s.offsetTop<=pos)cur='#'+s.id});
-  navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')===cur)});
-  sideLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')===cur)});
-},{ passive:true });
-
-// Init all meter fills with animation on scroll
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.meter-fill').forEach(f=>{f.style.width=f.style.width})});
-},{threshold:0.3});
-document.querySelectorAll('.meter-row').forEach(r=>obs.observe(r));
-</script>
-</body>
-</html>
+  sections.
