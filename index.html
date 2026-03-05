@@ -3,7 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI & ML Mastery — The Ultimate Non-Technical Foundation Guide</title>
+<title>Master's in Machine Learning & AI – Data Analysis Guide | Vineet Jhabak</title>
+
+<!-- ── SEO Meta Tags ─────────────────────────────── -->
+<meta name="description" content="A non-technical guide explaining Data Sourcing, Data Preprocessing, Data Cleaning, and Exploratory Data Analysis with real-world Indian examples and industry case studies.">
+<meta name="author" content="Vineet Jhabak">
+<meta name="keywords" content="AI, Machine Learning, Data Science, Data Cleaning, Data Preprocessing, Non-Technical, Masters, upGrad, Python, Pandas">
+
+<!-- ── Open Graph (LinkedIn, Facebook, WhatsApp) ─── -->
+<meta property="og:title" content="Master's in Machine Learning & AI – Data Analysis Guide">
+<meta property="og:description" content="A non-technical guide explaining Data Analysis, Data Cleaning, and Exploratory Data Analysis with real-world examples. Built for the non-technical mind that wants industry-level mastery.">
+<meta property="og:image" content="https://vineetjhabak.github.io/Master-s-in-Machine-Learning-AI-with-CAP/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://vineetjhabak.github.io/Master-s-in-Machine-Learning-AI-with-CAP/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vineet Jhabak – AI & ML Study Guide">
+
+<!-- ── Twitter Card ──────────────────────────────── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Master's in Machine Learning & AI – Data Analysis Guide">
+<meta name="twitter:description" content="Non-technical, story-driven guide to Data Sourcing, Cleaning & Preprocessing. Industry case studies from Ola, Flipkart, HDFC, Aadhaar & more.">
+<meta name="twitter:image" content="https://vineetjhabak.github.io/Master-s-in-Machine-Learning-AI-with-CAP/preview.jpg">
+<meta name="twitter:creator" content="@VineetJhabak">
+
+<!-- ── Canonical URL ─────────────────────────────── -->
+<link rel="canonical" href="https://vineetjhabak.github.io/Master-s-in-Machine-Learning-AI-with-CAP/">
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -19,8 +45,8 @@
   --green-bg: rgba(62,207,142,0.08);
   --orange: #ff8c42;
   --orange-bg: rgba(255,140,66,0.08);
-  --white: #4d9cff;
-  --white-bg: rgba(77,156,255,0.08);
+  --blue: #4d9cff;
+  --blue-bg: rgba(77,156,255,0.08);
   --pink: #f06292;
   --pink-bg: rgba(240,98,146,0.08);
   --purple: #b57bee;
@@ -139,7 +165,7 @@ body{
   font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   padding:4px 12px;border-radius:3px;
 }
-.s-chip.s1{background:rgba(77,156,255,0.2);color:var(--white);border:1px solid rgba(77,156,255,0.3)}
+.s-chip.s1{background:rgba(77,156,255,0.2);color:var(--blue);border:1px solid rgba(77,156,255,0.3)}
 .s-chip.s2{background:rgba(62,207,142,0.2);color:var(--green);border:1px solid rgba(62,207,142,0.3)}
 .s-chip.s3{background:rgba(181,123,238,0.2);color:var(--purple);border:1px solid rgba(181,123,238,0.3)}
 .s-chip.ref{background:rgba(240,192,64,0.2);color:var(--gold);border:1px solid rgba(240,192,64,0.3)}
@@ -218,7 +244,7 @@ em{color:var(--gold2);font-style:normal;font-weight:500}
 .card h5{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
 .card p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
 .card.g{border-top:2px solid var(--green)} .card.o{border-top:2px solid var(--orange)}
-.card.b{border-top:2px solid var(--white)} .card.p{border-top:2px solid var(--purple)}
+.card.b{border-top:2px solid var(--blue)} .card.p{border-top:2px solid var(--purple)}
 .card.t{border-top:2px solid var(--teal)} .card.pk{border-top:2px solid var(--pink)}
 
 /* CALLOUT BOXES */
@@ -231,8 +257,8 @@ em{color:var(--gold2);font-style:normal;font-weight:500}
 .box ul{padding-left:20px}
 .box.analogy{background:rgba(240,192,64,0.07);border:1px solid rgba(240,192,64,0.25)}
 .box.analogy .box-tag{color:var(--gold)}
-.box.example{background:var(--white-bg);border:1px solid rgba(77,156,255,0.25)}
-.box.example .box-tag{color:var(--white)}
+.box.example{background:var(--blue-bg);border:1px solid rgba(77,156,255,0.25)}
+.box.example .box-tag{color:var(--blue)}
 .box.case{background:var(--surface2);border:1px solid rgba(181,123,238,0.3)}
 .box.case .box-tag{color:var(--purple)}
 .box.danger{background:var(--red-bg);border:1px solid rgba(255,82,82,0.3)}
@@ -267,7 +293,7 @@ tbody td:first-child{color:var(--text);font-weight:500}
   overflow-x:auto;
 }
 .code .cm{color:#4a6741}.code .st{color:var(--gold2)}.code .kw{color:var(--pink)}
-.code .fn{color:var(--white)}.code .nu{color:var(--orange)}.code .op{color:var(--teal)}
+.code .fn{color:var(--blue)}.code .nu{color:var(--orange)}.code .op{color:var(--teal)}
 
 /* ACCORDION */
 .acc{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:12px 0}
@@ -321,7 +347,7 @@ tbody td:first-child{color:var(--text);font-weight:500}
   background:var(--surface2);border:1.5px solid var(--border);
   transition:all .18s;color:var(--text);text-align:left;
 }
-.qopt:hover:not(:disabled){background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)}
+.qopt:hover:not(:disabled){background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--blue)}
 .qopt.ok{background:rgba(62,207,142,0.1);border-color:var(--green);color:var(--green)}
 .qopt.no{background:rgba(255,82,82,0.1);border-color:var(--red);color:var(--red)}
 .qfb{margin-top:12px;padding:12px 16px;border-radius:8px;font-size:13px;font-weight:500;display:none}
@@ -444,7 +470,7 @@ hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Masters in AI & ML · Non-Technical Complete Guide</div>
-    <h1>Build a <em>Bulletproof</em><br>Data Analysis and Exploration<br>Data Science</h1>
+    <h1>Build a <em>Bulletproof</em><br>Foundation in<br>Data Science</h1>
     <p class="lead">Every concept explained 3 ways: with a story, with practice, and with industry-level depth. Real Indian examples. Real company case studies. No assumed background.</p>
     <div class="hero-pills">
       <span class="pill g"><span class="dot"></span>Level 1 · Foundation</span>
@@ -598,7 +624,7 @@ hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
 <h3 class="seg"><span class="seg-num">1</span>Enterprise Data Architecture — The Full Picture</h3>
 
 <div class="flow">
-  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)">📱 Source Systems<br><small>Apps, Sensors, APIs</small></div>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--blue)">📱 Source Systems<br><small>Apps, Sensors, APIs</small></div>
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.4);color:var(--orange)">⚡ Ingestion<br><small>Kafka, Fivetran</small></div>
   <span class="flow-arr">→</span>
@@ -696,7 +722,7 @@ GET https://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.3);color:var(--orange)">🧹 Clean<br><small>Fix Errors</small></div>
   <span class="flow-arr">→</span>
-  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--white)">🔄 Transform<br><small>Reshape</small></div>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--blue)">🔄 Transform<br><small>Reshape</small></div>
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(181,123,238,0.1);border-color:rgba(181,123,238,0.3);color:var(--purple)">📐 Normalise<br><small>Same Scale</small></div>
   <span class="flow-arr">→</span>
@@ -2097,7 +2123,7 @@ IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">
 <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:20px 0">
   <h4 style="margin-top:0;margin-bottom:20px">A Typical Week — Where Time Goes</h4>
   <div class="meter-row"><span class="meter-label">Data Cleaning & Prep</span><div class="meter-bar"><div class="meter-fill" style="width:65%;background:var(--orange)"></div></div><span class="meter-val">~65%</span></div>
-  <div class="meter-row"><span class="meter-label">Data Collection & Sourcing</span><div class="meter-bar"><div class="meter-fill" style="width:14%;background:var(--white)"></div></div><span class="meter-val">~14%</span></div>
+  <div class="meter-row"><span class="meter-label">Data Collection & Sourcing</span><div class="meter-bar"><div class="meter-fill" style="width:14%;background:var(--blue)"></div></div><span class="meter-val">~14%</span></div>
   <div class="meter-row"><span class="meter-label">Exploratory Analysis (EDA)</span><div class="meter-bar"><div class="meter-fill" style="width:10%;background:var(--teal)"></div></div><span class="meter-val">~10%</span></div>
   <div class="meter-row"><span class="meter-label">Model Building</span><div class="meter-bar"><div class="meter-fill" style="width:7%;background:var(--green)"></div></div><span class="meter-val">~7%</span></div>
   <div class="meter-row"><span class="meter-label">Deployment & Monitoring</span><div class="meter-bar"><div class="meter-fill" style="width:4%;background:var(--purple)"></div></div><span class="meter-val">~4%</span></div>
@@ -2216,7 +2242,7 @@ IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">
   <div class="cheat"><div class="t">Normalisation</div><div class="d">Scaling values to 0–1 range. Min becomes 0, Max becomes 1.</div></div>
   <div class="cheat"><div class="t">Standardisation</div><div class="d">Transforming data to mean=0, std=1 using Z-score. Different from "normalise" — common confusion!</div></div>
   <div class="cheat"><div class="t">Log Transform</div><div class="d">Applying logarithm to compress wide-range data. ₹1Cr and ₹1000 become much closer in scale.</div></div>
-  <div class="cheat"><div class="t">Schema</div><div class="d">A whiteprint: what type, format, and rules each column must follow.</div></div>
+  <div class="cheat"><div class="t">Schema</div><div class="d">A blueprint: what type, format, and rules each column must follow.</div></div>
   <div class="cheat"><div class="t">Deduplication</div><div class="d">Finding and removing or merging duplicate records.</div></div>
   <div class="cheat"><div class="t">Data Contract</div><div class="d">Formal agreement on what valid data looks like between data producers and consumers.</div></div>
   <div class="cheat"><div class="t">Feature</div><div class="d">A column used as INPUT for a machine learning model. Height, age, income = features.</div></div>
@@ -2343,8 +2369,8 @@ document.addEventListener('DOMContentLoaded', function() {
   --green-bg: rgba(62,207,142,0.08);
   --orange: #ff8c42;
   --orange-bg: rgba(255,140,66,0.08);
-  --white: #4d9cff;
-  --white-bg: rgba(77,156,255,0.08);
+  --blue: #4d9cff;
+  --blue-bg: rgba(77,156,255,0.08);
   --pink: #f06292;
   --pink-bg: rgba(240,98,146,0.08);
   --purple: #b57bee;
@@ -2463,7 +2489,7 @@ body{
   font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   padding:4px 12px;border-radius:3px;
 }
-.s-chip.s1{background:rgba(77,156,255,0.2);color:var(--white);border:1px solid rgba(77,156,255,0.3)}
+.s-chip.s1{background:rgba(77,156,255,0.2);color:var(--blue);border:1px solid rgba(77,156,255,0.3)}
 .s-chip.s2{background:rgba(62,207,142,0.2);color:var(--green);border:1px solid rgba(62,207,142,0.3)}
 .s-chip.s3{background:rgba(181,123,238,0.2);color:var(--purple);border:1px solid rgba(181,123,238,0.3)}
 .s-chip.ref{background:rgba(240,192,64,0.2);color:var(--gold);border:1px solid rgba(240,192,64,0.3)}
@@ -2542,7 +2568,7 @@ em{color:var(--gold2);font-style:normal;font-weight:500}
 .card h5{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
 .card p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
 .card.g{border-top:2px solid var(--green)} .card.o{border-top:2px solid var(--orange)}
-.card.b{border-top:2px solid var(--white)} .card.p{border-top:2px solid var(--purple)}
+.card.b{border-top:2px solid var(--blue)} .card.p{border-top:2px solid var(--purple)}
 .card.t{border-top:2px solid var(--teal)} .card.pk{border-top:2px solid var(--pink)}
 
 /* CALLOUT BOXES */
@@ -2555,8 +2581,8 @@ em{color:var(--gold2);font-style:normal;font-weight:500}
 .box ul{padding-left:20px}
 .box.analogy{background:rgba(240,192,64,0.07);border:1px solid rgba(240,192,64,0.25)}
 .box.analogy .box-tag{color:var(--gold)}
-.box.example{background:var(--white-bg);border:1px solid rgba(77,156,255,0.25)}
-.box.example .box-tag{color:var(--white)}
+.box.example{background:var(--blue-bg);border:1px solid rgba(77,156,255,0.25)}
+.box.example .box-tag{color:var(--blue)}
 .box.case{background:var(--surface2);border:1px solid rgba(181,123,238,0.3)}
 .box.case .box-tag{color:var(--purple)}
 .box.danger{background:var(--red-bg);border:1px solid rgba(255,82,82,0.3)}
@@ -2591,7 +2617,7 @@ tbody td:first-child{color:var(--text);font-weight:500}
   overflow-x:auto;
 }
 .code .cm{color:#4a6741}.code .st{color:var(--gold2)}.code .kw{color:var(--pink)}
-.code .fn{color:var(--white)}.code .nu{color:var(--orange)}.code .op{color:var(--teal)}
+.code .fn{color:var(--blue)}.code .nu{color:var(--orange)}.code .op{color:var(--teal)}
 
 /* ACCORDION */
 .acc{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:12px 0}
@@ -2645,7 +2671,7 @@ tbody td:first-child{color:var(--text);font-weight:500}
   background:var(--surface2);border:1.5px solid var(--border);
   transition:all .18s;color:var(--text);text-align:left;
 }
-.qopt:hover:not(:disabled){background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)}
+.qopt:hover:not(:disabled){background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--blue)}
 .qopt.ok{background:rgba(62,207,142,0.1);border-color:var(--green);color:var(--green)}
 .qopt.no{background:rgba(255,82,82,0.1);border-color:var(--red);color:var(--red)}
 .qfb{margin-top:12px;padding:12px 16px;border-radius:8px;font-size:13px;font-weight:500;display:none}
@@ -2768,7 +2794,7 @@ hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Masters in AI & ML · Non-Technical Complete Guide</div>
-    <h1>Build a <em>Bulletproof</em><br>Data Analysis and Exploration</h1>
+    <h1>Build a <em>Bulletproof</em><br>Foundation in<br>Data Science</h1>
     <p class="lead">Every concept explained 3 ways: with a story, with practice, and with industry-level depth. Real Indian examples. Real company case studies. No assumed background.</p>
     <div class="hero-pills">
       <span class="pill g"><span class="dot"></span>Level 1 · Foundation</span>
@@ -2922,7 +2948,7 @@ hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
 <h3 class="seg"><span class="seg-num">1</span>Enterprise Data Architecture — The Full Picture</h3>
 
 <div class="flow">
-  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)">📱 Source Systems<br><small>Apps, Sensors, APIs</small></div>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--blue)">📱 Source Systems<br><small>Apps, Sensors, APIs</small></div>
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.4);color:var(--orange)">⚡ Ingestion<br><small>Kafka, Fivetran</small></div>
   <span class="flow-arr">→</span>
@@ -3020,7 +3046,7 @@ GET https://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.3);color:var(--orange)">🧹 Clean<br><small>Fix Errors</small></div>
   <span class="flow-arr">→</span>
-  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--white)">🔄 Transform<br><small>Reshape</small></div>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--blue)">🔄 Transform<br><small>Reshape</small></div>
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(181,123,238,0.1);border-color:rgba(181,123,238,0.3);color:var(--purple)">📐 Normalise<br><small>Same Scale</small></div>
   <span class="flow-arr">→</span>
@@ -4421,7 +4447,7 @@ IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">
 <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:20px 0">
   <h4 style="margin-top:0;margin-bottom:20px">A Typical Week — Where Time Goes</h4>
   <div class="meter-row"><span class="meter-label">Data Cleaning & Prep</span><div class="meter-bar"><div class="meter-fill" style="width:65%;background:var(--orange)"></div></div><span class="meter-val">~65%</span></div>
-  <div class="meter-row"><span class="meter-label">Data Collection & Sourcing</span><div class="meter-bar"><div class="meter-fill" style="width:14%;background:var(--white)"></div></div><span class="meter-val">~14%</span></div>
+  <div class="meter-row"><span class="meter-label">Data Collection & Sourcing</span><div class="meter-bar"><div class="meter-fill" style="width:14%;background:var(--blue)"></div></div><span class="meter-val">~14%</span></div>
   <div class="meter-row"><span class="meter-label">Exploratory Analysis (EDA)</span><div class="meter-bar"><div class="meter-fill" style="width:10%;background:var(--teal)"></div></div><span class="meter-val">~10%</span></div>
   <div class="meter-row"><span class="meter-label">Model Building</span><div class="meter-bar"><div class="meter-fill" style="width:7%;background:var(--green)"></div></div><span class="meter-val">~7%</span></div>
   <div class="meter-row"><span class="meter-label">Deployment & Monitoring</span><div class="meter-bar"><div class="meter-fill" style="width:4%;background:var(--purple)"></div></div><span class="meter-val">~4%</span></div>
@@ -4540,7 +4566,7 @@ IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">
   <div class="cheat"><div class="t">Normalisation</div><div class="d">Scaling values to 0–1 range. Min becomes 0, Max becomes 1.</div></div>
   <div class="cheat"><div class="t">Standardisation</div><div class="d">Transforming data to mean=0, std=1 using Z-score. Different from "normalise" — common confusion!</div></div>
   <div class="cheat"><div class="t">Log Transform</div><div class="d">Applying logarithm to compress wide-range data. ₹1Cr and ₹1000 become much closer in scale.</div></div>
-  <div class="cheat"><div class="t">Schema</div><div class="d">A whiteprint: what type, format, and rules each column must follow.</div></div>
+  <div class="cheat"><div class="t">Schema</div><div class="d">A blueprint: what type, format, and rules each column must follow.</div></div>
   <div class="cheat"><div class="t">Deduplication</div><div class="d">Finding and removing or merging duplicate records.</div></div>
   <div class="cheat"><div class="t">Data Contract</div><div class="d">Formal agreement on what valid data looks like between data producers and consumers.</div></div>
   <div class="cheat"><div class="t">Feature</div><div class="d">A column used as INPUT for a machine learning model. Height, age, income = features.</div></div>
