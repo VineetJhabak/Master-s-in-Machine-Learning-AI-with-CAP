@@ -19,8 +19,8 @@
   --green-bg: rgba(62,207,142,0.08);
   --orange: #ff8c42;
   --orange-bg: rgba(255,140,66,0.08);
-  --blue: #4d9cff;
-  --blue-bg: rgba(77,156,255,0.08);
+  --white: #4d9cff;
+  --white-bg: rgba(77,156,255,0.08);
   --pink: #f06292;
   --pink-bg: rgba(240,98,146,0.08);
   --purple: #b57bee;
@@ -139,7 +139,7 @@ body{
   font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   padding:4px 12px;border-radius:3px;
 }
-.s-chip.s1{background:rgba(77,156,255,0.2);color:var(--blue);border:1px solid rgba(77,156,255,0.3)}
+.s-chip.s1{background:rgba(77,156,255,0.2);color:var(--white);border:1px solid rgba(77,156,255,0.3)}
 .s-chip.s2{background:rgba(62,207,142,0.2);color:var(--green);border:1px solid rgba(62,207,142,0.3)}
 .s-chip.s3{background:rgba(181,123,238,0.2);color:var(--purple);border:1px solid rgba(181,123,238,0.3)}
 .s-chip.ref{background:rgba(240,192,64,0.2);color:var(--gold);border:1px solid rgba(240,192,64,0.3)}
@@ -218,7 +218,7 @@ em{color:var(--gold2);font-style:normal;font-weight:500}
 .card h5{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
 .card p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
 .card.g{border-top:2px solid var(--green)} .card.o{border-top:2px solid var(--orange)}
-.card.b{border-top:2px solid var(--blue)} .card.p{border-top:2px solid var(--purple)}
+.card.b{border-top:2px solid var(--white)} .card.p{border-top:2px solid var(--purple)}
 .card.t{border-top:2px solid var(--teal)} .card.pk{border-top:2px solid var(--pink)}
 
 /* CALLOUT BOXES */
@@ -231,8 +231,8 @@ em{color:var(--gold2);font-style:normal;font-weight:500}
 .box ul{padding-left:20px}
 .box.analogy{background:rgba(240,192,64,0.07);border:1px solid rgba(240,192,64,0.25)}
 .box.analogy .box-tag{color:var(--gold)}
-.box.example{background:var(--blue-bg);border:1px solid rgba(77,156,255,0.25)}
-.box.example .box-tag{color:var(--blue)}
+.box.example{background:var(--white-bg);border:1px solid rgba(77,156,255,0.25)}
+.box.example .box-tag{color:var(--white)}
 .box.case{background:var(--surface2);border:1px solid rgba(181,123,238,0.3)}
 .box.case .box-tag{color:var(--purple)}
 .box.danger{background:var(--red-bg);border:1px solid rgba(255,82,82,0.3)}
@@ -267,7 +267,7 @@ tbody td:first-child{color:var(--text);font-weight:500}
   overflow-x:auto;
 }
 .code .cm{color:#4a6741}.code .st{color:var(--gold2)}.code .kw{color:var(--pink)}
-.code .fn{color:var(--blue)}.code .nu{color:var(--orange)}.code .op{color:var(--teal)}
+.code .fn{color:var(--white)}.code .nu{color:var(--orange)}.code .op{color:var(--teal)}
 
 /* ACCORDION */
 .acc{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:12px 0}
@@ -321,7 +321,7 @@ tbody td:first-child{color:var(--text);font-weight:500}
   background:var(--surface2);border:1.5px solid var(--border);
   transition:all .18s;color:var(--text);text-align:left;
 }
-.qopt:hover:not(:disabled){background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--blue)}
+.qopt:hover:not(:disabled){background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)}
 .qopt.ok{background:rgba(62,207,142,0.1);border-color:var(--green);color:var(--green)}
 .qopt.no{background:rgba(255,82,82,0.1);border-color:var(--red);color:var(--red)}
 .qfb{margin-top:12px;padding:12px 16px;border-radius:8px;font-size:13px;font-weight:500;display:none}
@@ -598,7 +598,7 @@ hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
 <h3 class="seg"><span class="seg-num">1</span>Enterprise Data Architecture — The Full Picture</h3>
 
 <div class="flow">
-  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--blue)">📱 Source Systems<br><small>Apps, Sensors, APIs</small></div>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)">📱 Source Systems<br><small>Apps, Sensors, APIs</small></div>
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.4);color:var(--orange)">⚡ Ingestion<br><small>Kafka, Fivetran</small></div>
   <span class="flow-arr">→</span>
@@ -696,7 +696,7 @@ GET https://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.3);color:var(--orange)">🧹 Clean<br><small>Fix Errors</small></div>
   <span class="flow-arr">→</span>
-  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--blue)">🔄 Transform<br><small>Reshape</small></div>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--white)">🔄 Transform<br><small>Reshape</small></div>
   <span class="flow-arr">→</span>
   <div class="flow-node" style="background:rgba(181,123,238,0.1);border-color:rgba(181,123,238,0.3);color:var(--purple)">📐 Normalise<br><small>Same Scale</small></div>
   <span class="flow-arr">→</span>
@@ -2097,7 +2097,7 @@ IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">
 <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:20px 0">
   <h4 style="margin-top:0;margin-bottom:20px">A Typical Week — Where Time Goes</h4>
   <div class="meter-row"><span class="meter-label">Data Cleaning & Prep</span><div class="meter-bar"><div class="meter-fill" style="width:65%;background:var(--orange)"></div></div><span class="meter-val">~65%</span></div>
-  <div class="meter-row"><span class="meter-label">Data Collection & Sourcing</span><div class="meter-bar"><div class="meter-fill" style="width:14%;background:var(--blue)"></div></div><span class="meter-val">~14%</span></div>
+  <div class="meter-row"><span class="meter-label">Data Collection & Sourcing</span><div class="meter-bar"><div class="meter-fill" style="width:14%;background:var(--white)"></div></div><span class="meter-val">~14%</span></div>
   <div class="meter-row"><span class="meter-label">Exploratory Analysis (EDA)</span><div class="meter-bar"><div class="meter-fill" style="width:10%;background:var(--teal)"></div></div><span class="meter-val">~10%</span></div>
   <div class="meter-row"><span class="meter-label">Model Building</span><div class="meter-bar"><div class="meter-fill" style="width:7%;background:var(--green)"></div></div><span class="meter-val">~7%</span></div>
   <div class="meter-row"><span class="meter-label">Deployment & Monitoring</span><div class="meter-bar"><div class="meter-fill" style="width:4%;background:var(--purple)"></div></div><span class="meter-val">~4%</span></div>
@@ -2216,7 +2216,2331 @@ IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">
   <div class="cheat"><div class="t">Normalisation</div><div class="d">Scaling values to 0–1 range. Min becomes 0, Max becomes 1.</div></div>
   <div class="cheat"><div class="t">Standardisation</div><div class="d">Transforming data to mean=0, std=1 using Z-score. Different from "normalise" — common confusion!</div></div>
   <div class="cheat"><div class="t">Log Transform</div><div class="d">Applying logarithm to compress wide-range data. ₹1Cr and ₹1000 become much closer in scale.</div></div>
-  <div class="cheat"><div class="t">Schema</div><div class="d">A blueprint: what type, format, and rules each column must follow.</div></div>
+  <div class="cheat"><div class="t">Schema</div><div class="d">A whiteprint: what type, format, and rules each column must follow.</div></div>
+  <div class="cheat"><div class="t">Deduplication</div><div class="d">Finding and removing or merging duplicate records.</div></div>
+  <div class="cheat"><div class="t">Data Contract</div><div class="d">Formal agreement on what valid data looks like between data producers and consumers.</div></div>
+  <div class="cheat"><div class="t">Feature</div><div class="d">A column used as INPUT for a machine learning model. Height, age, income = features.</div></div>
+  <div class="cheat"><div class="t">Target / Label</div><div class="d">The column you're trying to PREDICT. "Will this customer churn?" — churn = the target.</div></div>
+  <div class="cheat"><div class="t">EDA</div><div class="d">Exploratory Data Analysis. Understanding your data through charts and statistics before modelling.</div></div>
+  <div class="cheat"><div class="t">Regex</div><div class="d">Regular Expression. A pattern that defines what valid text looks like. Used to validate formats.</div></div>
+  <div class="cheat"><div class="t">Forward Fill</div><div class="d">In time-series: fill a gap with the previous observed value.</div></div>
+  <div class="cheat"><div class="t">KNN Imputation</div><div class="d">Fill missing values using averages from the K most similar records.</div></div>
+  <div class="cheat"><div class="t">MICE</div><div class="d">Multiple Imputation by Chained Equations. Statistical method for principled missing value filling.</div></div>
+  <div class="cheat"><div class="t">One-Hot Encoding</div><div class="d">Converting a category column into multiple binary (0/1) columns — one per category. Required for most ML models.</div></div>
+  <div class="cheat"><div class="t">Feature Engineering</div><div class="d">Creating new columns from existing ones to give models more useful information.</div></div>
+  <div class="cheat"><div class="t">Data Pipeline</div><div class="d">Automated sequence: collect → clean → transform → load → model → predict.</div></div>
+  <div class="cheat"><div class="t">Data Profiling</div><div class="d">Automated statistical summary of a dataset — the first thing you always do.</div></div>
+  <div class="cheat"><div class="t">Cross-Field Validation</div><div class="d">Checking consistency between two or more columns together (e.g., DOB vs Employment Start Date).</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:900;color:var(--gold);margin-bottom:12px">You Now Have a Bulletproof Foundation 🎓</div>
+  <p style="max-width:560px;margin:0 auto 16px">Your non-technical background gives you something most pure programmers lack: you understand what the data <em>means</em> in the real world. That is the most valuable skill in AI & ML. Technical skills can be learned. Domain intuition and critical thinking cannot.</p>
+  <p>Data is not numbers. Data is reality, encoded. Cleaning it is not bureaucracy. It is <em>respect for truth</em>.</p>
+</div>
+
+</div><!-- /wrap -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+window.addEventListener('scroll', function() {
+  var d = document.documentElement;
+  document.getElementById('topbar').style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+}, {passive: true});
+
+function sw(sec, lvl) {
+  for (var l = 1; l <= 3; l++) {
+    var p = document.getElementById(sec + '-' + l);
+    if (p) { p.classList.remove('on'); if (l === lvl) p.classList.add('on'); }
+  }
+  document.querySelectorAll('.ltab').forEach(function(t) {
+    var oc = t.getAttribute('onclick') || '';
+    if (oc.indexOf("'" + sec + "'") !== -1) {
+      var m = oc.match(/,\s*(\d)\)/);
+      if (m) { t.classList.remove('on'); if (parseInt(m[1]) === lvl) t.classList.add('on'); }
+    }
+  });
+}
+
+function tog(h) {
+  h.classList.toggle('open');
+  if (h.nextElementSibling) h.nextElementSibling.classList.toggle('open');
+}
+
+var QM = {
+  q1:    "Correct! GPS location data is structured (stored in rows/columns) and geospatial. Swiggy collects it internally from their delivery app.",
+  q_pp1: "Correct! ML models learn patterns from data — dirty data teaches wrong patterns with full confidence. This is GIGO: Garbage In, Garbage Out.",
+  q2:    "Correct! Prices can have decimals (Rs.149.50), so Float is needed. Strip the symbol and commas first, then convert.",
+  q3:    "Correct! 45% missing with a demographic pattern = likely MNAR. Never blindly impute — always investigate WHY data is missing first.",
+  q4:    "Correct! Strip all currency symbols, spaces, text. Keep only the number and convert to Float so arithmetic works."
+};
+
+function doQuiz(qid, el, isRight) {
+  var box = document.getElementById(qid);
+  if (!box) return;
+  box.querySelectorAll('.qopt').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if (isRight) {
+    el.classList.add('ok');
+  } else {
+    el.classList.add('no');
+    box.querySelectorAll('.qopt').forEach(function(b) {
+      if ((b.getAttribute('onclick') || '').indexOf(',true)') !== -1) b.classList.add('ok');
+    });
+  }
+  var fb = document.getElementById(qid + '-fb');
+  if (fb) {
+    fb.textContent = isRight ? ('✅ ' + (QM[qid] || 'Correct!')) : '❌ Not quite. The correct answer is highlighted in green above.';
+    fb.className = 'qfb show ' + (isRight ? 'ok' : 'no');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var navH = (document.getElementById('topnav') || {offsetHeight: 52}).offsetHeight + 8;
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = this.getAttribute('href').slice(1);
+      var tgt = document.getElementById(id);
+      if (tgt) {
+        e.preventDefault();
+        window.scrollTo({ top: tgt.getBoundingClientRect().top + window.pageYOffset - navH, behavior: 'smooth' });
+      }
+    });
+  });
+
+  window.addEventListener('scroll', function() {
+    var pos = window.scrollY + 90;
+    var cur = '';
+    document.querySelectorAll('.section').forEach(function(s) { if (s.offsetTop <= pos) cur = '#' + s.id; });
+    document.querySelectorAll('.topnav a, .sidenav a').forEach(function(a) {
+      if (a.getAttribute('href') === cur) a.classList.add('active');
+      else a.classList.remove('active');
+    });
+  }, {passive: true});
+});
+</script>E html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & ML Mastery — The Ultimate Non-Technical Foundation Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #181c27;
+  --surface2: #1f2435;
+  --border: rgba(255,255,255,0.08);
+  --text: #e8eaf0;
+  --muted: #8892a4;
+  --gold: #f0c040;
+  --gold2: #ffd97d;
+  --green: #3ecf8e;
+  --green-bg: rgba(62,207,142,0.08);
+  --orange: #ff8c42;
+  --orange-bg: rgba(255,140,66,0.08);
+  --white: #4d9cff;
+  --white-bg: rgba(77,156,255,0.08);
+  --pink: #f06292;
+  --pink-bg: rgba(240,98,146,0.08);
+  --purple: #b57bee;
+  --purple-bg: rgba(181,123,238,0.08);
+  --teal: #26c6da;
+  --teal-bg: rgba(38,198,218,0.08);
+  --red: #ff5252;
+  --red-bg: rgba(255,82,82,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  font-size:15px;
+}
+
+/* PROGRESS */
+#topbar{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--orange));z-index:999;transition:width .1s}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 48px 60px;
+  background:radial-gradient(ellipse at 20% 50%,rgba(77,156,255,0.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 20%,rgba(240,192,64,0.10) 0%,transparent 50%),
+             var(--bg);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{max-width:900px;position:relative}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;
+}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(38px,6vw,72px);
+  font-weight:900;line-height:1.08;
+  margin-bottom:20px;
+  letter-spacing:-1px;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:640px;margin-bottom:40px;line-height:1.8}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:56px}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 16px;border-radius:100px;font-size:13px;font-weight:500;
+  border:1px solid var(--border);background:var(--surface);
+  transition:all .2s;cursor:default;
+}
+.pill .dot{width:6px;height:6px;border-radius:50%}
+.pill.g .dot{background:var(--green)} .pill.g{color:var(--green)}
+.pill.o .dot{background:var(--orange)} .pill.o{color:var(--orange)}
+.pill.p .dot{background:var(--purple)} .pill.p{color:var(--purple)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:600px}
+.stat-box{background:var(--surface);padding:20px 24px}
+.stat-box .n{font-family:'Fraunces',serif;font-size:32px;font-weight:900;color:var(--gold);line-height:1}
+.stat-box .l{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.3px}
+
+/* NAV */
+.sidenav{
+  position:fixed;left:0;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:4px;
+  padding:12px 8px;z-index:100;
+}
+.sidenav a{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);border:1px solid rgba(255,255,255,0.15);
+  display:block;transition:all .2s;position:relative;
+}
+.sidenav a:hover,.sidenav a.active{background:var(--gold);width:10px;height:10px}
+.sidenav a::after{
+  content:attr(data-label);
+  position:absolute;left:18px;top:50%;transform:translateY(-50%);
+  white-space:nowrap;font-size:11px;color:var(--gold);
+  opacity:0;pointer-events:none;transition:opacity .2s;
+  background:var(--surface2);padding:3px 8px;border-radius:4px;
+  border:1px solid var(--border);
+}
+.sidenav a:hover::after{opacity:1}
+
+/* TOPNAV */
+.topnav{
+  position:sticky;top:0;z-index:98;
+  background:rgba(15,17,23,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;gap:0;overflow-x:auto;padding:0 48px;
+  scrollbar-width:none;
+}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{
+  display:inline-block;padding:14px 18px;
+  font-size:12px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;white-space:nowrap;
+  border-bottom:2px solid transparent;transition:all .2s;
+}
+.topnav a:hover{color:var(--text);border-bottom-color:rgba(255,255,255,0.2)}
+.topnav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* CONTAINER */
+.wrap{max-width:860px;margin:0 auto;padding:80px 32px}
+.section{margin-bottom:100px;scroll-margin-top:60px}
+
+/* SECTION HEADERS */
+.s-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.s-chip{
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:4px 12px;border-radius:3px;
+}
+.s-chip.s1{background:rgba(77,156,255,0.2);color:var(--white);border:1px solid rgba(77,156,255,0.3)}
+.s-chip.s2{background:rgba(62,207,142,0.2);color:var(--green);border:1px solid rgba(62,207,142,0.3)}
+.s-chip.s3{background:rgba(181,123,238,0.2);color:var(--purple);border:1px solid rgba(181,123,238,0.3)}
+.s-chip.ref{background:rgba(240,192,64,0.2);color:var(--gold);border:1px solid rgba(240,192,64,0.3)}
+.s-line{flex:1;height:1px;background:var(--border)}
+h2.stitle{
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,4vw,44px);
+  font-weight:900;color:var(--text);
+  line-height:1.1;margin-bottom:12px;letter-spacing:-0.5px;
+}
+.s-desc{font-size:16px;color:var(--muted);max-width:680px;margin-bottom:32px;line-height:1.8}
+
+/* SEGMENT DIVIDER */
+h3.seg{
+  font-family:'Fraunces',serif;
+  font-size:22px;font-weight:700;
+  color:var(--gold);margin:56px 0 20px;
+  display:flex;align-items:center;gap:12px;
+}
+h3.seg .seg-num{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(240,192,64,0.15);border:1px solid rgba(240,192,64,0.3);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:13px;flex-shrink:0;
+}
+h4{font-size:16px;font-weight:600;color:var(--text);margin:28px 0 12px}
+p{margin-bottom:14px;font-size:15px;line-height:1.85;color:#c8cdd8}
+strong{color:var(--text);font-weight:600}
+em{color:var(--gold2);font-style:normal;font-weight:500}
+
+/* LEVEL TABS */
+.level-tabs{display:flex;gap:8px;margin:28px 0 0;flex-wrap:wrap}
+.ltab{
+  padding:9px 20px;border-radius:8px;
+  font-size:13px;font-weight:600;cursor:pointer;
+  border:1.5px solid transparent;transition:all .2s;
+  display:flex;align-items:center;gap:7px;
+  user-select:none;
+}
+.ltab .badge{
+  width:18px;height:18px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;
+}
+.ltab.l1{color:var(--green);border-color:rgba(62,207,142,0.3);background:rgba(62,207,142,0.05)}
+.ltab.l2{color:var(--orange);border-color:rgba(255,140,66,0.3);background:rgba(255,140,66,0.05)}
+.ltab.l3{color:var(--purple);border-color:rgba(181,123,238,0.3);background:rgba(181,123,238,0.05)}
+.ltab.l1.on{background:rgba(62,207,142,0.15);border-color:var(--green);box-shadow:0 0 20px rgba(62,207,142,0.1)}
+.ltab.l2.on{background:rgba(255,140,66,0.15);border-color:var(--orange);box-shadow:0 0 20px rgba(255,140,66,0.1)}
+.ltab.l3.on{background:rgba(181,123,238,0.15);border-color:var(--purple);box-shadow:0 0 20px rgba(181,123,238,0.1)}
+.ltab .badge.l1{background:rgba(62,207,142,0.2);color:var(--green)}
+.ltab .badge.l2{background:rgba(255,140,66,0.2);color:var(--orange)}
+.ltab .badge.l3{background:rgba(181,123,238,0.2);color:var(--purple)}
+
+/* LEVEL PANELS */
+.lpanel{display:none;animation:fadeUp .3s ease;margin-top:20px}
+.lpanel.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.lpanel-inner{
+  border-radius:12px;padding:28px 32px;
+  border-left:3px solid;
+}
+.lpanel.l1 .lpanel-inner{border-color:var(--green);background:rgba(62,207,142,0.04)}
+.lpanel.l2 .lpanel-inner{border-color:var(--orange);background:rgba(255,140,66,0.04)}
+.lpanel.l3 .lpanel-inner{border-color:var(--purple);background:rgba(181,123,238,0.04)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:18px 20px;
+  transition:transform .2s,border-color .2s;
+}
+.card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.15)}
+.card .icon{font-size:26px;margin-bottom:10px}
+.card h5{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.card p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
+.card.g{border-top:2px solid var(--green)} .card.o{border-top:2px solid var(--orange)}
+.card.b{border-top:2px solid var(--white)} .card.p{border-top:2px solid var(--purple)}
+.card.t{border-top:2px solid var(--teal)} .card.pk{border-top:2px solid var(--pink)}
+
+/* CALLOUT BOXES */
+.box{border-radius:10px;padding:22px 26px;margin:20px 0;position:relative}
+.box .box-tag{
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.box p,.box li{font-size:14px;line-height:1.8;margin-bottom:8px}
+.box ul{padding-left:20px}
+.box.analogy{background:rgba(240,192,64,0.07);border:1px solid rgba(240,192,64,0.25)}
+.box.analogy .box-tag{color:var(--gold)}
+.box.example{background:var(--white-bg);border:1px solid rgba(77,156,255,0.25)}
+.box.example .box-tag{color:var(--white)}
+.box.case{background:var(--surface2);border:1px solid rgba(181,123,238,0.3)}
+.box.case .box-tag{color:var(--purple)}
+.box.danger{background:var(--red-bg);border:1px solid rgba(255,82,82,0.3)}
+.box.danger .box-tag{color:var(--red)}
+.box.tip{background:var(--green-bg);border:1px solid rgba(62,207,142,0.3)}
+.box.tip .box-tag{color:var(--green)}
+.box.story{background:var(--surface);border:1px solid var(--border);padding:28px 32px}
+.box.warn{background:var(--orange-bg);border:1px solid rgba(255,140,66,0.3)}
+.box.warn .box-tag{color:var(--orange)}
+
+/* STORY HEADER */
+.story-hd{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.story-ico{font-size:36px;line-height:1;flex-shrink:0}
+.story-meta h5{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+.story-meta .tag{font-size:11px;color:var(--muted);letter-spacing:0.5px}
+
+/* TABLE */
+.tbl{overflow-x:auto;margin:20px 0;border-radius:10px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--surface2)}
+thead th{padding:12px 16px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.5px;color:var(--muted);text-transform:uppercase;white-space:nowrap}
+tbody tr{border-top:1px solid var(--border);transition:background .15s}
+tbody tr:hover{background:rgba(255,255,255,0.02)}
+tbody td{padding:12px 16px;vertical-align:top;line-height:1.7;color:#b0b8c8}
+tbody td:first-child{color:var(--text);font-weight:500}
+
+/* CODE */
+.code{
+  background:#0a0d14;border:1px solid rgba(77,156,255,0.2);
+  border-radius:10px;padding:20px 24px;margin:16px 0;
+  font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;
+  overflow-x:auto;
+}
+.code .cm{color:#4a6741}.code .st{color:var(--gold2)}.code .kw{color:var(--pink)}
+.code .fn{color:var(--white)}.code .nu{color:var(--orange)}.code .op{color:var(--teal)}
+
+/* ACCORDION */
+.acc{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:12px 0}
+.acc-hd{
+  padding:14px 20px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--surface);transition:background .2s;
+  font-size:14px;font-weight:600;color:var(--text);
+}
+.acc-hd:hover{background:var(--surface2)}
+.acc-hd .arr{font-size:10px;color:var(--muted);transition:transform .25s}
+.acc-hd.open .arr{transform:rotate(180deg)}
+.acc-bd{display:none;padding:16px 20px;background:rgba(0,0,0,0.2);font-size:14px;line-height:1.8;color:#b0b8c8}
+.acc-bd.open{display:block}
+.acc-bd p{margin-bottom:10px;font-size:14px;color:#b0b8c8}
+.acc-bd ul{padding-left:20px}
+.acc-bd li{margin-bottom:6px;font-size:14px;color:#b0b8c8;line-height:1.7}
+
+/* COMPARE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.cmp{border-radius:10px;padding:18px 20px}
+.cmp.bad{background:var(--red-bg);border:1px solid rgba(255,82,82,0.25)}
+.cmp.good{background:var(--green-bg);border:1px solid rgba(62,207,142,0.25)}
+.cmp h5{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.cmp.bad h5{color:var(--red)}.cmp.good h5{color:var(--green)}
+.cmp ul{list-style:none}
+.cmp li{font-size:13px;padding:5px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.6;color:#b0b8c8}
+.cmp.bad li::before{content:'✗';color:var(--red);font-weight:700;flex-shrink:0}
+.cmp.good li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+
+/* STEPS */
+.steps{counter-reset:s;margin:20px 0}
+.step-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
+.step-n{
+  counter-increment:s;
+  width:30px;height:30px;flex-shrink:0;
+  background:rgba(240,192,64,0.15);border:1px solid rgba(240,192,64,0.3);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:var(--gold);margin-top:2px;
+}
+.step-bd h5{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.step-bd p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
+
+/* QUIZ */
+.quiz{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0}
+.quiz h5{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.qopt{
+  padding:12px 18px;border-radius:8px;cursor:pointer;
+  font-size:13px;font-weight:500;
+  background:var(--surface2);border:1.5px solid var(--border);
+  transition:all .18s;color:var(--text);text-align:left;
+}
+.qopt:hover:not(:disabled){background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)}
+.qopt.ok{background:rgba(62,207,142,0.1);border-color:var(--green);color:var(--green)}
+.qopt.no{background:rgba(255,82,82,0.1);border-color:var(--red);color:var(--red)}
+.qfb{margin-top:12px;padding:12px 16px;border-radius:8px;font-size:13px;font-weight:500;display:none}
+.qfb.show{display:block}
+.qfb.ok{background:rgba(62,207,142,0.1);border:1px solid rgba(62,207,142,0.3);color:var(--green)}
+.qfb.no{background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.3);color:var(--red)}
+
+/* VISUAL DATA TABLE DEMO */
+.data-demo{overflow-x:auto;margin:16px 0;border-radius:10px;border:1px solid var(--border)}
+.data-demo table{font-size:13px}
+.data-demo .bad-cell{background:rgba(255,82,82,0.15);color:var(--red);font-weight:600}
+.data-demo .warn-cell{background:rgba(255,140,66,0.12);color:var(--orange)}
+.data-demo .ok-cell{background:rgba(62,207,142,0.08);color:var(--green)}
+
+/* HIGHLIGHT ROW */
+.hl-row td{background:rgba(240,192,64,0.06)!important}
+
+/* FLOW DIAGRAM */
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px}
+.flow-node{
+  padding:8px 16px;border-radius:6px;font-size:12px;font-weight:600;
+  border:1px solid;display:flex;align-items:center;gap:6px;white-space:nowrap;
+}
+.flow-arr{color:var(--muted);font-size:18px}
+
+/* FORMULA BOX */
+.formula{
+  background:#0a0d14;border:1px solid rgba(240,192,64,0.2);
+  border-radius:8px;padding:14px 20px;margin:12px 0;
+  font-family:'JetBrains Mono',monospace;font-size:14px;
+  color:var(--gold2);line-height:1.6;
+}
+
+/* METER */
+.meter-row{display:flex;align-items:center;gap:12px;margin:8px 0}
+.meter-label{font-size:13px;color:var(--text);width:160px;flex-shrink:0}
+.meter-bar{flex:1;height:8px;background:rgba(255,255,255,0.07);border-radius:4px;overflow:hidden}
+.meter-fill{height:100%;border-radius:4px;transition:width 1s ease}
+.meter-val{font-size:12px;color:var(--muted);width:36px;text-align:right}
+
+/* DIVIDER */
+hr.div{border:none;height:1px;background:var(--border);margin:60px 0}
+
+/* CHEAT */
+.cheat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:20px 0}
+.cheat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.cheat .t{font-weight:700;font-size:13px;color:var(--gold);margin-bottom:5px}
+.cheat .d{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* TIMELINE */
+.timeline{border-left:2px solid var(--border);margin:20px 0 20px 16px;padding-left:28px}
+.tl-item{position:relative;margin-bottom:28px}
+.tl-item::before{
+  content:attr(data-n);
+  position:absolute;left:-42px;top:0;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--surface2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:var(--gold);
+}
+.tl-item h5{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.tl-item p{font-size:13px;color:var(--muted);margin:0;line-height:1.7}
+
+/* FOOTER */
+.footer{background:var(--surface);border-top:1px solid var(--border);padding:60px 48px;text-align:center;margin-top:80px}
+.footer p{color:var(--muted);font-size:14px}
+
+@media(max-width:700px){
+  .hero{padding:60px 24px 40px}
+  .wrap{padding:48px 16px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .compare{grid-template-columns:1fr}
+  .topnav{padding:0 16px}
+  .sidenav{display:none}
+}
+</style>
+</head>
+<body>
+<div id="topbar"></div>
+
+<!-- SIDE NAV -->
+<nav class="sidenav" id="sidenav">
+  <a href="#s1" data-label="Data Sourcing"></a>
+  <a href="#s1b" data-label="Preprocessing"></a>
+  <a href="#s1c" data-label="Public/Private Data"></a>
+  <a href="#s1d" data-label="Loading Files"></a>
+  <a href="#s1e" data-label="Public Sources"></a>
+  <a href="#s1f" data-label="Web Scraping"></a>
+  <a href="#s2a" data-label="What is Cleaning"></a>
+  <a href="#s2b" data-label="Data Types"></a>
+  <a href="#s2c" data-label="Rows & Columns"></a>
+  <a href="#s2d" data-label="Missing Values"></a>
+  <a href="#s2e" data-label="Outliers"></a>
+  <a href="#s2f" data-label="Standardising"></a>
+  <a href="#s2g" data-label="Invalid Data"></a>
+  <a href="#s3" data-label="Roadmap"></a>
+  <a href="#cheat" data-label="Cheatsheet"></a>
+</nav>
+
+<!-- TOP NAV -->
+<nav class="topnav" id="topnav">
+  <a href="#s1">S1 · Sourcing</a>
+  <a href="#s1b">Preprocessing</a>
+  <a href="#s1c">Public/Private Data</a>
+  <a href="#s1d">Loading Files</a>
+  <a href="#s1e">Public Sources</a>
+  <a href="#s1f">Web Scraping</a>
+  <a href="#s2a">S2 · Cleaning</a>
+  <a href="#s2b">Data Types</a>
+  <a href="#s2c">Rows & Cols</a>
+  <a href="#s2d">Missing Values</a>
+  <a href="#s2e">Outliers</a>
+  <a href="#s2f">Standardising</a>
+  <a href="#s2g">Invalid Data</a>
+  <a href="#s3">Roadmap</a>
+  <a href="#cheat">Cheatsheet</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Masters in AI & ML · Non-Technical Complete Guide</div>
+    <h1>Build a <em>Bulletproof</em><br>Foundation in<br>Data Science</h1>
+    <p class="lead">Every concept explained 3 ways: with a story, with practice, and with industry-level depth. Real Indian examples. Real company case studies. No assumed background.</p>
+    <div class="hero-pills">
+      <span class="pill g"><span class="dot"></span>Level 1 · Foundation</span>
+      <span class="pill o"><span class="dot"></span>Level 2 · Working Knowledge</span>
+      <span class="pill p"><span class="dot"></span>Level 3 · Industry Grade</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="n">S1–S3</div><div class="l">Sessions</div></div>
+      <div class="stat-box"><div class="n">10+</div><div class="l">Case Studies</div></div>
+      <div class="stat-box"><div class="n">50+</div><div class="l">Examples</div></div>
+      <div class="stat-box"><div class="n">3×</div><div class="l">Depth per Topic</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WRAP START -->
+<div class="wrap">
+
+<!-- ═══ S1: DATA SOURCING ═══ -->
+<section class="section" id="s1">
+<div class="s-meta"><span class="s-chip s1">Session 1</span><div class="s-line"></div></div>
+<h2 class="stitle">Data Sourcing</h2>
+<p class="s-desc">Before a single AI model can learn anything, before a single chart is drawn — data must exist. Data sourcing is the science and art of knowing where data lives, how to get it, and whether it's worth trusting.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<!-- L1 -->
+<div class="lpanel l1 on" id="s1-1"><div class="lpanel-inner">
+
+<h3 class="seg"><span class="seg-num">1</span>What Is Data? A Story-First Introduction</h3>
+<div class="box story">
+  <div class="story-hd">
+    <div class="story-ico">🍵</div>
+    <div class="story-meta">
+      <h5>The Tea Stall Data Scientist</h5>
+      <span class="tag">Howrah · Every Morning · Unaware Data Science</span>
+    </div>
+  </div>
+  <p>Ravi has run a tea stall at Howrah station for 22 years. He has never touched a computer. But every morning, his brain is running one of the most sophisticated data pipelines on the planet.</p>
+  <p>At 6:30 AM, he <strong>observes</strong> (collects data): the 7:15 train is delayed → more commuters waiting → demand will spike in 20 minutes. He <strong>processes</strong>: last Tuesday when the same delay happened, he ran out of milk by 7:40. He <strong>predicts</strong>: needs 2 extra litres today. He <strong>acts</strong>: sends his son to get more milk before the rush.</p>
+  <p>That is <em>data collection → cleaning → analysis → prediction → action</em>. That is AI. The only difference between Ravi and a Google engineer is that Ravi does it in his head for 50 customers, and Google does it in computers for 5 billion users.</p>
+  <p style="margin:0;font-size:13px;color:var(--muted)">💡 Every AI system you will ever build is just a faster, larger version of what Ravi does every morning.</p>
+</div>
+
+<h4>The 6 Forms Data Takes</h4>
+<p>Data is not just numbers in Excel. It is any <strong>recorded observation about reality</strong>. Here are the 6 main types with everyday examples from India:</p>
+<div class="card-row">
+  <div class="card g"><div class="icon">🔢</div><h5>Numbers</h5><p>Exam scores, temperatures, stock prices, Ola surge multiplier (1.8x), EMI amounts.</p></div>
+  <div class="card b"><div class="icon">📝</div><h5>Text</h5><p>Zomato reviews ("Delivery was 40 min late"), WhatsApp messages, product descriptions, news articles.</p></div>
+  <div class="card o"><div class="icon">📅</div><h5>Date & Time</h5><p>Train departure: 07:15:00. IPL match start: 19:30 IST. Order placed: 2024-01-15 14:32:07.</p></div>
+  <div class="card p"><div class="icon">✅</div><h5>Yes / No</h5><p>Is the customer an Aadhaar holder? Has the order been delivered? Is the account frozen?</p></div>
+  <div class="card t"><div class="icon">📷</div><h5>Images & Video</h5><p>An X-ray IS data. A traffic CCTV feed IS data. Your face on Digilocker IS data. Rich but complex to process.</p></div>
+  <div class="card pk"><div class="icon">📍</div><h5>Location (Geospatial)</h5><p>Your phone's GPS. A truck's position on NH48. Ola driver coordinates updated every 2 seconds.</p></div>
+</div>
+
+<h4>Structured vs Unstructured — The Key Distinction</h4>
+<div class="compare">
+  <div class="cmp good">
+    <h5>✓ Structured Data</h5>
+    <ul>
+      <li>Rows and columns, like Excel</li>
+      <li>Easy for computers to process directly</li>
+      <li>Example: Bank transaction table</li>
+      <li>Example: Student marks register</li>
+      <li>Example: IRCTC booking database</li>
+      <li>Roughly 20% of all data in the world</li>
+    </ul>
+  </div>
+  <div class="cmp bad">
+    <h5>The Other 80% — Unstructured</h5>
+    <ul>
+      <li>No fixed format, free-form</li>
+      <li>Harder to analyse without AI</li>
+      <li>Example: Customer complaint emails</li>
+      <li>Example: Doctor's handwritten notes</li>
+      <li>Example: Call center recordings</li>
+      <li>Often MOST valuable for AI models</li>
+    </ul>
+  </div>
+</div>
+
+<div class="quiz" id="q1">
+  <h5>🧠 Check Your Understanding: Swiggy tracks every delivery person's GPS location every 5 seconds. This data is…</h5>
+  <div class="quiz-opts">
+    <button class="qopt" onclick="doQuiz('q1',this,false)">Structured and Textual</button>
+    <button class="qopt" onclick="doQuiz('q1',this,true)">Structured and Geospatial (Location)</button>
+    <button class="qopt" onclick="doQuiz('q1',this,false)">Unstructured and Secondary</button>
+    <button class="qopt" onclick="doQuiz('q1',this,false)">Primary and Categorical</button>
+  </div>
+  <div class="qfb" id="q1-fb"></div>
+</div>
+
+</div></div>
+
+<!-- L2 -->
+<div class="lpanel l2" id="s1-2"><div class="lpanel-inner">
+
+<h3 class="seg"><span class="seg-num">1</span>The TARCQ Framework — Evaluating Any Data Source</h3>
+<p>A data scientist never accepts data at face value. Every source must pass 5 checks. Skip even one, and your entire analysis can be dangerously wrong.</p>
+
+<div class="tbl"><table>
+  <thead><tr><th>Letter</th><th>Quality Check</th><th>The Question to Ask</th><th>Real Failure Story</th></tr></thead>
+  <tbody>
+    <tr><td>T — Timely</td><td>Is the data fresh enough?</td><td>"When was this last updated? Does staleness matter for my question?"</td><td>A property broker used 2019 market data for 2024 valuations. The AI model undervalued Mumbai flats by 40%.</td></tr>
+    <tr><td>A — Accurate</td><td>Are values correct at source?</td><td>"Was this verified? What's the error rate? Who entered it?"</td><td>A hospital entered weight in pounds into a kilograms field. BMI calculations were off by 2.2x. Medication dosages were wrong.</td></tr>
+    <tr><td>R — Relevant</td><td>Does it answer our question?</td><td>"Does this column/dataset actually help predict what we need to predict?"</td><td>An HR team used employee star sign data in their attrition model. The model performed no better than random chance.</td></tr>
+    <tr><td>C — Complete</td><td>Are critical gaps too large?</td><td>"What % of key columns are missing? Is the missing data random or biased?"</td><td>A credit model had income data missing for 65% of self-employed applicants — exactly the group with highest default risk.</td></tr>
+    <tr><td>Q — Quality/Consistent</td><td>Is the same thing always represented the same way?</td><td>"Does the same entity, category, or measurement appear in the same format throughout?"</td><td>Reliance Jio's merged subscriber data had phone numbers in 12 different formats. 3 million duplicate accounts weren't detected for 6 months.</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box story">
+  <div class="story-hd">
+    <div class="story-ico">🚕</div>
+    <div class="story-meta">
+      <h5>Ola Cabs — Real-Time Data Sourcing From 5 Streams</h5>
+      <span class="tag">Mobility · Real-Time Fusion · Surge Pricing</span>
+    </div>
+  </div>
+  <p>Every time you see "Surge Pricing — 2.1x" on Ola, that number was computed in under 200 milliseconds using 5 simultaneous data streams. Here's exactly what each one is:</p>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>GPS Stream — Every Active Driver</h5><p>Updated every 3 seconds. Answers: "Where are cars RIGHT NOW?" Source: Driver app GPS sensor. Frequency: ~2 billion location pings/day nationwide.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Demand Stream — Active Booking Requests</h5><p>How many people opened the app and are requesting a ride in the last 5 minutes, by 500-metre hexagonal zone? Source: Rider app events.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Weather API — IMD + Private Weather Services</h5><p>Is it raining? Heavy rain = demand spikes 2–4x in 15 minutes. Ola subscribes to weather APIs that update every 10 minutes. A ₹0.002/API-call cost that prevents crores in lost surge revenue.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Events Calendar — Programmed Database</h5><p>IPL match ending at 10 PM at Wankhede? Diwali tomorrow? Loaded manually each week by a small ops team. Allows pre-emptive driver positioning before demand spikes.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Historical Demand — Data Warehouse Query</h5><p>What was demand like at this exact zone at this exact time on the same weekday for the past 4 weeks? 400ms SQL query against a 2 TB data warehouse.</p></div></div>
+  </div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">🧠 The surge pricing model fuses all 5 streams and decides in real-time. Remove any one stream and the model becomes significantly less accurate — either leaving money on the table or overpricing and losing riders.</p>
+</div>
+
+<h4>Primary vs Secondary — With Real Decisions</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Type</th><th>Who Collected It</th><th>Real Indian Example</th><th>Use This When</th><th>Watch Out For</th></tr></thead>
+  <tbody>
+    <tr><td>Primary</td><td>You, for your exact question</td><td>Byju's conducts student learning assessments specifically to improve their adaptive algorithm</td><td>You need very specific data that doesn't exist elsewhere</td><td>Expensive, slow, sample bias in who agrees to participate</td></tr>
+    <tr><td>Secondary</td><td>Someone else, for their purpose</td><td>Using NITI Aayog district data, Census India, NSE stock data, SEBI disclosures</td><td>Large scale, historical trends, cost-effectiveness</td><td>Not designed for your question; may be outdated; access restrictions</td></tr>
+    <tr><td>Internal</td><td>Your own organisation's systems</td><td>ICICI Bank using its own 10 years of transaction histories to train fraud models</td><td>Deep institutional knowledge, competitive advantage data</td><td>Organisational silos, different formats across departments</td></tr>
+    <tr><td>External</td><td>Third-party providers</td><td>PolicyBazaar buying CIBIL credit scores to augment their insurance risk models</td><td>Context your internal data lacks (macro trends, competitor info)</td><td>Data quality varies, cost, legal/privacy compliance</td></tr>
+  </tbody>
+</table></div>
+
+</div></div>
+
+<!-- L3 -->
+<div class="lpanel l3" id="s1-3"><div class="lpanel-inner">
+
+<h3 class="seg"><span class="seg-num">1</span>Enterprise Data Architecture — The Full Picture</h3>
+
+<div class="flow">
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.4);color:var(--white)">📱 Source Systems<br><small>Apps, Sensors, APIs</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.4);color:var(--orange)">⚡ Ingestion<br><small>Kafka, Fivetran</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(38,198,218,0.1);border-color:rgba(38,198,218,0.4);color:var(--teal)">🏊 Data Lake<br><small>Raw Everything</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(181,123,238,0.1);border-color:rgba(181,123,238,0.4);color:var(--purple)">🏗️ Transform<br><small>dbt, Spark</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(62,207,142,0.1);border-color:rgba(62,207,142,0.4);color:var(--green)">🏛️ Warehouse<br><small>Clean, Structured</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(240,192,64,0.1);border-color:rgba(240,192,64,0.4);color:var(--gold)">🤖 ML Models<br><small>Feature Store</small></div>
+</div>
+
+<div class="tbl"><table>
+  <thead><tr><th>Layer</th><th>What It Is</th><th>Analogy</th><th>Industry Tools</th></tr></thead>
+  <tbody>
+    <tr><td>Source Systems</td><td>Where data originates: apps, IoT sensors, forms, APIs, partner feeds</td><td>Farms growing produce — each farm grows something different</td><td>MySQL, PostgreSQL, Salesforce, mobile apps</td></tr>
+    <tr><td>Ingestion Layer</td><td>Transporting raw data from sources to central storage, in real-time or batches</td><td>Trucks collecting produce from all farms</td><td>Apache Kafka (real-time), Airbyte, AWS Glue (batch)</td></tr>
+    <tr><td>Data Lake</td><td>Everything in raw form — structured, unstructured, any format. Nothing is rejected at this stage.</td><td>A massive grain silo — everything dumped in together, unsorted</td><td>AWS S3, Azure Data Lake, Google Cloud Storage</td></tr>
+    <tr><td>Data Warehouse</td><td>Cleaned, structured, organised data ready for analysis and reporting</td><td>A supermarket: everything washed, priced, sorted, labelled, easy to find</td><td>Snowflake, Google BigQuery, Amazon Redshift</td></tr>
+    <tr><td>Feature Store</td><td>Pre-computed, ML-ready features. Avoids recomputing the same things for every model.</td><td>Meal-prep kits: chopped, measured, ready to cook immediately</td><td>Feast (open source), Tecton, Databricks Feature Store</td></tr>
+    <tr><td>ML Pipeline</td><td>Automated model training, validation, deployment, and monitoring</td><td>Restaurant kitchen: ingredients arrive prepped, chefs follow standardised recipes</td><td>MLflow, Kubeflow, AWS SageMaker, Azure ML</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box case">
+  <div class="box-tag">🏭 Case Study · Flipkart Big Billion Days · 50 Million Events/Hour</div>
+  <p>During Big Billion Days 2023, Flipkart processed over 50 million data events per hour. Their data sourcing challenge was not just volume — it was <strong>heterogeneity</strong>: 7 different types of data, updating at 7 different frequencies, needing to be combined in real-time.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Data Source</th><th>Update Frequency</th><th>Volume</th><th>Used For</th></tr></thead>
+    <tbody>
+      <tr><td>Clickstream (taps, scrolls, searches)</td><td>Real-time, every event</td><td>50M events/hour</td><td>Recommendation engine, search ranking</td></tr>
+      <tr><td>Inventory levels (50,000 sellers)</td><td>Every 15 minutes</td><td>12M SKU updates/day</td><td>Prevent displaying out-of-stock items</td></tr>
+      <tr><td>Payment gateway signals</td><td>Real-time</td><td>5M transactions/day</td><td>Order confirmation, fraud detection</td></tr>
+      <tr><td>Fraud signals (device, IP, behaviour)</td><td>Real-time, per transaction</td><td>External API call per order</td><td>Block fake accounts and return fraud</td></tr>
+      <tr><td>Delivery partner location</td><td>Every 30 seconds</td><td>200K delivery agents × 2/min</td><td>ETA predictions, real-time tracking</td></tr>
+      <tr><td>Customer segment data</td><td>Daily batch update</td><td>300M customer profiles</td><td>Personalised pricing, targeted deals</td></tr>
+      <tr><td>Price intelligence (competitor scraping)</td><td>Every 4 hours</td><td>2M product price checks/day</td><td>Dynamic competitive pricing</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">A single 1-second delay in fraud signals during this event = potential ₹10L+ in fraudulent orders. The entire engineering investment in data sourcing infrastructure is justified by preventing that one number.</p>
+</div>
+
+<h4>APIs — The Digital Plumbing of Modern Business</h4>
+<div class="code">
+<span class="cm"># What actually happens when Ola checks the weather</span>
+<span class="cm"># Step 1: Ola's server makes this HTTP request</span>
+
+GET https://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=KEY
+
+<span class="cm"># Step 2: The weather service responds in milliseconds</span>
+{
+  <span class="st">"city"</span>: <span class="st">"Mumbai"</span>,
+  <span class="st">"temperature"</span>: <span class="nu">31.4</span>,           <span class="cm">← float (decimal number)</span>
+  <span class="st">"humidity"</span>: <span class="nu">82</span>,              <span class="cm">← integer (whole number)</span>
+  <span class="st">"condition"</span>: <span class="st">"Heavy Rain"</span>,    <span class="cm">← string (text)</span>
+  <span class="st">"rain_mm_1hr"</span>: <span class="nu">12.3</span>,          <span class="cm">← float: 12.3mm rainfall in last hour</span>
+  <span class="st">"timestamp"</span>: <span class="st">"2024-06-15T14:22:00Z"</span>  <span class="cm">← datetime</span>
+}
+
+<span class="cm"># Step 3: Ola's surge model sees rain_mm_1hr > 10</span>
+<span class="cm"># → Surge multiplier set to 2.3x for next 25 minutes</span>
+<span class="cm"># Cost of this API call: ₹0.00015 (less than a paisa!)</span>
+<span class="cm"># Revenue from better surge pricing: ₹crores per monsoon season</span>
+</div>
+
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- NEW SECTIONS INSERTED HERE -->
+
+<!-- ═══ NEW MODULE: DATA PREPROCESSING (from new screenshot) ═══ -->
+<section class="section" id="s1b">
+<div class="s-meta"><span class="s-chip s1">Session 1 · New Module</span><div class="s-line"></div></div>
+<h2 class="stitle">Introduction to Data Preprocessing</h2>
+<p class="s-desc">Before any algorithm touches your data, it must go through preprocessing — a series of transformation steps that convert raw, messy, real-world data into a form that a machine learning model can actually learn from.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1b',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1b',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1b',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1b-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">🌾 The Wheat-to-Bread Analogy</div>
+  <p>Raw data is like wheat harvested from a field. The wheat is real and valuable — but you cannot eat it directly. You must <strong>mill it into flour</strong> (clean), <strong>mix it with water and yeast</strong> (transform), <strong>knead it</strong> (normalise), and <strong>bake it</strong> (encode) before it becomes bread that humans can consume.</p>
+  <p style="margin:0">Data preprocessing is exactly this. The AI model is the person eating the bread. It cannot consume raw wheat (raw data). Each preprocessing step transforms the raw material into something the model can digest and learn from.</p>
+</div>
+
+<h4>What Is Data Preprocessing? — The 5-Step Pipeline</h4>
+<div class="flow">
+  <div class="flow-node" style="background:rgba(255,82,82,0.1);border-color:rgba(255,82,82,0.3);color:var(--red)">🌾 Raw Data<br><small>Messy, Real-World</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(255,140,66,0.1);border-color:rgba(255,140,66,0.3);color:var(--orange)">🧹 Clean<br><small>Fix Errors</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(77,156,255,0.1);border-color:rgba(77,156,255,0.3);color:var(--white)">🔄 Transform<br><small>Reshape</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(181,123,238,0.1);border-color:rgba(181,123,238,0.3);color:var(--purple)">📐 Normalise<br><small>Same Scale</small></div>
+  <span class="flow-arr">→</span>
+  <div class="flow-node" style="background:rgba(62,207,142,0.1);border-color:rgba(62,207,142,0.3);color:var(--green)">🤖 ML-Ready<br><small>Model Input</small></div>
+</div>
+
+<div class="tbl"><table>
+  <thead><tr><th>Step</th><th>What You Do</th><th>Why It's Needed</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>1. Data Cleaning</td><td>Fix missing values, remove duplicates, fix invalid entries</td><td>Garbage In → Garbage Out. Errors in data = errors in model.</td><td>Age = -5 → investigate and fix</td></tr>
+    <tr><td>2. Data Integration</td><td>Combine data from multiple sources into one table</td><td>Real data rarely comes from one place</td><td>Merge customer table + purchase table + behaviour table</td></tr>
+    <tr><td>3. Data Transformation</td><td>Change the shape or structure of data to suit analysis</td><td>Models expect specific shapes and formats</td><td>Monthly data → weekly data via resampling</td></tr>
+    <tr><td>4. Data Reduction</td><td>Remove unnecessary columns, reduce dimensionality</td><td>Too many irrelevant columns confuse models, slow training</td><td>Drop columns that are 90% null or have near-zero variance</td></tr>
+    <tr><td>5. Data Encoding</td><td>Convert text categories into numbers</td><td>ML algorithms only understand numbers — not words</td><td>"Male"/"Female"/"Other" → 0/1/2</td></tr>
+  </tbody>
+</table></div>
+
+<div class="quiz" id="q_pp1">
+  <h5>🧠 Quick Check: Why can't we feed raw, uncleaned data directly into an ML model?</h5>
+  <div class="quiz-opts">
+    <button class="qopt" onclick="doQuiz('q_pp1',this,false)">Because models are too slow to process raw data</button>
+    <button class="qopt" onclick="doQuiz('q_pp1',this,true)">Because models learn patterns from data — if data has errors, missing values, or inconsistencies, the model learns the wrong patterns with full confidence</button>
+    <button class="qopt" onclick="doQuiz('q_pp1',this,false)">Because raw data is too large to fit in memory</button>
+  </div>
+  <div class="qfb" id="q_pp1-fb"></div>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s1b-2"><div class="lpanel-inner">
+<h4>Preprocessing in Python — What Each Step Looks Like</h4>
+<div class="code">
+<span class="cm"># The preprocessing pipeline — what you'll actually write in your Masters programme</span>
+<span class="cm"># Each line below corresponds to one preprocessing step</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># STEP 1: Load data</span>
+df = pd.<span class="fn">read_csv</span>(<span class="st">'customer_data.csv'</span>)
+<span class="fn">print</span>(df.shape)        <span class="cm"># → (85000, 18) — 85,000 rows, 18 columns</span>
+
+<span class="cm"># STEP 2: First look — always do this before anything else</span>
+df.<span class="fn">head</span>(<span class="nu">5</span>)             <span class="cm"># First 5 rows</span>
+df.<span class="fn">info</span>()              <span class="cm"># Data types + null counts</span>
+df.<span class="fn">describe</span>()          <span class="cm"># Stats: min, max, mean, std for numeric columns</span>
+df.<span class="fn">isnull</span>().<span class="fn">sum</span>()      <span class="cm"># Count missing values per column</span>
+
+<span class="cm"># STEP 3: Fix types</span>
+df[<span class="st">'price'</span>] = df[<span class="st">'price'</span>].<span class="fn">str.replace</span>(<span class="st">'₹'</span>,<span class="st">''</span>).<span class="fn">str.replace</span>(<span class="st">','</span>,<span class="st">''</span>).<span class="fn">astype</span>(<span class="st">'float'</span>)
+df[<span class="st">'order_date'</span>] = pd.<span class="fn">to_datetime</span>(df[<span class="st">'order_date'</span>], <span class="fn">dayfirst</span>=<span class="kw">True</span>)
+
+<span class="cm"># STEP 4: Handle missing values</span>
+df[<span class="st">'age'</span>].<span class="fn">fillna</span>(df[<span class="st">'age'</span>].<span class="fn">median</span>(), inplace=<span class="kw">True</span>)
+
+<span class="cm"># STEP 5: Remove duplicates</span>
+df.<span class="fn">drop_duplicates</span>(inplace=<span class="kw">True</span>)
+
+<span class="cm"># STEP 6: Encode categorical column for ML</span>
+df[<span class="st">'gender_encoded'</span>] = df[<span class="st">'gender'</span>].<span class="fn">map</span>({<span class="st">'Male'</span>: <span class="nu">0</span>, <span class="st">'Female'</span>: <span class="nu">1</span>, <span class="st">'Other'</span>: <span class="nu">2</span>})
+</div>
+
+<div class="box tip">
+  <div class="box-tag">💡 The Golden Rule of Preprocessing</div>
+  <p style="margin:0;font-size:14px">Always perform preprocessing steps in the correct ORDER. You cannot normalise data before fixing data types (you'd be normalising strings). You cannot encode categories before handling missing values (the NaN would become its own category). The sequence matters as much as each individual step.</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1b-3"><div class="lpanel-inner">
+<h4>Preprocessing Pipelines in Production — Scikit-learn's Pipeline Object</h4>
+<p>In industry, preprocessing steps must be repeatable, testable, and automatically applied to new data. This is done using <strong>Pipeline objects</strong> that chain all preprocessing steps together.</p>
+<div class="code">
+<span class="cm"># Industry-grade preprocessing pipeline</span>
+<span class="cm"># This exact pattern is used in companies like Razorpay, PhonePe, Paytm</span>
+
+<span class="kw">from</span> sklearn.pipeline <span class="kw">import</span> Pipeline
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler, OneHotEncoder
+<span class="kw">from</span> sklearn.impute <span class="kw">import</span> SimpleImputer
+<span class="kw">from</span> sklearn.compose <span class="kw">import</span> ColumnTransformer
+
+<span class="cm"># Define which columns are numeric vs categorical</span>
+numeric_cols    = [<span class="st">'age'</span>, <span class="st">'income'</span>, <span class="st">'credit_score'</span>, <span class="st">'loan_amount'</span>]
+categorical_cols = [<span class="st">'city_tier'</span>, <span class="st">'employment_type'</span>, <span class="st">'product_category'</span>]
+
+<span class="cm"># Build separate pipelines for each type</span>
+numeric_pipeline = Pipeline([
+    (<span class="st">'impute'</span>,  SimpleImputer(strategy=<span class="st">'median'</span>)),    <span class="cm"># fill NaN with median</span>
+    (<span class="st">'scale'</span>,   StandardScaler()),                      <span class="cm"># Z-score normalisation</span>
+])
+
+categorical_pipeline = Pipeline([
+    (<span class="st">'impute'</span>,  SimpleImputer(strategy=<span class="st">'most_frequent'</span>)),  <span class="cm"># fill NaN with mode</span>
+    (<span class="st">'encode'</span>,  OneHotEncoder(handle_unknown=<span class="st">'ignore'</span>)),    <span class="cm"># text → numbers</span>
+])
+
+<span class="cm"># Combine both into one transformer</span>
+preprocessor = ColumnTransformer([
+    (<span class="st">'num'</span>, numeric_pipeline, numeric_cols),
+    (<span class="st">'cat'</span>, categorical_pipeline, categorical_cols),
+])
+
+<span class="cm"># Apply the same preprocessing to BOTH training data AND new live data</span>
+<span class="cm"># This prevents "training-serving skew" — a major source of production failures</span>
+X_train_processed = preprocessor.<span class="fn">fit_transform</span>(X_train)
+X_new_processed   = preprocessor.<span class="fn">transform</span>(X_new)   <span class="cm"># Uses same rules, no refitting</span>
+</div>
+<div class="box case">
+  <div class="box-tag">⚡ Why Pipelines Prevent a Common Industry Disaster</div>
+  <p>A major Indian fintech company built a fraud detection model. During training, they manually computed the mean income as ₹4.2L and used it to fill nulls. The model performed brilliantly.</p>
+  <p>Six months later, in production, the live scoring code was filling income nulls with ₹6.8L (the current mean, which had shifted with the customer base). The training distribution and production distribution were different — the model was silently underperforming for 6 months before anyone noticed the fraud rate creeping up.</p>
+  <p style="margin:0">This is called <strong>training-serving skew</strong>. Scikit-learn Pipelines prevent it by storing the preprocessing parameters (mean, std, categories) from training time and reusing them exactly at prediction time. The preprocessing is locked in, not recomputed.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ PUBLIC AND PRIVATE DATA ═══ -->
+<section class="section" id="s1c">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 2</span><div class="s-line"></div></div>
+<h2 class="stitle">Public and Private Data</h2>
+<p class="s-desc">Not all data is created equal — and not all data is yours to use freely. Understanding the difference between public and private data is both a technical and an ethical cornerstone of data science.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1c',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1c',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1c',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1c-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📚 The Library vs Private Diary Analogy</div>
+  <p>A <strong>public library</strong> has books anyone can walk in and read. No permission needed. No cost. The books are there for public benefit — government reports, academic papers, historical records. This is <em>public data</em>.</p>
+  <p>Your <strong>personal diary</strong> is private. Someone reading it without your permission is a violation — legally and ethically. Even if they could physically access it, doing so is wrong. This is <em>private data</em>.</p>
+  <p style="margin:0">In data science, this distinction matters enormously. Using private data without authorisation is illegal (IT Act, PDPB in India), unethical, and has ended careers. Knowing which category your data falls into is the first question to ask — before writing a single line of code.</p>
+</div>
+
+<h4>The 4 Categories of Data by Access Rights</h4>
+<div class="card-row">
+  <div class="card g">
+    <div class="icon">🌐</div>
+    <h5>Open Public Data</h5>
+    <p>Free for anyone. No restrictions. Government releases, academic datasets, open-source repos. Examples: Census India, RBI data, WHO statistics, Kaggle datasets, Wikipedia.</p>
+  </div>
+  <div class="card b">
+    <div class="icon">🔑</div>
+    <h5>Licensed Public Data</h5>
+    <p>Publicly available but with usage restrictions. Must agree to terms. Examples: Google Maps API (free up to a limit), commercial weather APIs, Bloomberg financial data.</p>
+  </div>
+  <div class="card o">
+    <div class="icon">🏢</div>
+    <h5>Private Organisational Data</h5>
+    <p>Owned by a company. Employees can use it for work purposes. Sharing outside is prohibited. Examples: Flipkart's transaction database, Jio's subscriber records, HDFC's loan data.</p>
+  </div>
+  <div class="card pk">
+    <div class="icon">🔒</div>
+    <h5>Personal Private Data</h5>
+    <p>Belongs to individual people. Highest legal protection. Cannot be used without informed consent. Examples: Aadhaar, medical records, financial statements, biometric data, personal messages.</p>
+  </div>
+</div>
+
+<h4>India's Key Public Data Sources — Your Free AI Toolkit</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Source</th><th>What's Available</th><th>Best Used For</th><th>URL</th></tr></thead>
+  <tbody>
+    <tr><td>data.gov.in</td><td>6,000+ govt datasets: agriculture, transport, health, education, economy</td><td>Policy research, social impact AI, demographic models</td><td>data.gov.in</td></tr>
+    <tr><td>RBI DBIE</td><td>Banking statistics, interest rates, money supply, forex rates (1947–present)</td><td>Financial models, economic forecasting, banking research</td><td>dbie.rbi.org.in</td></tr>
+    <tr><td>Census India 2011</td><td>Population, housing, literacy, employment for every district and block</td><td>Market sizing, demographic targeting, urban planning AI</td><td>censusindia.gov.in</td></tr>
+    <tr><td>NSE/BSE</td><td>Historical stock prices, trading volumes, corporate actions (limited free)</td><td>Stock price prediction, portfolio optimisation, sentiment-price correlation</td><td>nseindia.com</td></tr>
+    <tr><td>Kaggle</td><td>10,000+ curated, cleaned datasets donated by companies and researchers</td><td>Practising ML, competitions, learning new domains</td><td>kaggle.com/datasets</td></tr>
+    <tr><td>UCI ML Repository</td><td>400+ classic ML datasets used in academic papers for 30+ years</td><td>Benchmarking algorithms, learning fundamentals</td><td>archive.ics.uci.edu</td></tr>
+    <tr><td>NITI Aayog</td><td>SDG India Index, district development data, aspirational district metrics</td><td>Government project AI, development economics</td><td>niti.gov.in</td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l2" id="s1c-2"><div class="lpanel-inner">
+<h4>Data Privacy Laws You Must Know</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Law / Regulation</th><th>Jurisdiction</th><th>What It Says (In Plain English)</th><th>Penalty for Violation</th></tr></thead>
+  <tbody>
+    <tr><td>Digital Personal Data Protection Act 2023 (DPDPA)</td><td>India</td><td>You must get clear consent before collecting personal data. People can ask for their data to be deleted. You cannot use data for purposes beyond what was stated at collection.</td><td>Up to ₹250 crore fine per violation</td></tr>
+    <tr><td>GDPR</td><td>European Union</td><td>Strongest privacy law globally. "Right to be forgotten." Data minimisation (only collect what you need). Explicit opt-in required.</td><td>Up to 4% of global annual revenue or €20M</td></tr>
+    <tr><td>IT Act 2000 + Amendments</td><td>India</td><td>Defines cyber crimes including unauthorised data access, identity theft, and data breach obligations for companies.</td><td>Up to 3 years imprisonment + fines</td></tr>
+    <tr><td>Health Data Guidelines (NHA)</td><td>India</td><td>Patient health data under Ayushman Bharat Digital Mission has special protections. Cannot be shared without patient consent even within hospital systems.</td><td>Regulatory action, loss of accreditation</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box danger">
+  <div class="box-tag">⚠️ The "Publicly Available" Trap</div>
+  <p>A common mistake: assuming that because data is technically accessible online, it can be freely used for any purpose. This is wrong in several important ways:</p>
+  <ul>
+    <li><strong>Website Terms of Service:</strong> LinkedIn prohibits scraping user data, even though profiles are publicly visible. HiQ Labs scraped LinkedIn data, won a court case, but the legal battle cost millions and changed policy.</li>
+    <li><strong>Aggregation attacks:</strong> Individual public data points combined create private profiles. Your name (public) + your employer (public) + your neighbourhood (public) + your health condition (public from a news article) = a detailed private profile you never consented to.</li>
+    <li><strong>Purpose limitation:</strong> Under DPDPA, data collected for one purpose (voting) cannot be used for another (commercial targeting) even if technically accessible.</li>
+  </ul>
+  <p style="margin:0">In your Masters programme, always check: (1) Do I have the legal right to use this data? (2) Was it collected with informed consent for this use? (3) Does using it respect the people it describes?</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1c-3"><div class="lpanel-inner">
+<div class="box case">
+  <div class="box-tag">🔐 Case Study: Aarogya Setu — India's Largest Health Data Dilemma</div>
+  <p>During COVID-19, India deployed Aarogya Setu — a contact tracing app that collected location data from 180 million users. It was one of the world's largest pandemic data collection exercises. But it raised profound public/private data questions:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What Actually Happened</th><th>Lesson Learned</th></tr></thead>
+    <tbody>
+      <tr><td>Was consent truly informed?</td><td>App was mandatory for government employees and railway passengers. "Voluntary" was disputed.</td><td>Coerced data collection is legally and ethically problematic even in a pandemic</td></tr>
+      <tr><td>Who owned the data?</td><td>Government, but source code was initially closed. Privacy advocates demanded open source audit.</td><td>Public interest data collection requires public accountability and transparency</td></tr>
+      <tr><td>Was data actually deleted?</td><td>Government promised deletion after 180 days. No independent audit confirmed this.</td><td>Data privacy commitments require enforceable mechanisms, not just promises</td></tr>
+      <tr><td>Could data be repurposed?</td><td>Policy was unclear. Could health data be used for future non-pandemic purposes?</td><td>Purpose limitation must be written into law before collection, not promised after</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">The Aarogya Setu experience directly shaped India's Digital Personal Data Protection Act 2023. Every data scientist working in public health, government AI, or social impact technology must understand this history to design systems that respect the people they're supposed to serve.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ LOADING DATA FROM FILES ═══ -->
+<section class="section" id="s1d">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 3</span><div class="s-line"></div></div>
+<h2 class="stitle">Loading Data from Files</h2>
+<p class="s-desc">Before you can clean or analyse data, you must load it into Python. Data comes in many file formats — each with its own structure, quirks, and best practices for loading.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1d',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1d',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1d',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1d-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📦 The Packaging Analogy</div>
+  <p>Data files are like different types of packaging for the same goods. A CSV file is like a flat cardboard box — simple, universal, everyone can open it. An Excel file is like a fancy gift box with multiple compartments (sheets). A JSON file is like Russian nesting dolls — data inside data inside data. A Parquet file is like vacuum-sealed packaging — compact and efficient for large quantities.</p>
+  <p style="margin:0">The content (data) is what matters, but you need to know how to open each packaging type correctly. Python's pandas library has a specific loading function for each format.</p>
+</div>
+
+<h4>The 6 Most Common Data File Formats</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Format</th><th>Extension</th><th>What It Looks Like</th><th>Best For</th><th>Load Command</th></tr></thead>
+  <tbody>
+    <tr><td>CSV (Comma-Separated Values)</td><td>.csv</td><td>Plain text with commas between values. Universally readable by any software.</td><td>Most common format. Tabular data exchange between systems. Kaggle datasets.</td><td><code>pd.read_csv('file.csv')</code></td></tr>
+    <tr><td>Excel</td><td>.xlsx / .xls</td><td>Microsoft Excel spreadsheets, possibly with multiple sheets, formatting, formulas.</td><td>Business reports, manual data entry, financial data, HR data.</td><td><code>pd.read_excel('file.xlsx')</code></td></tr>
+    <tr><td>JSON (JavaScript Object Notation)</td><td>.json</td><td>Nested key-value pairs, like a Python dictionary. Can represent complex hierarchical data.</td><td>API responses, web data, configuration files, nested records.</td><td><code>pd.read_json('file.json')</code></td></tr>
+    <tr><td>Parquet</td><td>.parquet</td><td>Binary columnar format. Compressed. Cannot open in a text editor.</td><td>Big data, data warehouses. 10-100x smaller than CSV for large datasets.</td><td><code>pd.read_parquet('file.parquet')</code></td></tr>
+    <tr><td>SQL Database</td><td>N/A (connection)</td><td>Structured tables in a database server. Accessed via SQL queries.</td><td>Live company databases, transactional systems, production data.</td><td><code>pd.read_sql(query, connection)</code></td></tr>
+    <tr><td>HDF5</td><td>.h5 / .hdf5</td><td>Hierarchical data format. Binary. Designed for very large scientific datasets.</td><td>Sensor data, scientific computing, deep learning datasets.</td><td><code>pd.read_hdf('file.h5')</code></td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l2" id="s1d-2"><div class="lpanel-inner">
+<h4>Loading CSV Files — The 10 Most Important Parameters</h4>
+<div class="code">
+<span class="cm"># pd.read_csv() has 50+ parameters. These 10 will solve 95% of real-world loading problems.</span>
+
+df = pd.<span class="fn">read_csv</span>(
+    <span class="st">'sales_data.csv'</span>,
+
+    <span class="cm"># 1. SEPARATOR: What separates the values? Default is comma.</span>
+    sep=<span class="st">','</span>,          <span class="cm"># or sep='\t' for tab-separated, sep=';' for semicolon</span>
+
+    <span class="cm"># 2. ENCODING: How are special characters encoded?</span>
+    encoding=<span class="st">'utf-8'</span>,  <span class="cm"># Use 'latin-1' or 'cp1252' if you see strange characters (₹, ñ, é)</span>
+
+    <span class="cm"># 3. SKIP ROWS: Sometimes CSVs have metadata at the top before the actual data</span>
+    skiprows=<span class="nu">2</span>,        <span class="cm"># Skip first 2 rows (e.g., a title and a blank line before headers)</span>
+
+    <span class="cm"># 4. HEADER: Which row contains column names?</span>
+    header=<span class="nu">0</span>,          <span class="cm"># Row 0 (first row) is the header. Use header=None if no column names.</span>
+
+    <span class="cm"># 5. NULL VALUES: What strings should be treated as missing?</span>
+    na_values=[<span class="st">'N/A'</span>, <span class="st">'na'</span>, <span class="st">'NA'</span>, <span class="st">'—'</span>, <span class="st">'n/a'</span>, <span class="st">'-'</span>, <span class="st">'NULL'</span>, <span class="st">'none'</span>],
+
+    <span class="cm"># 6. DATA TYPES: Force specific column types (prevents wrong auto-detection)</span>
+    dtype={<span class="st">'customer_id'</span>: <span class="st">'str'</span>, <span class="st">'pincode'</span>: <span class="st">'str'</span>},  <span class="cm"># IDs must always be string!</span>
+
+    <span class="cm"># 7. PARSE DATES: Automatically convert date columns to DateTime type</span>
+    parse_dates=[<span class="st">'order_date'</span>, <span class="st">'delivery_date'</span>],
+
+    <span class="cm"># 8. USECOLS: Load only specific columns (faster for large files)</span>
+    usecols=[<span class="st">'customer_id'</span>, <span class="st">'order_date'</span>, <span class="st">'amount'</span>, <span class="st">'city'</span>],
+
+    <span class="cm"># 9. NROWS: Load only the first N rows (great for testing on a small sample)</span>
+    nrows=<span class="nu">1000</span>,         <span class="cm"># Load just 1000 rows to test your code before running on 1 million</span>
+
+    <span class="cm"># 10. INDEX COL: Which column should be the row index?</span>
+    index_col=<span class="st">'order_id'</span>  <span class="cm"># Sets order_id as the row identifier instead of 0,1,2,3...</span>
+)
+</div>
+
+<h4>Loading Excel Files — The Hidden Complications</h4>
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">📊 Problem: Multiple Sheets in One Excel File <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>An Excel file from the Finance team has 4 sheets: "Q1_Sales", "Q2_Sales", "Q3_Sales", "Q4_Sales". You need to combine all 4.</p>
+    <div class="code" style="margin:8px 0">
+<span class="cm"># Load all sheets and combine them</span>
+all_sheets = pd.<span class="fn">read_excel</span>(<span class="st">'annual_sales.xlsx'</span>, sheet_name=<span class="kw">None</span>)  <span class="cm"># None = load all</span>
+combined = pd.<span class="fn">concat</span>(all_sheets.values(), ignore_index=<span class="kw">True</span>)
+<span class="fn">print</span>(combined.shape)  <span class="cm"># Now all 4 quarters in one dataframe</span>
+    </div>
+  </div>
+</div>
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">📊 Problem: Excel Has Merged Cells and Formatting <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>Business Excel files often have merged header cells, colour-coded cells, and rows that are summaries, not data. These cause loading errors or incorrect column assignments.</p>
+    <p><strong>Best practice:</strong> When receiving Excel files for analysis, ask the sender to "Save as CSV (comma delimited)" first. This strips all formatting and gives you clean tabular data. Alternatively, use the <code>skiprows</code> and <code>header</code> parameters to navigate past formatted sections.</p>
+  </div>
+</div>
+
+<h4>Loading JSON — Understanding Nested Data</h4>
+<div class="box example">
+  <div class="box-tag">📱 What API Responses Look Like (JSON)</div>
+  <div class="code" style="margin:8px 0">
+<span class="cm"># A Swiggy order API might return this JSON structure:</span>
+{
+  <span class="st">"order_id"</span>: <span class="st">"SWG-2024-001234"</span>,
+  <span class="st">"customer"</span>: {
+    <span class="st">"name"</span>: <span class="st">"Vineet Jhabak"</span>,
+    <span class="st">"phone"</span>: <span class="st">"9876543210"</span>,
+    <span class="st">"address"</span>: {<span class="st">"city"</span>: <span class="st">"Howrah"</span>, <span class="st">"pincode"</span>: <span class="st">"711101"</span>}  <span class="cm">← NESTED!</span>
+  },
+  <span class="st">"items"</span>: [                                                     <span class="cm">← LIST of items!</span>
+    {<span class="st">"name"</span>: <span class="st">"Biryani"</span>, <span class="st">"qty"</span>: <span class="nu">2</span>, <span class="st">"price"</span>: <span class="nu">280</span>},
+    {<span class="st">"name"</span>: <span class="st">"Raita"</span>,   <span class="st">"qty"</span>: <span class="nu">1</span>, <span class="st">"price"</span>: <span class="nu">60</span>}
+  ],
+  <span class="st">"total"</span>: <span class="nu">620</span>,
+  <span class="st">"status"</span>: <span class="st">"Delivered"</span>
+}
+
+<span class="cm"># Loading nested JSON into a flat DataFrame:</span>
+df = pd.<span class="fn">json_normalize</span>(data, record_path=[<span class="st">'items'</span>], meta=[<span class="st">'order_id'</span>, <span class="st">'total'</span>])
+<span class="cm"># Creates one row per item, with order_id and total repeated for each item</span>
+  </div>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1d-3"><div class="lpanel-inner">
+<h4>Handling Large Files — When Data is Too Big for Memory</h4>
+<div class="code">
+<span class="cm"># Problem: Your CSV file is 15 GB. Your laptop has 16 GB RAM. Loading it crashes Python.</span>
+<span class="cm"># Solution 1: Load in chunks — process the file piece by piece</span>
+
+chunk_size = <span class="nu">100_000</span>  <span class="cm"># Process 100,000 rows at a time</span>
+results = []
+
+<span class="kw">for</span> chunk <span class="kw">in</span> pd.<span class="fn">read_csv</span>(<span class="st">'huge_file.csv'</span>, chunksize=chunk_size):
+    <span class="cm"># Process each chunk: clean, filter, aggregate</span>
+    filtered = chunk[chunk[<span class="st">'city'</span>] == <span class="st">'Mumbai'</span>]
+    results.<span class="fn">append</span>(filtered)
+
+final_df = pd.<span class="fn">concat</span>(results, ignore_index=<span class="kw">True</span>)
+<span class="cm"># Only Mumbai rows loaded — manageable size</span>
+
+<span class="cm"># Solution 2: Use Parquet format (10x smaller than CSV)</span>
+<span class="cm"># Convert your huge CSV to Parquet once:</span>
+df.<span class="fn">to_parquet</span>(<span class="st">'data.parquet'</span>, compression=<span class="st">'snappy'</span>)
+<span class="cm"># Future loads are 10x faster with 90% less memory</span>
+
+<span class="cm"># Solution 3: Use DuckDB for SQL on files (no database server needed)</span>
+<span class="kw">import</span> duckdb
+result = duckdb.<span class="fn">execute</span>(<span class="st">"SELECT city, SUM(amount) FROM 'huge_file.csv' GROUP BY city"</span>).df()
+<span class="cm"># Runs SQL directly on the CSV file without loading it all into memory!</span>
+</div>
+<div class="box case">
+  <div class="box-tag">📦 Industry: How Meesho Handles 500GB Daily Data Exports</div>
+  <p>Meesho generates approximately 500 GB of raw transaction and event data daily. Loading this as CSV into pandas would require a server with 2+ TB RAM — impractical and expensive. Their solution uses a multi-format strategy:</p>
+  <ul style="font-size:13px;padding-left:20px;line-height:1.9">
+    <li>Raw clickstream events → Parquet in S3 (compressed from 500 GB to 42 GB)</li>
+    <li>Daily transaction summaries → Parquet partitioned by date and category</li>
+    <li>Real-time fraud scores → JSON via Kafka streams</li>
+    <li>ML training datasets → HDF5 for feature matrices</li>
+    <li>Business reports → Exported to Excel only at the final summary layer</li>
+  </ul>
+  <p style="margin:0;font-size:13px;color:var(--muted)">The format choice at each layer reduces total infrastructure cost by ~70% compared to storing everything as CSV. A data scientist joining Meesho's team must understand Parquet, Kafka, and HDF5 on Day 1 — not just CSV and Excel.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ LOADING FROM PUBLIC SOURCES ═══ -->
+<section class="section" id="s1e">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 4</span><div class="s-line"></div></div>
+<h2 class="stitle">Loading Data from Public Sources</h2>
+<p class="s-desc">The internet is overflowing with free, valuable data. The skill is knowing where to find the right source, how to access it (download vs API vs direct query), and how to load it efficiently into Python.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1e',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1e',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1e',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1e-1"><div class="lpanel-inner">
+<h4>The 3 Ways to Access Public Data</h4>
+<div class="card-row">
+  <div class="card g">
+    <div class="icon">📥</div>
+    <h5>Direct Download</h5>
+    <p>Go to a website, click "Download CSV/Excel". Simplest approach. Data is static (snapshot of one moment in time). Example: Census India district data.</p>
+  </div>
+  <div class="card b">
+    <div class="icon">⚡</div>
+    <h5>API Access</h5>
+    <p>Write code to request data programmatically. Can get real-time or live data. Reusable, automatable. Example: Weather API, NSE stock data, Open Exchange Rates.</p>
+  </div>
+  <div class="card p">
+    <div class="icon">🔍</div>
+    <h5>Web Scraping</h5>
+    <p>Write code to extract data from web pages that don't provide a download button or API. Flexible but requires checking Terms of Service first.</p>
+  </div>
+</div>
+
+<h4>Top Public Data Sources for Indian AI Projects</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Dataset</th><th>Source</th><th>What's Inside</th><th>Real AI Use Case</th></tr></thead>
+  <tbody>
+    <tr><td>IPL Ball-by-Ball Data</td><td>Kaggle / Cricsheet</td><td>Every delivery of every IPL match: bowler, batsman, runs, extras, wickets</td><td>Match outcome prediction, player performance ML, fantasy cricket AI</td></tr>
+    <tr><td>Air Quality Index (AQI)</td><td>data.gov.in / CPCB</td><td>Hourly AQI readings from 300+ stations across India, 2015–present</td><td>AQI forecasting, health alert systems, urban planning models</td></tr>
+    <tr><td>Swachh Bharat Mission Data</td><td>sbm.gov.in</td><td>Village-level toilet construction progress, open defecation free status</td><td>Sanitation impact prediction, resource allocation ML</td></tr>
+    <tr><td>NSE Historical Prices</td><td>nseindia.com</td><td>Daily open/high/low/close/volume for all NSE-listed stocks, 1994–present</td><td>Stock price prediction, portfolio optimisation, trading signal models</td></tr>
+    <tr><td>COVID-19 India State Data</td><td>covid19india.org API</td><td>Daily cases, deaths, recoveries, vaccinations per state and district</td><td>Epidemic modelling, vaccination rollout optimisation, healthcare capacity planning</td></tr>
+    <tr><td>India Crop Production</td><td>data.gov.in</td><td>District-level crop yields for 50+ crops over 40+ years</td><td>Agricultural yield prediction, MSP forecasting, food security models</td></tr>
+    <tr><td>NIFTY 50 Data</td><td>Yahoo Finance API</td><td>Daily index levels, PE ratios, constituent changes</td><td>Market direction forecasting, risk models, macro-economic sentiment</td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l2" id="s1e-2"><div class="lpanel-inner">
+<h4>Loading Data via APIs in Python</h4>
+<div class="code">
+<span class="cm"># Method 1: Load a public CSV directly from a URL (no download needed)</span>
+url = <span class="st">"https://raw.githubusercontent.com/datasets/covid-19/main/data/worldwide-aggregated.csv"</span>
+df = pd.<span class="fn">read_csv</span>(url)   <span class="cm"># Works exactly like reading a local file!</span>
+<span class="fn">print</span>(df.shape)         <span class="cm"># (n_rows, n_cols) — data loaded from the internet directly</span>
+
+<span class="cm"># Method 2: Use the requests library for JSON APIs</span>
+<span class="kw">import</span> requests
+
+response = requests.<span class="fn">get</span>(<span class="st">"https://api.covid19india.org/data.json"</span>)
+data = response.<span class="fn">json</span>()         <span class="cm"># Parse JSON response</span>
+df = pd.<span class="fn">DataFrame</span>(data[<span class="st">'cases_time_series'</span>])
+
+<span class="cm"># Method 3: Yahoo Finance for Indian stock data (free, no API key needed)</span>
+<span class="kw">import</span> yfinance <span class="kw">as</span> yf
+
+nifty = yf.<span class="fn">download</span>(<span class="st">"^NSEI"</span>, start=<span class="st">"2020-01-01"</span>, end=<span class="st">"2024-01-01"</span>)
+<span class="cm"># Downloads NIFTY 50 daily data for 4 years in 2 seconds</span>
+
+reliance = yf.<span class="fn">download</span>(<span class="st">"RELIANCE.NS"</span>, start=<span class="st">"2023-01-01"</span>)
+<span class="cm"># .NS suffix = NSE-listed stock (RELIANCE.BO = BSE-listed)</span>
+
+<span class="cm"># Method 4: Kaggle API (download datasets directly in Python)</span>
+<span class="kw">import</span> kaggle
+kaggle.api.<span class="fn">dataset_download_files</span>(<span class="st">'username/dataset-name'</span>, path=<span class="st">'./data'</span>, unzip=<span class="kw">True</span>)
+<span class="cm"># Downloads, saves, and unzips a Kaggle dataset to your local folder</span>
+</div>
+
+<div class="box story">
+  <div class="story-hd">
+    <div class="story-ico">🌾</div>
+    <div class="story-meta"><h5>Real Project: Building a Crop Price Prediction Model for Bihar Farmers</h5><span class="tag">Agriculture · Public Data · Social Impact</span></div>
+  </div>
+  <p>A team of data scientists at IIT Patna built a model to help Bihar farmers decide the best time to sell their produce. They used entirely <strong>free public data sources</strong>:</p>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Mandi Price Data — Agmarknet (data.gov.in)</h5><p>Historical daily prices for 300+ crops at 2,000+ mandis across India. Free download, updated daily.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Weather Data — IMD Open Data Portal</h5><p>Historical rainfall, temperature, humidity for every district. API access available for registered users (free academic registration).</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Crop Production Statistics — data.gov.in</h5><p>District-wise crop area and yield for 40+ years. Download as CSV.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Road Connectivity Data — PMGSY</h5><p>Which villages have paved road access (affects transport cost to mandi). Open government data.</p></div></div>
+  </div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">Total data acquisition cost: ₹0. The entire project was possible because India has invested heavily in open government data. The model predicts optimal selling week with 74% accuracy — potentially worth ₹12,000+ per year per farmer who uses it.</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1e-3"><div class="lpanel-inner">
+<h4>API Authentication — How Enterprise Public APIs Work</h4>
+<div class="code">
+<span class="cm"># Most high-quality public APIs require a FREE API key (just register)</span>
+<span class="cm"># This identifies you, enforces rate limits, and enables usage tracking</span>
+
+<span class="cm"># Example: OpenWeatherMap API (free tier: 60 calls/minute, 1M calls/month)</span>
+<span class="kw">import</span> requests, os
+
+API_KEY = os.environ.<span class="fn">get</span>(<span class="st">"WEATHER_API_KEY"</span>)  <span class="cm"># NEVER hardcode API keys in your code!</span>
+                                               <span class="cm"># Store in environment variables</span>
+
+response = requests.<span class="fn">get</span>(
+    <span class="st">"https://api.openweathermap.org/data/2.5/weather"</span>,
+    params={<span class="st">"q"</span>: <span class="st">"Howrah,IN"</span>, <span class="st">"appid"</span>: API_KEY, <span class="st">"units"</span>: <span class="st">"metric"</span>}
+)
+
+<span class="cm"># Always check if the request succeeded before using the data!</span>
+<span class="kw">if</span> response.status_code == <span class="nu">200</span>:
+    weather = response.<span class="fn">json</span>()
+    temp = weather[<span class="st">'main'</span>][<span class="st">'temp'</span>]
+    <span class="fn">print</span>(<span class="st">f"Current temperature in Howrah: {temp}°C"</span>)
+<span class="kw">elif</span> response.status_code == <span class="nu">401</span>:
+    <span class="fn">print</span>(<span class="st">"Invalid API key — check your credentials"</span>)
+<span class="kw">elif</span> response.status_code == <span class="nu">429</span>:
+    <span class="fn">print</span>(<span class="st">"Rate limit exceeded — too many requests, slow down"</span>)
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ WEB SCRAPING HTML TABLE ═══ -->
+<section class="section" id="s1f">
+<div class="s-meta"><span class="s-chip s1">Session 1 · Segment 5</span><div class="s-line"></div></div>
+<h2 class="stitle">Web Scraping HTML Tables</h2>
+<p class="s-desc">Web scraping is the automated extraction of data from websites. When there's no download button and no API, scraping is how data scientists get the data they need — ethically and legally.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s1f',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s1f',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s1f',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s1f-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📸 The Copy-Paste Automation Analogy</div>
+  <p>Imagine a Wikipedia page with a table of "All IPL Champions by Year." You could manually select the table, copy it, paste it into Excel, fix the formatting, save as CSV. That takes 20 minutes and is one snapshot in time.</p>
+  <p>Web scraping is a Python script that does this automatically in 2 seconds — and can be re-run whenever you need fresh data. The script "reads" the webpage, "finds" the table, and "copies" the data — just like you would manually, but programmatically.</p>
+  <p style="margin:0"><strong>Important:</strong> Before scraping any website, check: (1) The website's robots.txt file (what they allow scrapers to access). (2) Their Terms of Service. (3) Whether you're causing excessive server load. Scraping public data is generally legal; scraping in violation of ToS creates legal risk.</p>
+</div>
+
+<h4>How a Web Page Is Structured (What You're Actually Scraping)</h4>
+<div class="code">
+<span class="cm">&lt;!-- Every website is made of HTML tags. A table looks like this: --&gt;</span>
+&lt;<span class="kw">table</span>&gt;
+  &lt;<span class="kw">thead</span>&gt;
+    &lt;<span class="kw">tr</span>&gt;                                  <span class="cm">&lt;!-- table row --&gt;</span>
+      &lt;<span class="kw">th</span>&gt;Year&lt;/<span class="kw">th</span>&gt;                       <span class="cm">&lt;!-- table header --&gt;</span>
+      &lt;<span class="kw">th</span>&gt;IPL Champion&lt;/<span class="kw">th</span>&gt;
+      &lt;<span class="kw">th</span>&gt;Runner Up&lt;/<span class="kw">th</span>&gt;
+    &lt;/<span class="kw">tr</span>&gt;
+  &lt;/<span class="kw">thead</span>&gt;
+  &lt;<span class="kw">tbody</span>&gt;
+    &lt;<span class="kw">tr</span>&gt;
+      &lt;<span class="kw">td</span>&gt;2023&lt;/<span class="kw">td</span>&gt;                       <span class="cm">&lt;!-- table data cell --&gt;</span>
+      &lt;<span class="kw">td</span>&gt;Chennai Super Kings&lt;/<span class="kw">td</span>&gt;
+      &lt;<span class="kw">td</span>&gt;Gujarat Titans&lt;/<span class="kw">td</span>&gt;
+    &lt;/<span class="kw">tr</span>&gt;
+  &lt;/<span class="kw">tbody</span>&gt;
+&lt;/<span class="kw">table</span>&gt;
+
+<span class="cm"># When you "scrape" this table, you're extracting:</span>
+<span class="cm"># - The column headers from &lt;th&gt; tags: Year, IPL Champion, Runner Up</span>
+<span class="cm"># - The data rows from &lt;td&gt; tags: 2023, Chennai Super Kings, Gujarat Titans</span>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s1f-2"><div class="lpanel-inner">
+<h4>The 3 Tools for Web Scraping HTML Tables</h4>
+
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">🔥 Tool 1: pandas.read_html() — The 1-Line Miracle <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>If the data is in an actual HTML <code>&lt;table&gt;</code> tag, pandas can scrape it directly. No other libraries needed.</p>
+    <div class="code">
+<span class="cm"># Get all tables from a Wikipedia page in ONE LINE!</span>
+tables = pd.<span class="fn">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/Indian_Premier_League"</span>)
+
+<span class="fn">print</span>(<span class="kw">len</span>(tables))  <span class="cm"># → 12 (Wikipedia page has 12 tables)</span>
+
+<span class="cm"># Find the right table (check each one)</span>
+<span class="kw">for</span> i, table <span class="kw">in</span> <span class="fn">enumerate</span>(tables):
+    <span class="fn">print</span>(<span class="st">f"Table {i}: {table.shape} columns: {list(table.columns[:3])}"</span>)
+
+<span class="cm"># Once you find the right one (e.g., table index 3)</span>
+ipl_champions = tables[<span class="nu">3</span>]
+<span class="fn">print</span>(ipl_champions.<span class="fn">head</span>())
+<span class="cm"># Done! IPL history is now a pandas DataFrame — ready for analysis</span>
+    </div>
+    <p style="margin:0;font-size:13px;color:var(--muted)"><strong>Limitation:</strong> Only works on real HTML tables (&lt;table&gt; tags). Many modern websites render tables with JavaScript — those need BeautifulSoup or Selenium.</p>
+  </div>
+</div>
+
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">🍜 Tool 2: BeautifulSoup — When You Need More Control <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <p>BeautifulSoup lets you navigate the HTML structure and extract any data, not just table tags.</p>
+    <div class="code">
+<span class="kw">import</span> requests
+<span class="kw">from</span> bs4 <span class="kw">import</span> BeautifulSoup
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># Step 1: Download the webpage</span>
+url = <span class="st">"https://www.bseindia.com/sensex/sensex.html"</span>
+response = requests.<span class="fn">get</span>(url, headers={<span class="st">'User-Agent'</span>: <span class="st">'Mozilla/5.0'</span>})
+
+<span class="cm"># Step 2: Parse the HTML</span>
+soup = BeautifulSoup(response.content, <span class="st">'html.parser'</span>)
+
+<span class="cm"># Step 3: Find the table</span>
+table = soup.<span class="fn">find</span>(<span class="st">'table'</span>, {<span class="st">'class'</span>: <span class="st">'stock-data'</span>})  <span class="cm"># Find by CSS class</span>
+
+<span class="cm"># Step 4: Extract rows</span>
+rows = []
+<span class="kw">for</span> tr <span class="kw">in</span> table.<span class="fn">find_all</span>(<span class="st">'tr'</span>)[<span class="nu">1</span>:]:   <span class="cm"># Skip header row</span>
+    cells = [td.<span class="fn">get_text</span>(strip=<span class="kw">True</span>) <span class="kw">for</span> td <span class="kw">in</span> tr.<span class="fn">find_all</span>(<span class="st">'td'</span>)]
+    rows.<span class="fn">append</span>(cells)
+
+df = pd.<span class="fn">DataFrame</span>(rows, columns=[<span class="st">'Company'</span>, <span class="st">'Price'</span>, <span class="st">'Change'</span>, <span class="st">'Volume'</span>])
+    </div>
+  </div>
+</div>
+
+<div class="box warn">
+  <div class="box-tag">⚠️ Before You Scrape — The Ethics Checklist</div>
+  <ul style="font-size:14px;padding-left:20px;line-height:1.9">
+    <li><strong>Check robots.txt:</strong> Visit website.com/robots.txt — it specifies which pages allow scraping. Respect "Disallow" directives.</li>
+    <li><strong>Rate limiting:</strong> Add <code>time.sleep(1)</code> between requests. Hammering a server with 1000 requests/second is a DDoS attack, not data science.</li>
+    <li><strong>Personal data:</strong> Never scrape email addresses, phone numbers, or user profiles without explicit permission. DPDPA makes this a legal risk in India.</li>
+    <li><strong>Commercial vs research:</strong> Many ToS allow scraping for personal research but prohibit commercial use. Know which category your project falls into.</li>
+    <li><strong>If there's an API, use it:</strong> If a website provides an official API, using it is always preferable to scraping. It's more reliable, legal, and doesn't burden their servers.</li>
+  </ul>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s1f-3"><div class="lpanel-inner">
+<div class="box case">
+  <div class="box-tag">📈 Industry Case: MoneyControl Scraping for Competitive Intelligence</div>
+  <p>A hedge fund's data team built an automated scraping system to collect quarterly earnings data from MoneyControl for all NSE-listed companies — 1,700+ companies, updated immediately when results are published.</p>
+  <p><strong>Why scraping instead of API?</strong> NSE/BSE APIs have delayed data and limited historical depth. MoneyControl has richer data (analyst notes, management commentary) not available through official APIs.</p>
+  <p><strong>Technical challenges solved:</strong></p>
+  <ul style="font-size:13px;padding-left:20px;line-height:1.9">
+    <li><strong>JavaScript-rendered tables:</strong> MoneyControl uses React. BeautifulSoup couldn't see the tables. Solution: Selenium (browser automation) to render JavaScript first, then parse.</li>
+    <li><strong>Rate limiting:</strong> Distributed scraping across 5 different IP addresses. 2-5 second random delays between requests. Stayed under 200 requests/minute.</li>
+    <li><strong>Format inconsistency:</strong> Different companies report numbers in crores vs lakhs vs millions. Post-scraping normalisation pipeline converted all to crores.</li>
+    <li><strong>Broken pages:</strong> ~3% of pages failed to load. Retry logic with exponential backoff.</li>
+  </ul>
+  <p style="margin:0;font-size:13px;color:var(--muted)">The system runs 4 times daily during earnings season. The fund's portfolio managers have earnings data 15-20 minutes before it appears in Bloomberg terminals — a significant edge worth millions.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ S2A: DATA CLEANING INTRO ═══ -->
+<section class="section" id="s2a">
+<div class="s-meta"><span class="s-chip s2">Session 2 · Segment 1</span><div class="s-line"></div></div>
+<h2 class="stitle">Introduction to Data Cleaning</h2>
+<p class="s-desc">This is the most important, most time-consuming, and most underestimated skill in all of data science. Before any AI model can learn, a human must clean the data it will learn from.</p>
+
+<div class="box danger">
+  <div class="box-tag">⚠️ The Single Most Important Rule</div>
+  <p style="font-size:22px;font-weight:700;color:var(--red);margin:8px 0">"Garbage In → Garbage Out (GIGO)"</p>
+  <p>A state-of-the-art AI model fed dirty data will produce wrong answers with 100% confidence. The model has no way to know the data is bad — it simply learns the wrong patterns. The most expensive AI system in the world cannot overcome fundamentally corrupted training data.</p>
+</div>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s2a',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s2a',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s2a',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s2a-1"><div class="lpanel-inner">
+<h4>The 8 Problems in One Dataset — Can You Find Them All?</h4>
+<p>This is a real-world-style student admissions dataset. Every row with problems is shown. Count the errors before revealing:</p>
+<div class="data-demo"><table>
+  <thead><tr><th>Student Name</th><th>Age</th><th>City</th><th>Score %</th><th>Email</th><th>Phone</th><th>Joined</th></tr></thead>
+  <tbody>
+    <tr class="hl-row"><td>Ravi Kumar</td><td class="ok-cell">22</td><td class="ok-cell">Mumbai</td><td class="ok-cell">82</td><td class="ok-cell"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="691b081f00290e04080005470a0604">[email&#160;protected]</a></td><td class="ok-cell">9876543210</td><td class="ok-cell">15-01-2024</td></tr>
+    <tr><td class="bad-cell">priya sharma</td><td class="bad-cell">-5</td><td class="warn-cell">mumbai</td><td class="bad-cell"></td><td class="bad-cell">priya@</td><td>9876543211</td><td>15-01-2024</td></tr>
+    <tr><td class="bad-cell">AMIT SINGH</td><td>21</td><td class="bad-cell">Mumb@i</td><td class="bad-cell">110</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fd9c909489bd9a909c9491d39e9290">[email&#160;protected]</a></td><td class="bad-cell">123</td><td class="warn-cell">January 15</td></tr>
+    <tr><td class="bad-cell">Ravi Kumar</td><td class="bad-cell">22</td><td class="bad-cell">Mumbai</td><td class="bad-cell">82</td><td class="bad-cell"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="354754435c755258545c591b565a58">[email&#160;protected]</a></td><td class="bad-cell">9876543210</td><td class="bad-cell">15-01-2024</td></tr>
+    <tr><td>Neha Joshi</td><td class="bad-cell">250</td><td>Delhi</td><td>77</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9bf5fef3fadbe2faf3f4f4b5f8f4f6">[email&#160;protected]</a></td><td>9898989898</td><td>15-01-2024</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:12px;color:var(--muted)">🔴 Red = clear error | 🟡 Yellow = inconsistency | 🟢 Row 1 = clean benchmark</p>
+
+<div class="acc">
+  <div class="acc-hd" onclick="tog(this)">🔍 Reveal All 10 Problems with Explanations <span class="arr">▼</span></div>
+  <div class="acc-bd">
+    <ul>
+      <li><strong>1. Inconsistent name casing</strong>: "priya sharma" (lowercase) and "AMIT SINGH" (uppercase) vs standard "First Last" format. A computer sees these as potentially different people.</li>
+      <li><strong>2. Impossible age (-5)</strong>: No human has a negative age. This is either a data entry error (meant 15?) or a system default when age was skipped.</li>
+      <li><strong>3. Missing score for Priya</strong>: The cell is empty (NULL). We don't know if she didn't take the test, scored 0, or it was never entered.</li>
+      <li><strong>4. Invalid email (priya@)</strong>: Structurally invalid — missing domain. Cannot send any email to this address.</li>
+      <li><strong>5. Inconsistent city name (mumbai)</strong>: "mumbai" vs "Mumbai" — a computer treats these as two different cities. Merging these = "City has 1 student" × 2 wrong entries.</li>
+      <li><strong>6. Typo in city (Mumb@i)</strong>: The @ symbol crept in. This is not Mumbai — it's an invalid city name.</li>
+      <li><strong>7. Impossible score (110%)</strong>: Maximum is 100. This is an entry error — perhaps meant 10? Or 90? We can't know without going back to source.</li>
+      <li><strong>8. Invalid phone (123)</strong>: Far too short. Indian mobile numbers are exactly 10 digits. This field was clearly not validated at entry time.</li>
+      <li><strong>9. Complete duplicate row (Row 4)</strong>: Ravi Kumar appears twice, identically. Every column matches Row 1. This is a pure system or entry duplication.</li>
+      <li><strong>10. Inconsistent date format (Row 3)</strong>: "January 15" has no year. Is this 2024? 2023? Completely ambiguous and unusable for time-based analysis.</li>
+    </ul>
+    <p style="margin-top:10px;font-size:13px;color:var(--muted)">📌 That's 10 problems in 5 rows and 7 columns. Real datasets have 85,000 rows and 40+ columns. The scale of this problem in production data is enormous — which is why data cleaning takes 60-80% of a data scientist's time.</p>
+  </div>
+</div>
+
+<div class="box analogy">
+  <div class="box-tag">🎨 The Art Gallery Analogy</div>
+  <p>Imagine you are organising the world's largest art exhibition. You receive 10,000 paintings from 500 artists around the world. When the crates arrive:</p>
+  <ul>
+    <li>Some paintings have no labels (missing values)</li>
+    <li>Some labels say "oil painting" but are clearly watercolours (incorrect data)</li>
+    <li>Some artists used "Van Gogh" and others "Vincent van Gogh" (inconsistency)</li>
+    <li>3 paintings are exact copies of each other (duplicates)</li>
+    <li>One painting's claimed size is 5 metres × 3 metres but the frame is clearly 50cm × 30cm (invalid value)</li>
+  </ul>
+  <p style="margin:0;">Before the gallery can open — before a single visitor can experience the art — you need to sort all of this out. That organisation process is data cleaning. The gallery cannot open with unlabelled, mislabelled, or duplicated exhibits.</p>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s2a-2"><div class="lpanel-inner">
+<h4>The 6 Dimensions of Data Quality</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Dimension</th><th>Definition</th><th>How to Measure It</th><th>Business Impact if Failed</th></tr></thead>
+  <tbody>
+    <tr><td>Completeness</td><td>Are all required values present?</td><td>% of non-null values in each column</td><td>Recommendation engine can't personalise for customers with missing preferences</td></tr>
+    <tr><td>Accuracy</td><td>Do values correctly represent reality?</td><td>Cross-reference with trusted source; range checks</td><td>A hospital doses medication based on wrong weight → patient safety risk</td></tr>
+    <tr><td>Consistency</td><td>Does the same thing look the same everywhere?</td><td>Count unique variants of the same value</td><td>Revenue report shows "Bombay" and "Mumbai" as two separate markets</td></tr>
+    <tr><td>Validity</td><td>Do values conform to defined rules and formats?</td><td>Regex pattern matching, range validation</td><td>10,000 emails bounce because the email column wasn't validated at entry</td></tr>
+    <tr><td>Uniqueness</td><td>Is each record represented only once?</td><td>Count duplicate rows/keys</td><td>Customer gets charged twice; bank discovers duplicate loan applications</td></tr>
+    <tr><td>Timeliness</td><td>Is the data current enough for its purpose?</td><td>Check max timestamp, compare to today's date</td><td>Marketing SMS sent to customers who cancelled 3 years ago</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box story">
+  <div class="story-hd">
+    <div class="story-ico">🏦</div>
+    <div class="story-meta"><h5>HDFC Bank — The ₹800 Crore Cost of Dirty Data</h5><span class="tag">Banking · Credit Risk · 2019 · Real Incident</span></div>
+  </div>
+  <p>In 2019, a major Indian bank conducted a post-mortem on ₹800 crore in written-off bad loans. The primary finding was unexpected: <strong>the credit scoring AI model was performing correctly</strong>. The problem was the data it was trained and scored on.</p>
+  <p>Three specific data quality failures were identified:</p>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Monthly vs Annual Income Mix-Up</h5><p>12% of "Annual Income" fields contained <em>monthly</em> salary figures. A customer earning ₹60,000/month had "60000" entered where the model expected annual income of "720000". The model saw this as an extremely low-income person and either rejected legitimate loans (losing business) or, in some configurations, classified them as a different risk segment entirely.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Decimal Point Errors</h5><p>8% of entries had decimal errors: ₹1,20,000 entered as ₹12,000. These appeared as very low income customers. The model approved smaller loan amounts than the customer actually qualified for — either frustrating customers or exposing the bank to over-leverage risk.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Informal Income Entered as Zero, Not Missing</h5><p>For self-employed applicants, loan officers who couldn't verify informal income entered "0" instead of leaving the field blank (NULL). The model treated 0 as "no income" rather than "income unknown" — a critical distinction. These applicants were systematically disadvantaged.</p></div></div>
+  </div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">💡 None of these were AI failures. The model did exactly what it was built to do. They were data quality failures at the point of entry, propagated through to model scoring. The fix required retraining the model with cleaned data AND implementing real-time validation at the data entry screen.</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s2a-3"><div class="lpanel-inner">
+<h4>The Data Cleaning Workflow in Professional Practice</h4>
+<div class="timeline">
+  <div class="tl-item" data-n="1"><h5>Profiling (Day 1)</h5><p>Automated statistical summary of every column: data type, % null, min/max/mean, unique value count, most common values. This gives you a map of where problems are hiding. Tools: pandas-profiling, Great Expectations, Ataccama.</p></div>
+  <div class="tl-item" data-n="2"><h5>Write the Data Contract (Day 1-2)</h5><p>Before touching any data, document what "good data" looks like. Write validation rules for every column. This is your reference standard for all cleaning decisions. This step prevents disputes later about whether something is a bug or a feature.</p></div>
+  <div class="tl-item" data-n="3"><h5>Structural Fixes (Day 2-3)</h5><p>Fix data types, drop irrelevant columns, rename columns to a consistent naming convention, handle structural issues like merged header rows, footer totals.</p></div>
+  <div class="tl-item" data-n="4"><h5>Deduplication (Day 3)</h5><p>Remove exact duplicates first. Then investigate near-duplicates using fuzzy matching. Escalate ambiguous cases for domain expert review rather than making assumptions.</p></div>
+  <div class="tl-item" data-n="5"><h5>Missing Value Treatment (Day 4-5)</h5><p>Analyse patterns: is missingness random or systematic? Decide treatment per column based on business impact, % missing, and downstream use. Document every imputation decision.</p></div>
+  <div class="tl-item" data-n="6"><h5>Invalid Value Detection and Repair (Day 5-6)</h5><p>Run validation rules from the data contract. Flag violations. Fix what can be fixed programmatically. Escalate what requires human judgment or source system investigation.</p></div>
+  <div class="tl-item" data-n="7"><h5>Outlier Analysis (Day 6-7)</h5><p>Statistical detection (IQR, Z-score) plus visual exploration. Distinguish data errors from legitimate extremes. Domain expert involvement is essential for this step.</p></div>
+  <div class="tl-item" data-n="8"><h5>Standardisation (Day 7-8)</h5><p>Consistent text formats, date formats, unit conversion, encoding of categorical variables.</p></div>
+  <div class="tl-item" data-n="9"><h5>Final Validation + Documentation (Day 9)</h5><p>Re-run the data contract validation suite. All rules should pass. Produce a Data Quality Report: what was found, what was changed, what was escalated, what known issues remain.</p></div>
+</div>
+<div class="box tip">
+  <div class="box-tag">🏆 Pro Practice: Always Write a Data Cleaning Report</div>
+  <p style="margin:0;font-size:14px">This document protects you legally (GDPR/data audits), enables reproducibility (anyone can re-run your process), and is required for regulated industries (pharma, banking, healthcare). It also enables model debugging: if a model predicts strangely 6 months later, you can trace it back to data cleaning decisions made during preparation.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ S2B: DATA TYPES ═══ -->
+<section class="section" id="s2b">
+<div class="s-meta"><span class="s-chip s2">Session 2 · Segment 2</span><div class="s-line"></div></div>
+<h2 class="stitle">Data Types</h2>
+<p class="s-desc">Every value in a dataset has a type. Getting it wrong is like trying to add apples and oranges — the computer either crashes, silently gives wrong answers, or wastes enormous memory.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s2b',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s2b',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s2b',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s2b-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📦 The Container Analogy</div>
+  <p>Imagine you have different containers in your kitchen: a water bottle, a sugar jar, an egg carton, a spice rack. Each is designed for one type of thing. If you pour water into the sugar jar, you ruin the sugar. If you try to put an egg in the water bottle, it doesn't fit.</p>
+  <p style="margin:0">Data types are exactly the same principle. An Integer container holds only whole numbers. A String container holds text. If you pour text into an Integer container, the computer either rejects it or silently corrupts it — just like water in a sugar jar ruins what was already there.</p>
+</div>
+
+<h4>The 7 Core Data Types — With Stories</h4>
+<div class="acc"><div class="acc-hd" onclick="tog(this)">🔢 Integer — Whole Numbers Only <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>What it is:</strong> Whole numbers with no decimal part. Can be positive or negative.</p>
+  <p><strong>Real examples:</strong> Number of students in class (42, not 42.5), floors in a building, number of orders, age in years, PIN code.</p>
+  <p><strong>Critical trap — PIN codes and IDs:</strong> Delhi's PIN code is 110001. If stored as Integer, it stays 110001. But Goa's PIN 403001 also fine. HOWEVER: if you ever need to pad with zeros or compare as text, Integer breaks things. This is why you should often store codes as strings even when they look like numbers.</p>
+  <p><strong>Memory fact:</strong> An integer takes 4-8 bytes. A text/string of the same number takes up to 10+ bytes. For a column with 100 million rows, choosing Integer over String for numbers can save gigabytes of memory.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">🔣 Float/Decimal — Numbers with Precision <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>What it is:</strong> Numbers that can have a fractional part (after the decimal point).</p>
+  <p><strong>Real examples:</strong> Price ₹99.99, temperature 36.7°C, GPS latitude 18.9220° N, interest rate 8.5%, weight 68.3 kg, Ola surge multiplier 1.8x.</p>
+  <p><strong>The ₹1 vs ₹0.99 problem:</strong> If you store price as Integer, ₹99.99 becomes ₹99. For 10 million transactions, you've undercharged by ₹10 million! Flipkart's entire pricing system depends on decimal precision.</p>
+  <p><strong>Float precision warning:</strong> Computers represent decimals in binary, which causes tiny rounding errors. 0.1 + 0.2 in a computer is actually 0.30000000000000004, not 0.3. For money calculations, banks use a special "Decimal" type that avoids this issue. This is why your bank balance never shows a fraction of a paisa.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">📝 String/Text — Any Characters <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>What it is:</strong> Any sequence of characters: letters, numbers, symbols, spaces. The most flexible type.</p>
+  <p><strong>Real examples:</strong> Names ("Vineet Jhabak"), Aadhaar number ("1234 5678 9012"), PAN ("ABCDE1234F"), addresses, Zomato reviews, product descriptions.</p>
+  <p><strong>The "9" + "1" = "91" trap:</strong> If you store numbers as text and try to add them, Python does string concatenation instead of arithmetic. "9" + "1" = "91", not 10. This has caused real financial calculation errors in banking systems where amounts were accidentally stored as text.</p>
+  <p><strong>Why Aadhaar must be String:</strong> Aadhaar numbers start with 1-9. Some start with lower digits. More importantly, you never CALCULATE with an Aadhaar number — you just store and look it up. Storing as Integer is wrong because (a) you might lose leading digits in edge cases, (b) doing arithmetic on ID numbers is meaningless.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">📅 DateTime — Time is Special <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>What it is:</strong> Stores a specific point in time. Has special arithmetic abilities that text doesn't have.</p>
+  <p><strong>Real examples:</strong> Order placed: 2024-01-15 14:32:07. Flight departs: 2024-03-20 06:15:00 IST. Birthday: 1995-08-22.</p>
+  <p><strong>Why DateTime beats text for dates:</strong> If "Order_Date" is stored as text "15-Jan-2024", you cannot ask: "How many days since this order?" The computer doesn't know "15-Jan-2024" is a date. But if stored as DateTime, you can do: Today (2024-03-10) - Order_Date (2024-01-15) = 55 days. This powers every "Expected delivery in X days" calculation on every e-commerce site.</p>
+  <p><strong>IRCTC reservation example:</strong> IRCTC must enforce: you cannot book a train ticket for a date in the past. This validation only works if booking_date is stored as DateTime. If it's text, "01-Mar-2023" comes alphabetically AFTER "31-Dec-2022" in some sorting orders — and the validation fails.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">✅ Boolean — The Yes/No World <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>What it is:</strong> Only two possible values: True or False (also stored as 1 or 0). The most memory-efficient type (1 bit!).</p>
+  <p><strong>Real examples:</strong> Is_Active_Customer: True/False. Has_Aadhaar: True/False. Is_Verified_Seller (Flipkart): True/False. Is_Weekend: True/False.</p>
+  <p><strong>The inconsistency problem:</strong> Without enforced Boolean type, the same yes/no question gets answered as: "Yes", "yes", "YES", "Y", "y", "1", "True", "true", "TRUE", "X" — all meaning the same thing. When you filter for active customers with is_active = "Yes", you miss all the "true" and "1" entries. Bangalore telecoms lost 8% of their "active subscriber" count in a report because of this exact issue.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">🗂️ Categorical — Fixed Set of Options <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>What it is:</strong> A column that can only take one value from a predefined list. Like a multiple-choice question.</p>
+  <p><strong>Real examples:</strong> Blood type (A/B/AB/O), Gender, City tier (Tier-1/2/3), Employment type (Salaried/Self-employed/Retired), Product category, Train class (1AC/2AC/3AC/SL/General).</p>
+  <p><strong>Why it matters for memory and AI:</strong> If "Product_Category" is stored as plain text, pandas/Python treats each unique string as independent. With 50,000 products all in "Electronics", it stores "Electronics" 50,000 times. As Categorical type, it stores the label once and just numbers (0,1,2...) in each row. 10-100x memory reduction for high-cardinality repeated categories. Large datasets can become workable from memory-crushing.</p>
+  <p><strong>Encoding for ML:</strong> Machine learning models only understand numbers. Categorical columns must be converted: "Salaried" → 0, "Self-employed" → 1, "Retired" → 2. This is called "Label Encoding". More advanced is "One-Hot Encoding": create a separate column for each category with 0/1. Essential before any ML model training.</p>
+</div></div>
+
+<div class="quiz" id="q2">
+  <h5>🧠 Check: A Zomato restaurant's menu shows dishes with prices like "₹299", "₹149.50", "₹899". When cleaning this data for analysis, which type should the Price column be?</h5>
+  <div class="quiz-opts">
+    <button class="qopt" onclick="doQuiz('q2',this,false)">String, because it has the ₹ symbol</button>
+    <button class="qopt" onclick="doQuiz('q2',this,true)">Float, after stripping the ₹ symbol — because prices can have decimal values</button>
+    <button class="qopt" onclick="doQuiz('q2',this,false)">Integer, because most prices are whole numbers</button>
+    <button class="qopt" onclick="doQuiz('q2',this,false)">Boolean, because the dish either has a price or doesn't</button>
+  </div>
+  <div class="qfb" id="q2-fb"></div>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s2b-2"><div class="lpanel-inner">
+<h4>The 7 Most Dangerous Data Type Mistakes in Real Projects</h4>
+
+<div class="tbl"><table>
+  <thead><tr><th>Mistake</th><th>What Gets Entered</th><th>What Breaks</th><th>Real Consequence</th></tr></thead>
+  <tbody>
+    <tr><td>Currency as String</td><td>"₹1,29,999" in a Price column</td><td>All arithmetic: sum, average, comparison</td><td>E-commerce can't calculate average order value, can't identify high-value orders</td></tr>
+    <tr><td>Date as Text</td><td>"15-Jan-2024" or "Jan 15, 2024"</td><td>All date arithmetic: days between, sort by date</td><td>Cannot calculate "days since last purchase" — kills retention analysis</td></tr>
+    <tr><td>ID as Integer</td><td>Customer ID "00714" stored as 714</td><td>Leading zeros lost; ID lookup fails</td><td>Customer "00714" and customer "714" now appear identical — deduplication fails</td></tr>
+    <tr><td>Phone as Integer</td><td>+91-9876-543210 stored as number</td><td>Country code, formatting lost</td><td>International customers' phones all wrong; OTP delivery fails</td></tr>
+    <tr><td>Boolean as inconsistent text</td><td>"Y", "yes", "Yes", "TRUE", "1" in same column</td><td>Filtering returns incomplete results</td><td>Report shows 40% active users when it's actually 68% — wrong business decisions</td></tr>
+    <tr><td>Percentage format mismatch</td><td>Some rows: "8.5" (meaning 8.5%), others: "0.085" (also 8.5%)</td><td>All analysis wildly wrong for mixed rows</td><td>Loan EMI calculated at 850% interest for some customers — system refused all their loan applications</td></tr>
+    <tr><td>Mixed numeric/text in one column</td><td>"17 years", "22", "N/A", "unknown"</td><td>Column can't be used for any calculation</td><td>Cannot calculate average age; customer age segmentation fails entirely</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box story">
+  <div class="story-hd">
+    <div class="story-ico">🚀</div>
+    <div class="story-meta"><h5>NASA Mars Climate Orbiter — $327 Million Lost to a Data Type Problem</h5><span class="tag">Space · 1999 · Real Disaster · Unit Mismatch</span></div>
+  </div>
+  <p>On September 23, 1999, NASA lost the $327 million Mars Climate Orbiter spacecraft. Post-investigation revealed the cause: one engineering team's navigation software produced values in <strong>pound-force seconds</strong>, while the receiving system expected <strong>Newton seconds</strong> (the metric equivalent, about 4.45x smaller).</p>
+  <p>The spacecraft's thrusters were fired with values 4.45x too large. Instead of entering Mars orbit at the right altitude (≈150 km), the spacecraft entered at ≈57 km and was destroyed by atmospheric friction.</p>
+  <p>In data science terms: <strong>same column name, different units, no type-level enforcement</strong>. The column "thruster_force" accepted any float — but nobody specified WHICH unit the float represented.</p>
+  <p style="margin:0;font-size:13px;color:var(--muted)">💡 Modern ML pipelines use explicit unit metadata attached to numeric columns. A temperature column doesn't just say "float" — it says "float, degrees Celsius, range -50 to 60". Unit mismatches are now the #1 data type error in multi-team ML projects.</p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s2b-3"><div class="lpanel-inner">
+<h4>Schema Enforcement in Production Systems</h4>
+<div class="code">
+<span class="cm"># Production schema definition — how Paytm defines their transaction table</span>
+<span class="cm"># This is enforced automatically on every incoming record</span>
+
+transaction_schema = {
+  <span class="st">"transaction_id"</span>:  {<span class="st">"type"</span>: <span class="st">"STRING"</span>,   <span class="st">"nullable"</span>: <span class="kw">False</span>,  <span class="st">"regex"</span>: <span class="st">"^TXN[0-9]{16}$"</span>},
+  <span class="st">"amount"</span>:           {<span class="st">"type"</span>: <span class="st">"DECIMAL(12,2)"</span>, <span class="st">"nullable"</span>: <span class="kw">False</span>,  <span class="st">"min"</span>: <span class="nu">0.01</span>, <span class="st">"max"</span>: <span class="nu">200000</span>},
+  <span class="st">"currency"</span>:         {<span class="st">"type"</span>: <span class="st">"STRING(3)"</span>,  <span class="st">"nullable"</span>: <span class="kw">False</span>,  <span class="st">"allowed"</span>: [<span class="st">"INR"</span>,<span class="st">"USD"</span>,<span class="st">"EUR"</span>]},
+  <span class="st">"merchant_id"</span>:      {<span class="st">"type"</span>: <span class="st">"STRING"</span>,   <span class="st">"nullable"</span>: <span class="kw">False</span>},
+  <span class="st">"customer_phone"</span>:   {<span class="st">"type"</span>: <span class="st">"STRING(10)"</span>, <span class="st">"nullable"</span>: <span class="kw">True</span>,   <span class="st">"regex"</span>: <span class="st">"^[6-9][0-9]{9}$"</span>},
+  <span class="st">"timestamp"</span>:        {<span class="st">"type"</span>: <span class="st">"TIMESTAMP"</span>, <span class="st">"nullable"</span>: <span class="kw">False</span>,  <span class="st">"not_future"</span>: <span class="kw">True</span>},
+  <span class="st">"status"</span>:           {<span class="st">"type"</span>: <span class="st">"ENUM"</span>,      <span class="st">"nullable"</span>: <span class="kw">False</span>,  <span class="st">"values"</span>: [<span class="st">"SUCCESS"</span>,<span class="st">"FAILED"</span>,<span class="st">"PENDING"</span>]},
+  <span class="st">"is_refunded"</span>:      {<span class="st">"type"</span>: <span class="st">"BOOLEAN"</span>,   <span class="st">"nullable"</span>: <span class="kw">False</span>,  <span class="st">"default"</span>: <span class="kw">False</span>},
+}
+
+<span class="cm"># A transaction violating ANY rule is rejected at the ingestion layer</span>
+<span class="cm"># It never reaches the database — preventing dirty data from entering the system</span>
+<span class="cm"># This is called "shift left" data quality — catch problems at the source</span>
+</div>
+<div class="box case">
+  <div class="box-tag">🏪 Zomato's International Expansion — Schema Migration at Scale</div>
+  <p>When Zomato expanded to the UAE, UK, and USA, their "Price" column schema broke immediately. The existing schema said: <code>price: DECIMAL(8,2)</code>. Restaurant partners from different countries entered:</p>
+  <ul><li>India: <code>299</code> (implicit INR)</li><li>UAE: <code>"AED 35"</code> (currency code in the number field)</li><li>UK: <code>"£12.50"</code> (symbol in number field)</li><li>USA: <code>"$8.99"</code> (symbol in number field)</li></ul>
+  <p>The DECIMAL type rejected all non-Indian entries silently — they were stored as NULL. Result: 40% of international menus showed prices as "free".</p>
+  <p style="margin:0"><strong>Solution:</strong> A 3-month schema migration: <code>price → {price_amount: DECIMAL(10,2), price_currency: STRING(3)}</code>. All 12 million historical menu items were backfilled via ETL. The lesson: schema design must account for international expansion before you expand, not after.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ MISSING VALUES ═══ -->
+<section class="section" id="s2d">
+<div class="s-meta"><span class="s-chip s2">Session 2 · Segment 4</span><div class="s-line"></div></div>
+<h2 class="stitle">Handling Missing Values</h2>
+<p class="s-desc">In every real dataset, some values will simply be absent. Your decision about how to handle each gap — fill it, delete it, leave it — can make or break your entire model.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s2d',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s2d',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s2d',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s2d-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">🧩 The Jigsaw Puzzle Analogy</div>
+  <p>You are solving a 1000-piece jigsaw puzzle. You finish assembling it, but 40 pieces are missing. The 40 gaps are your <em>missing values</em>.</p>
+  <p>You now have exactly 3 choices — and each has consequences:</p>
+  <ul>
+    <li><strong>Option 1: Ignore the gaps.</strong> The puzzle still mostly shows the picture. This works if only a few pieces are missing in non-critical areas. Risk: the gaps might be exactly where the main subject of the picture is.</li>
+    <li><strong>Option 2: Cut out the sections with gaps.</strong> You physically remove the incomplete sections of the puzzle. Now you have a smaller but complete puzzle. Risk: you've permanently lost information — and the removed sections might have contained something important.</li>
+    <li><strong>Option 3: Fill the gaps with your best guess.</strong> Based on surrounding pieces, you paint in what you think was there. Risk: if you guess wrong, you've permanently added incorrect information to the puzzle.</li>
+  </ul>
+  <p style="margin:0">There is no universally correct choice. The right approach depends on: how many pieces are missing (2 vs 200), where they are (border vs centre), and how important that area is to understanding the picture.</p>
+</div>
+
+<h4>Why Data Goes Missing — Understanding the Cause Matters</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Type of Missingness</th><th>Plain English</th><th>Real Example</th><th>Danger Level</th></tr></thead>
+  <tbody>
+    <tr><td>MCAR — Missing Completely at Random</td><td>Pure chance, unrelated to anything. Like a form getting wet and some ink smudging randomly.</td><td>A temperature sensor malfunctions randomly for 3 hours, skipping readings for no pattern-related reason.</td><td>🟢 Low — safe to delete rows or use simple imputation</td></tr>
+    <tr><td>MAR — Missing at Random (Conditional)</td><td>Missing because of another variable, NOT because of the missing value itself.</td><td>Older patients less likely to fill in the digital form (because of digital literacy, not because of their health status).</td><td>🟡 Medium — use the other variable to guide imputation</td></tr>
+    <tr><td>MNAR — Missing NOT at Random</td><td>Missing BECAUSE of the value itself. The most dangerous and most common in real-world data.</td><td>High-income people skip the income question (for privacy). Low-scorers skip satisfaction ratings. People with bad credit skip income fields.</td><td>🔴 High — any imputation will introduce bias</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box danger">
+  <div class="box-tag">⚠️ The MNAR Trap — Why It Matters So Much</div>
+  <p>Imagine a credit scoring model where high-risk individuals systematically skip the income field. If you fill in missing incomes with the column average, you're giving all high-risk people an "average" income. The model now can't distinguish them by income. It has been blinded to a key risk signal. The missingness itself WAS the signal.</p>
+  <p style="margin:0">This is how dirty data handling (even with good intentions) introduces <strong>bias into AI models</strong>. When you apply for a loan and the AI is strangely wrong about your risk profile, a missing value handled incorrectly years ago in training data may be the cause.</p>
+</div>
+
+<h4>The 6 Ways to Handle Missing Values</h4>
+<div class="card-row">
+  <div class="card g"><div class="icon">🗑️</div><h5>Delete the Row</h5><p>Remove rows where critical values are missing. Safe when &lt;2% are missing and missingness is random.</p></div>
+  <div class="card o"><div class="icon">✂️</div><h5>Delete the Column</h5><p>Drop the entire column when &gt;60% is missing. A column that's mostly empty adds noise, not value.</p></div>
+  <div class="card b"><div class="icon">⚖️</div><h5>Fill with Mean</h5><p>Replace with column average. Only for symmetric numerical distributions without outliers.</p></div>
+  <div class="card p"><div class="icon">📊</div><h5>Fill with Median</h5><p>Replace with the middle value. Better than mean when outliers distort the average.</p></div>
+  <div class="card t"><div class="icon">📌</div><h5>Fill with Mode</h5><p>Replace with most common value. For categorical columns or when you need a default text value.</p></div>
+  <div class="card pk"><div class="icon">🏷️</div><h5>Create "Unknown" Category</h5><p>For categorical columns, add "Unknown" as its own category. Preserves the information that a value was missing.</p></div>
+</div>
+
+<div class="quiz" id="q3">
+  <h5>🧠 Check: A bank's dataset shows 45% of "Annual Income" values are missing for self-employed customers. The BEST approach is…</h5>
+  <div class="quiz-opts">
+    <button class="qopt" onclick="doQuiz('q3',this,false)">Delete all 45% of rows — too much missing data to use</button>
+    <button class="qopt" onclick="doQuiz('q3',this,false)">Fill all with the column average salary</button>
+    <button class="qopt" onclick="doQuiz('q3',this,true)">Investigate WHY it's missing, consider using income proxy variables, and flag these rows separately for specialist review</button>
+    <button class="qopt" onclick="doQuiz('q3',this,false)">Drop the entire Income column and build the model without it</button>
+  </div>
+  <div class="qfb" id="q3-fb"></div>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s2d-2"><div class="lpanel-inner">
+<h4>When to Use Which Method — Decision Framework</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Scenario</th><th>% Missing</th><th>Data Type</th><th>Best Method</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>Exam score missing</td><td>&lt;2%</td><td>Numeric</td><td>Delete rows</td><td>Very few rows; deletion won't significantly reduce dataset size or introduce bias</td></tr>
+    <tr><td>Customer age missing</td><td>5-10%</td><td>Numeric</td><td>Median imputation</td><td>Age likely has outliers (very old customers); median is more robust than mean</td></tr>
+    <tr><td>City name missing</td><td>5%</td><td>Categorical</td><td>Mode or "Unknown"</td><td>Can't calculate "average city". Most common city (mode) is the best categorical default; or "Unknown" if important to track</td></tr>
+    <tr><td>Referral code missing</td><td>80%</td><td>Text</td><td>Delete column</td><td>Most people didn't use a referral code — this column is nearly empty and adds more noise than signal</td></tr>
+    <tr><td>Stock price missing (time series)</td><td>3% scattered</td><td>Numeric, ordered in time</td><td>Forward fill</td><td>Yesterday's closing price is the best estimate for a missing price. Markets don't jump randomly.</td></tr>
+    <tr><td>Blood pressure missing</td><td>20%</td><td>Numeric</td><td>KNN imputation</td><td>Use similar patients' BP values based on age, weight, gender. Smarter than column average.</td></tr>
+    <tr><td>Income missing for self-employed</td><td>40%</td><td>Numeric</td><td>Model-based imputation + flag</td><td>Use a regression model to predict income from other fields. Flag as "imputed" for auditability.</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box story">
+  <div class="story-hd">
+    <div class="story-ico">✈️</div>
+    <div class="story-meta"><h5>IndiGo Airlines — Passenger Weight Imputation for Safety</h5><span class="tag">Aviation · Safety-Critical · DGCA Compliance</span></div>
+  </div>
+  <p>Airlines must calculate aircraft weight and balance for every flight. Passenger weights are needed but are never directly measured. So for every passenger, weight is "missing" — the value simply doesn't exist.</p>
+  <p>IndiGo's solution uses a MAR imputation strategy based on passenger profile:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Passenger Profile</th><th>Imputed Weight</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Adult male, 18-35</td><td>75 kg</td><td>DGCA standard anthropometric data</td></tr>
+      <tr><td>Adult female, 18-35</td><td>61 kg</td><td>DGCA standard anthropometric data</td></tr>
+      <tr><td>Adult male, 60+</td><td>68 kg</td><td>Age-adjusted DGCA data</td></tr>
+      <tr><td>Child (2-12)</td><td>35 kg</td><td>Paediatric anthropometric average</td></tr>
+      <tr><td>Infant (under 2)</td><td>10 kg</td><td>WHO infant weight standard</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">This is NOT a perfect imputation. But in aviation, an average-based estimate that's wrong by 5 kg per passenger is far safer than having no weight estimate at all. The safety margin in aircraft design accounts for the imputation error. This is a case where domain expertise defines the imputation strategy — the data scientist alone cannot make this decision.</p>
+</div>
+
+<h4>Mean vs Median — When It Really Matters</h4>
+<div class="box analogy">
+  <div class="box-tag">💰 The Billionaire in the Room Problem</div>
+  <p>A classroom of 30 students has monthly income data (from part-time jobs). 28 students earn between ₹3,000 and ₹8,000/month. One student is a startup founder earning ₹1,50,000/month. One more earns ₹5,000/month.</p>
+  <p><strong>Mean (average)</strong>: Total all incomes, divide by 30. The startup founder's ₹1,50,000 pulls the average up significantly. Mean = ~₹10,300. This is higher than 29 out of 30 students actually earn. If you fill missing income values with this mean, you're overstating typical income.</p>
+  <p><strong>Median (middle value)</strong>: Sort all 30 by income, take the middle one. = ~₹5,500. This represents what a typical student actually earns, regardless of the outlier.</p>
+  <p style="margin:0">Rule of thumb: <strong>If the data has outliers, use median. If it's symmetric with no extreme values, mean and median will be similar — either is fine.</strong></p>
+</div>
+</div></div>
+
+<div class="lpanel l3" id="s2d-3"><div class="lpanel-inner">
+<h4>Advanced Imputation: KNN, MICE, and Model-Based</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Method</th><th>How It Works (Deep)</th><th>Strength</th><th>Used In</th></tr></thead>
+  <tbody>
+    <tr><td>KNN Imputation</td><td>Find K most similar records based on all other columns. Take the weighted average of their value for the missing column. "You are most similar to these 5 customers; their average income is ₹7.2L; yours is probably ₹7.2L too."</td><td>Uses relationships between variables. Better than column-level statistics.</td><td>Customer analytics, healthcare, HR analytics</td></tr>
+    <tr><td>MICE (Multiple Imputation by Chained Equations)</td><td>Fill each missing column with a model trained on all other columns. Repeat for all columns. Run 5-10 iterations, averaging results. Each imputed value has a confidence range, not just a point estimate.</td><td>Statistically principled. Provides uncertainty estimates. Handles MCAR and MAR well.</td><td>Clinical trials, government surveys, academic research, pharmaceutical studies</td></tr>
+    <tr><td>Model-Based Imputation</td><td>Train a dedicated predictive model (e.g., gradient boosted trees) to predict the missing column value from all others. Essentially using AI to fix the data before the real AI is trained.</td><td>Most accurate. Can capture non-linear relationships. Can also output confidence scores.</td><td>Credit scoring, insurance risk, telecom churn, large-scale enterprise ML</td></tr>
+    <tr><td>Time-Series Forward Fill</td><td>For ordered data: fill a gap with the most recent observed value. The assumption: "the most recent valid measurement is the best estimate for what happened in the gap."</td><td>Simple, appropriate for slowly changing signals. Preserves temporal structure.</td><td>Stock prices, IoT sensor data, weather stations, patient vital signs monitoring</td></tr>
+    <tr><td>Domain Knowledge Fill</td><td>Use business rules: "If customer tenure &lt; 6 months AND no purchase, assume Is_New_Customer = True." Rules come from domain experts, not statistics.</td><td>Most contextually appropriate. Prevents statistical methods from making logically impossible imputations.</td><td>Healthcare, legal compliance, insurance underwriting</td></tr>
+  </tbody>
+</table></div>
+
+<div class="box case">
+  <div class="box-tag">🔬 ICMR COVID-19 Dataset — 3-Tier Imputation for Oxygen Saturation</div>
+  <p>During the COVID pandemic, ICMR collected patient records from 35,000+ hospitals. The "SpO2" (blood oxygen saturation) column — critical for severity classification — had <strong>38% missing values</strong>. Different hospitals had different equipment and reporting practices.</p>
+  <p>The imputation strategy was designed by a joint team of data scientists and ICU physicians:</p>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Tier 1: Recent Temporal Fill (covers 40% of missing)</h5><p>If the same patient had a SpO2 reading within the previous 4 hours, use it (forward fill). SpO2 doesn't change dramatically in 4 hours for stable patients.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Tier 2: Severity-Grade Median (covers 45% of remaining)</h5><p>If patient had a Clinical_Severity_Grade (assigned by doctor): Mild → impute 97%, Moderate → 92%, Severe → 85%. These medians were computed from patients who DID have SpO2 readings.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-bd"><h5>Tier 3: Flag and Exclude (covers the rest)</h5><p>Remaining missing: flagged as "SpO2_Imputed = Unknown". These patients were excluded from severity classification models but INCLUDED in mortality rate analysis (with an "unknown severity" category).</p></div></div>
+  </div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">Outcome: 94% of patient records were usable for the model, with full transparency about imputation quality. All 47 academic papers using this dataset were required to cite the imputation methodology. This level of documentation is standard for research-grade datasets.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ OUTLIERS ═══ -->
+<section class="section" id="s2e">
+<div class="s-meta"><span class="s-chip s2">Session 2 · Segment 5</span><div class="s-line"></div></div>
+<h2 class="stitle">Handling Outliers</h2>
+<p class="s-desc">An outlier is a value so far from the rest that it stands alone. The critical question is never "should I remove it?" — it's always "WHY is it extreme?" That answer changes everything.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s2e',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s2e',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s2e',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s2e-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">🏏 The Cricket Match Analogy</div>
+  <p>Your college cricket team plays 10 matches this season. Team scores: 182, 167, 194, 171, 188, 176, 195, 169, 178, <strong>14</strong>.</p>
+  <p>That <strong>14</strong> is our outlier. It is wildly different from every other score. But notice: there are TWO completely different explanations:</p>
+  <ul>
+    <li><strong>Explanation A — Data Error:</strong> A student was typing in scores and accidentally typed "14" instead of "174". This is a transcription error. The correct action is to fix it to 174 (if you can verify from the original scorecard).</li>
+    <li><strong>Explanation B — Real Event:</strong> That match was played in a cyclone warning, 6 players were sick with fever, the opposing team had a professional-level fast bowler on loan, and the match was abandoned after 5 overs. That 14 is REAL and important. Removing it would misrepresent the team's actual performance record.</li>
+  </ul>
+  <p style="margin:0">The outlier is identical in both cases — it's your <strong>investigation and context</strong> that determines whether to fix it, remove it, or keep it with a note. This is why outlier handling requires human judgment, not just algorithms.</p>
+</div>
+
+<h4>The 4 Things an Outlier Can Be</h4>
+<div class="card-row">
+  <div class="card"><div class="icon">✏️</div><h5>Data Entry Error</h5><p>Someone typed 14 instead of 140. Age is -5. Score is 110%. These should be corrected or removed.</p></div>
+  <div class="card"><div class="icon">⚙️</div><h5>Measurement Error</h5><p>Sensor malfunctioned. Scale wasn't calibrated. Default value (-999) was never replaced. These are artefacts, not reality.</p></div>
+  <div class="card"><div class="icon">🌟</div><h5>Real but Rare</h5><p>A genuine extreme event: Sachin Tendulkar's batting average in a dataset of cricketers. The billionaire in an income dataset. Real, but extreme.</p></div>
+  <div class="card"><div class="icon">🔍</div><h5>The Signal (Most Valuable)</h5><p>A fraudulent transaction. A medical emergency. A cyber-attack. The outlier IS the thing you're looking for. Removing it would be catastrophic.</p></div>
+</div>
+
+<div class="compare">
+  <div class="cmp bad">
+    <h5>✗ Outliers to Remove (Errors)</h5>
+    <ul>
+      <li>Age = -3 (impossible)</li>
+      <li>Temperature = -9999 (sensor default error)</li>
+      <li>Score = 110% (maximum is 100)</li>
+      <li>Salary = ₹0 for a full-time employee</li>
+      <li>Transaction amount = ₹0.00001</li>
+    </ul>
+  </div>
+  <div class="cmp good">
+    <h5>✓ Outliers to Keep (Real Signals)</h5>
+    <ul>
+      <li>₹5L transaction when average is ₹500 → investigate for fraud</li>
+      <li>Patient SpO2 = 65% → medical emergency alert</li>
+      <li>Server response time = 45 sec → system outage</li>
+      <li>CEO salary in a company dataset → real, segment separately</li>
+      <li>Product with 10,000 reviews → real bestseller</li>
+    </ul>
+  </div>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s2e-2"><div class="lpanel-inner">
+<h4>Method 1: The IQR Method — Step by Step</h4>
+<div class="box example">
+  <div class="box-tag">📊 Worked Example: Finding Salary Outliers</div>
+  <p>You have annual salaries (₹ Lakhs) for 100 employees. After sorting, you find:</p>
+  <p><strong>Step 1:</strong> Find Q1 (25th percentile) = ₹3.8L — value below which 25% of salaries fall</p>
+  <p><strong>Step 2:</strong> Find Q3 (75th percentile) = ₹9.2L — value below which 75% of salaries fall</p>
+  <p><strong>Step 3:</strong> Calculate IQR = Q3 - Q1 = 9.2 - 3.8 = 5.4</p>
+  <p><strong>Step 4:</strong> Calculate fences:</p>
+  <div class="formula">Lower Fence = Q1 - (1.5 × IQR) = 3.8 - (1.5 × 5.4) = 3.8 - 8.1 = -4.3L
+Upper Fence = Q3 + (1.5 × IQR) = 9.2 + (1.5 × 5.4) = 9.2 + 8.1 = 17.3L</div>
+  <p><strong>Step 5:</strong> Flag outliers: any salary below -4.3L (impossible, so no lower outliers) or above 17.3L (flags the CEO at ₹85L, the CTO at ₹42L, and 3 senior VPs at 18-25L).</p>
+  <p style="margin:0">Now you INVESTIGATE those 5 flagged records. Are they errors or real senior executives? In this case, all 5 are real. You keep them but segment the analysis: "Executive compensation" vs "Staff compensation" — two different distributions, one dataset.</p>
+</div>
+
+<h4>Method 2: Z-Score — How "Abnormal" Is a Value?</h4>
+<div class="formula">Z-Score = (Value - Mean) / Standard Deviation
+
+Example: Average exam score = 72, Standard Deviation = 9
+Student A scored 94: Z = (94-72)/9 = +2.44 → High but within normal range
+Student B scored 12: Z = (12-72)/9 = -6.67 → Extreme outlier (6.67 SDs below mean!)
+General rule: |Z| > 3 → investigate as potential outlier</div>
+
+<h4>The 4 Treatments for Outliers</h4>
+<div class="tbl"><table>
+  <thead><tr><th>Treatment</th><th>What It Does</th><th>When to Use</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>Remove</td><td>Delete the outlier row entirely</td><td>When it's clearly a data error AND the row has no other valuable information</td><td>Remove row where Age = -3, because the entire record is suspect</td></tr>
+    <tr><td>Cap (Winsorising)</td><td>Replace with boundary value: anything above the upper fence → set to the upper fence value</td><td>When you want to reduce outlier influence but keep the row. Common in ML preprocessing.</td><td>Cap salary at ₹17.3L for salary distribution analysis while keeping the employee's other data</td></tr>
+    <tr><td>Log Transform</td><td>Apply log function to compress the scale — huge values become much more manageable</td><td>When the data has a wide range spanning multiple orders of magnitude</td><td>House prices ₹10L to ₹100Cr: log transform compresses this to a 1-4 range</td></tr>
+    <tr><td>Separate Segment</td><td>Build a separate model or report for extreme values</td><td>When outliers are genuinely different in kind, not just degree</td><td>Build one CLV model for enterprise customers (₹1Cr+ ACV) and a different one for SMB</td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l3" id="s2e-3"><div class="lpanel-inner">
+<div class="box case">
+  <div class="box-tag">💳 HDFC Bank — Real-Time Fraud Detection Built On Outliers</div>
+  <p>HDFC's transaction fraud system processes 12 million+ transactions daily. The system's core insight: <strong>fraud IS the outlier</strong>. The model's entire purpose is to find anomalies.</p>
+  <p><strong>What "normal" looks like for a customer (learned over 6 months):</strong></p>
+  <ul style="font-size:13px;padding-left:20px;line-height:1.9">
+    <li>Average transaction: ₹1,400 | 95th percentile: ₹12,000 | Usual times: 9AM–10PM IST</li>
+    <li>Usual locations: Bandra (home), Andheri (office), Malad (gym)</li>
+    <li>Usual merchants: Swiggy, BigBasket, HDFC ATM, Mumbai Metro</li>
+  </ul>
+  <p><strong>What triggers a fraud alert (multi-dimensional outlier detection):</strong></p>
+  <div class="tbl"><table>
+    <thead><tr><th>Signal</th><th>Normal</th><th>Outlier Value</th><th>Z-Score</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>Transaction amount</td><td>₹1,400 avg</td><td>₹87,000</td><td>+62</td><td>Soft block — send OTP</td></tr>
+      <tr><td>Location</td><td>Mumbai</td><td>Romania</td><td>Categorical anomaly</td><td>Hard block immediately</td></tr>
+      <tr><td>Time of transaction</td><td>9AM–10PM</td><td>3:17 AM</td><td>+4.2</td><td>Add to suspicion score</td></tr>
+      <tr><td>Merchant category</td><td>Food, transport</td><td>Jewellery</td><td>Categorical anomaly</td><td>OTP required</td></tr>
+      <tr><td>Velocity</td><td>3 txns/hour max</td><td>12 txns in 8 minutes</td><td>+18</td><td>Auto-block, call customer</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">The model never removes outliers. It escalates them. A fraud that would have cost ₹87,000 is blocked by a 2-factor authentication that costs ₹0.02 in SMS fees. This is why outlier detection at scale saves Indian banks an estimated ₹3,000–4,000 crore annually.</p>
+</div>
+
+<div class="box tip">
+  <div class="box-tag">🏆 The Professional's Outlier Rule</div>
+  <p style="margin:0;font-size:14px">Never decide what to do with an outlier in isolation. Always ask three people: (1) the domain expert ("is this value possible?"), (2) the data engineer ("could this be a system default or encoding error?"), (3) the business stakeholder ("if this outlier is real, does it change what we're building?"). Only after these conversations do you decide: fix, remove, keep, or segment.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ STANDARDISING ═══ -->
+<section class="section" id="s2f">
+<div class="s-meta"><span class="s-chip s2">Session 2 · Segment 6</span><div class="s-line"></div></div>
+<h2 class="stitle">Standardising Values</h2>
+<p class="s-desc">Standardisation enforces uniformity — so the same thing always looks the same, regardless of who entered it, when, or from which system. Without it, your analysis will treat "Mumbai" and "mumbai" as different cities.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s2f',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s2f',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s2f',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s2f-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">📏 The NASA Unit Disaster — This Actually Happened</div>
+  <p>In 1999, NASA lost a $327 million spacecraft — the Mars Climate Orbiter — because of a standardisation failure. One team's software output thrust values in <strong>pound-force seconds</strong>. The receiving system expected <strong>Newton seconds</strong>. Nobody standardised the units.</p>
+  <p>The spacecraft entered Mars orbit at the wrong altitude and was destroyed.</p>
+  <p style="margin:0">This is not a rare mistake. In data science, unit mismatches, format mismatches, and naming inconsistencies cause silent errors that are far harder to detect than system crashes — because the calculation <em>runs successfully</em>, it just produces wrong answers.</p>
+</div>
+
+<h4>The 7 Most Common Standardisation Problems</h4>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">🔤 Problem 1: Inconsistent Text Case <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>The problem:</strong> One column has "Mumbai", "mumbai", "MUMBAI", and "Bombay" — all referring to the same city.</p>
+  <p><strong>What breaks:</strong> GROUP BY city in SQL gives you 4 separate groups instead of 1. "How many customers in Mumbai?" returns 1/4 of the real answer. Revenue reports show Mumbai as having multiple "branches."</p>
+  <p><strong>The fix:</strong> Standardise to Title Case (first letter of each word capitalised). Also handle historical aliases: "Bombay" → "Mumbai", "Madras" → "Chennai", "Calcutta" → "Kolkata".</p>
+  <p><strong>Real impact:</strong> Reliance Retail discovered their customer database had 47 distinct text variants for "Mumbai" across 3 merged datasets. A sales dashboard was reporting ₹450 crore in revenue for "Mumbai" when actual Mumbai revenue was ₹2,100 crore — because 87% of Mumbai entries were in non-standard format.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">📅 Problem 2: Mixed Date Formats <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>The problem:</strong> A date column collects from multiple systems and shows: "15/01/2024", "15-Jan-2024", "January 15, 2024", "2024-01-15", "15.1.24", "01/15/2024" (American format).</p>
+  <p><strong>What breaks:</strong> Sorting by date gives random results. "15/01/2024" vs "01/15/2024" — which is January 15 and which is March 1 in American format? The computer can't tell without context.</p>
+  <p><strong>The fix:</strong> Convert everything to ISO 8601 standard: YYYY-MM-DD (2024-01-15). This is unambiguous, sortable alphabetically AND chronologically, and internationally recognised.</p>
+  <p><strong>Business story:</strong> An insurance company's claims system had date entries from 3 different vendor portals. A claim from "01/03/2024" was interpreted as January 3rd by one system and March 1st by another. A patient was denied a claim because the "treatment date" appeared to be after the "policy expiry date" — due to format confusion. The correct date was 62 days before expiry.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">💰 Problem 3: Currency in Number Fields <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>The problem:</strong> Price column has: "₹1,29,999", "Rs. 129999", "INR 130K", "1,29,999.00", "129999".</p>
+  <p><strong>What breaks:</strong> Arithmetic fails completely. You can't add "₹1,29,999" and "129999" — one is text, one is a number. Even if both are text, the comma in "1,29,999" means you're storing "1" and "29" and "999" as three separate things.</p>
+  <p><strong>The fix in steps:</strong> (1) Identify the currency (₹, Rs., INR → all are INR). (2) Remove the symbol. (3) Remove commas. (4) Handle "K" notation: "130K" → 130000. (5) Convert to float. "₹1,29,999" → 129999.0</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">📞 Problem 4: Phone Number Formats <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>The problem (all the same Indian phone number):</strong> "9876543210", "+91-9876543210", "+91 98765 43210", "09876543210", "98765-43210", "91-9876543210"</p>
+  <p><strong>What breaks:</strong> Deduplication fails — these all look like different records. WhatsApp/SMS campaigns send the same message to the same person 6 times (or fail to reach them because the system looks up "9876543210" but only has "+91-9876543210").</p>
+  <p><strong>The fix:</strong> Strip all non-digits → "91 9876543210". Remove country code (91) → "9876543210". Validate: exactly 10 digits, starts with 6, 7, 8, or 9. If the result doesn't match these rules, flag as invalid rather than guessing.</p>
+</div></div>
+
+<div class="quiz" id="q4">
+  <h5>🧠 Check: A Paytm dataset shows "Transaction_Amount" column with values: "₹500", "500.00", "Rs500", "500", "INR 500". What is the correct standardisation step?</h5>
+  <div class="quiz-opts">
+    <button class="qopt" onclick="doQuiz('q4',this,false)">Delete all rows where currency symbol is present</button>
+    <button class="qopt" onclick="doQuiz('q4',this,true)">Strip all currency symbols/text, remove spaces, convert to float (500.0)</button>
+    <button class="qopt" onclick="doQuiz('q4',this,false)">Keep as-is — the values all mean the same thing</button>
+    <button class="qopt" onclick="doQuiz('q4',this,false)">Change all to integers by rounding to nearest rupee</button>
+  </div>
+  <div class="qfb" id="q4-fb"></div>
+</div>
+</div></div>
+
+<div class="lpanel l2" id="s2f-2"><div class="lpanel-inner">
+<h4>Numerical Scaling — Why ML Models Need It</h4>
+<p>Machine learning models learn from numbers. If one column has values from 1–10 and another has values from 1–10,000,000, the model will incorrectly treat the large-number column as more important — just because its numbers are bigger. Scaling makes all features equally weighted.</p>
+<div class="box example">
+  <div class="box-tag">🏠 House Price Prediction — Why Scaling Matters</div>
+  <p>You're predicting house prices in Mumbai using these features:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>Range</th><th>Example Value</th><th>Problem Without Scaling</th></tr></thead>
+    <tbody>
+      <tr><td>Number of rooms</td><td>1–8</td><td>3</td><td>Model sees 3. Very small number.</td></tr>
+      <tr><td>Distance to metro (km)</td><td>0.1–25</td><td>2.5</td><td>Model sees 2.5. Slightly bigger.</td></tr>
+      <tr><td>Floor level</td><td>1–40</td><td>12</td><td>Model sees 12. Bigger still.</td></tr>
+      <tr><td>Area (sq ft)</td><td>400–5,000</td><td>950</td><td>Model sees 950. Treated as 317x more important than rooms!</td></tr>
+      <tr><td>Price (₹)</td><td>40L–20Cr</td><td>1.2 Cr = 1,20,00,000</td><td>Model sees 1,20,00,000. Completely dominates everything else!</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0">Without scaling: the model learns almost entirely from price (because it has the biggest numbers) and almost ignores number of rooms. This gives terrible predictions. After scaling: all features are on the same 0–1 scale, and the model learns from all of them equally.</p>
+</div>
+
+<div class="tbl"><table>
+  <thead><tr><th>Scaling Method</th><th>Formula (in Words)</th><th>Result</th><th>Best For</th></tr></thead>
+  <tbody>
+    <tr><td>Min-Max Normalization</td><td>(Value - Minimum) ÷ (Maximum - Minimum). The minimum becomes exactly 0. The maximum becomes exactly 1. Everything else lands in between.</td><td>All values between 0 and 1</td><td>Neural networks, image pixel values (0–255 → 0–1). When you know and trust the min/max values.</td></tr>
+    <tr><td>Z-Score Standardisation</td><td>(Value - Mean) ÷ Standard Deviation. The average becomes 0. Values above average are positive; below are negative.</td><td>Centred at 0, spread of ±1 to ±3 for most data</td><td>Most ML algorithms. Default choice when unsure. Works well even with some outliers.</td></tr>
+    <tr><td>Log Transform</td><td>Replace each value with log₁₀(value). 1000 → 3. 100 → 2. 10 → 1. 1 → 0. Compresses the right tail dramatically.</td><td>Wide-range data squeezed to a narrow range</td><td>Income, house prices, population, any data that spans several orders of magnitude.</td></tr>
+    <tr><td>Robust Scaling</td><td>(Value - Median) ÷ IQR. Like Z-score but uses median and IQR instead of mean and std. Outliers don't affect it.</td><td>Most data in a small range; outliers not compressed</td><td>Datasets with many extreme outliers that shouldn't be removed but shouldn't dominate scaling.</td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l3" id="s2f-3"><div class="lpanel-inner">
+<div class="box case">
+  <div class="box-tag">🏦 RBI's Cross-Bank Data Standardisation — A National Scale Project</div>
+  <p>In 2015, the Reserve Bank of India mandated all 90+ scheduled commercial banks to submit data in XBRL (eXtensible Business Reporting Language) standard format. Before this: every bank used its own schema, units, and terminology.</p>
+  <p><strong>Examples of what was inconsistent before standardisation:</strong></p>
+  <div class="tbl"><table>
+    <thead><tr><th>Data Element</th><th>SBI's Format</th><th>HDFC's Format</th><th>Axis Bank's Format</th><th>Standardised to</th></tr></thead>
+    <tbody>
+      <tr><td>NPA (Bad Loans)</td><td>% of total loan book</td><td>₹ Crore absolute value</td><td>Ratio (decimal)</td><td>₹ Crore AND percentage</td></tr>
+      <tr><td>Interest Rate Basis</td><td>Annual percentage</td><td>Quarterly rate</td><td>Semi-annual rate</td><td>Annual percentage (APR)</td></tr>
+      <tr><td>Branch Identifier</td><td>IFSC code (11 chars)</td><td>Internal alpha-numeric code</td><td>Numeric-only code</td><td>IFSC code (mandatory)</td></tr>
+      <tr><td>Capital Adequacy Ratio</td><td>Tier 1 only</td><td>Tier 1 + Tier 2 combined</td><td>Basel II formula</td><td>Basel III total CAR</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Project scale and cost:</strong> ₹2,400 crore collectively across the banking system (2015–2018). Required every bank to: (1) write a complete data dictionary, (2) build ETL pipelines to convert existing data, (3) validate 3 years of historical data, (4) train thousands of staff.</p>
+  <p style="margin:0"><strong>Result:</strong> RBI can now run systemic risk models across all banks in minutes. The 2023 stress tests that identified 3 bank vulnerabilities were only possible because standardised data made cross-bank comparison valid for the first time in Indian banking history.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ INVALID VALUES ═══ -->
+<section class="section" id="s2g">
+<div class="s-meta"><span class="s-chip s2">Session 2 · Segments 7 & 8</span><div class="s-line"></div></div>
+<h2 class="stitle">Fixing Invalid Values & Filtering Data</h2>
+<p class="s-desc">Invalid values are present but wrong. They're more treacherous than missing values — at least with missing values, you know something's absent. Invalid values look legitimate at first glance.</p>
+
+<div class="level-tabs">
+  <div class="ltab l1 on" onclick="sw('s2g',1)"><span class="badge l1">1</span>Foundation</div>
+  <div class="ltab l2" onclick="sw('s2g',2)"><span class="badge l2">2</span>Practical</div>
+  <div class="ltab l3" onclick="sw('s2g',3)"><span class="badge l3">3</span>Industry</div>
+</div>
+
+<div class="lpanel l1 on" id="s2g-1"><div class="lpanel-inner">
+<div class="box analogy">
+  <div class="box-tag">🎭 The Counterfeit Note Analogy</div>
+  <p>A missing value is like an empty slot in your wallet — you know immediately something's missing.</p>
+  <p>An invalid value is like a counterfeit ₹500 note in your wallet — it's there, it looks real at a glance, but it's wrong. You might spend it without realising. The person who receives it will discover the problem later, far downstream from where the error originated.</p>
+  <p style="margin:0">This is why invalid values are often more dangerous than missing values. A missing value stops calculations. An invalid value corrupts them silently.</p>
+</div>
+
+<h4>The 5 Categories of Invalid Values — With Stories</h4>
+<div class="acc"><div class="acc-hd" onclick="tog(this)">📏 Category 1: Range Violations — Values Outside the Possible Range <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>Examples:</strong> Age = -3 or 312. Score = 108% or -15%. Price = -₹500. Completion percentage = 115%.</p>
+  <p><strong>Why they happen:</strong> No input validation on the form. Copy-paste errors. System default values that never got replaced (-1 or -999 meaning "unknown"). Manual override without sanity checks.</p>
+  <p><strong>How to detect them:</strong> Set business rules: Age must be between 0 and 120. Score must be between 0 and 100. Price must be greater than 0. Run every column against its rules; flag violations.</p>
+  <p><strong>Real story:</strong> A government hospital's anesthesia dosage calculation system used patient weight as input. A data entry error put age (68 years) into the weight field (68 kg was correct, but for a different field). The system calculated the correct dose for a 68-year-old patient, not a 68 kg patient. The weight field had no minimum/maximum validation. This near-miss led to mandatory range validation on all clinical data entry systems in the state.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">📧 Category 2: Format Violations — Wrong Pattern <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>Examples:</strong> Email "priya@" (missing domain). PAN "ABCDE1234" (should end in a letter). Phone "9876543" (only 7 digits). IFSC "HDFC0000" (should be 11 chars).</p>
+  <p><strong>How to detect them:</strong> Use regular expressions (regex) — patterns that define what valid data looks like.</p>
+  <div class="code">
+<span class="cm"># Regular expressions — rules written in pattern language</span>
+Indian mobile: <span class="st">^[6-9][0-9]{9}$</span>     <span class="cm">← starts with 6-9, followed by exactly 9 more digits</span>
+Email address: <span class="st">^.+@.+\..+$</span>         <span class="cm">← characters, @, characters, dot, characters</span>
+PAN number:    <span class="st">^[A-Z]{5}[0-9]{4}[A-Z]$</span> <span class="cm">← 5 uppercase letters, 4 digits, 1 uppercase letter</span>
+IFSC code:     <span class="st">^[A-Z]{4}0[A-Z0-9]{6}$</span>  <span class="cm">← 4 letters, 0, 6 alphanumeric</span>
+</div>
+  <p style="margin:0">Any value that doesn't match its pattern is invalid — regardless of what it contains. The system doesn't guess; it flags and requires human review or resubmission.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">🔗 Category 3: Cross-Field Violations — Inconsistent with Other Fields <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>Examples:</strong></p>
+  <ul>
+    <li>Date_of_Birth = 2010 AND Employment_Start = 2015 → 5-year-old employee</li>
+    <li>Retirement_Date = 2018 AND Joining_Date = 2022 → retired before joining</li>
+    <li>Blood Type = AB AND Child's Blood Type = O (genetically impossible for certain parent combinations)</li>
+    <li>Graduation_Year = 2019 AND Experience_Years = 15 (would have graduated at age 7)</li>
+    <li>Policy_Start = 2020-01-01 AND Claim_Date = 2019-12-15 → claim before policy started</li>
+  </ul>
+  <p><strong>Why they're dangerous:</strong> Each field individually looks valid. Age = 12 is valid. Employment date = 2015 is valid. Only when you look at them TOGETHER does the error emerge. These require cross-field validation rules, not just single-column checks.</p>
+  <p><strong>Real insurance case:</strong> An insurance company had 4,200 claims where the "Date of Treatment" was before the "Policy Activation Date." The AI model trained on this data learned that pre-activation claims were normal (because they were in the training data). The model then failed to flag genuinely fraudulent retroactive claims — costing ₹12 crore before the training data was fixed.</p>
+</div></div>
+
+<div class="acc"><div class="acc-hd" onclick="tog(this)">🗂️ Category 4: Category Violations — Not in the Allowed Set <span class="arr">▼</span></div>
+<div class="acc-bd">
+  <p><strong>Examples:</strong> Blood Type = "Green". Gender = "Alien". State = "Maharastra" (misspelling). Country = "Bharat" (not in the system's country list which uses "India").</p>
+  <p><strong>How they happen:</strong> Free text fields that should have been dropdowns. Spell-check autocorrections. Data migration from a system with different category names. Manual overrides.</p>
+  <p><strong>Fix strategy:</strong> (1) Define the allowed set explicitly. (2) For obvious misspellings ("Maharastra"), map to the correct value. (3) For entirely invalid values ("Alien" in Gender), flag for review — maybe there's a new category needed.</p>
+  <p><strong>Real story:</strong> A government welfare scheme used "Caste" as a category. When data was migrated from handwritten records, OCR and manual entry created 312 unique caste category names — many of which were duplicates of each other with spelling variations. The original scheme had 12 defined categories. Data scientists spent 3 weeks (plus domain expert review) reducing 312 to the correct 12 + an "Unverified" category.</p>
+</div></div>
+</div></div>
+
+<div class="lpanel l2" id="s2g-2"><div class="lpanel-inner">
+<h4>Filtering — The Art of Working With the Right Subset</h4>
+<p>After cleaning, you rarely need the entire dataset for your specific question. Filtering means selecting only the rows and columns that are relevant to your specific analysis or model.</p>
+<div class="box analogy">
+  <div class="box-tag">🎬 The Netflix Content Strategy Analogy</div>
+  <p>Netflix has a global content database with 15,000+ titles across 190 countries, 50+ languages. You are building a recommendation model for <strong>Hindi-speaking users in Tier-2 Indian cities</strong>.</p>
+  <p>Working with all 15,000 titles wastes computation, introduces noise (Romanian films won't be recommended to Hindi users anyway), and makes the model less specialised.</p>
+  <p>You filter: Language IN ('Hindi', 'Hinglish') AND Target_Region = 'India' AND Content_Status = 'Active' AND Age_Rating IN ('U', 'U/A', 'A')</p>
+  <p style="margin:0">Result: 847 titles. Your model is 17x smaller, 17x faster, and far more relevant. The quality of recommendations for this specific user segment is dramatically better. This is why every production ML system uses filtering as a first step, not an afterthought.</p>
+</div>
+
+<div class="tbl"><table>
+  <thead><tr><th>Business Question</th><th>Filter Applied</th><th>Why This Filter?</th></tr></thead>
+  <tbody>
+    <tr><td>Predicting IPL match outcomes</td><td>Season = 2019 onwards AND Match_Type = 'T20'</td><td>Pre-2019 rules, teams, and conditions are sufficiently different to confuse the model</td></tr>
+    <tr><td>Customer churn model for Jio postpaid</td><td>Plan_Type = 'Postpaid' AND Tenure_Months &gt; 3</td><td>Prepaid churn has different drivers; new users in first 3 months are still in onboarding phase</td></tr>
+    <tr><td>Property price predictor for Mumbai</td><td>City = 'Mumbai' AND Transaction_Year &gt;= 2020 AND Property_Type IN ('Apartment', 'Flat')</td><td>Pre-COVID prices don't reflect current market; commercial properties have different pricing dynamics</td></tr>
+    <tr><td>Loan default prediction for MSME</td><td>Loan_Type = 'Business' AND Amount BETWEEN 5L AND 2Cr AND Company_Age_Years &gt;= 2</td><td>Personal loans have different default drivers; very new companies lack financial history for meaningful features</td></tr>
+    <tr><td>Healthcare readmission predictor</td><td>Age &gt;= 18 AND Diagnosis IN (target_ICD_codes) AND Length_of_Stay &gt; 1 AND Discharge_Status = 'Recovered'</td><td>Paediatric readmission is a separate problem; day-surgery and deceased patients have different patterns</td></tr>
+  </tbody>
+</table></div>
+</div></div>
+
+<div class="lpanel l3" id="s2g-3"><div class="lpanel-inner">
+<div class="box case">
+  <div class="box-tag">🆔 Aadhaar — Data Validation at 1.4 Billion Records</div>
+  <p>UIDAI's Aadhaar system is arguably the most complex data validation system ever built in India. Every one of the 1.4 billion registrations passes through a 47-step validation pipeline.</p>
+  <p><strong>Selected validation rules:</strong></p>
+  <div class="tbl"><table>
+    <thead><tr><th>Field</th><th>Validation Rule</th><th>Technology Used</th></tr></thead>
+    <tbody>
+      <tr><td>Aadhaar Number Itself</td><td>Must pass Verhoeff algorithm (mathematical check digit). This makes "1234 5678 9012" valid but "1234 5678 9013" fail immediately without a database lookup.</td><td>Mathematical algorithm, instant check</td></tr>
+      <tr><td>Fingerprint Uniqueness</td><td>10 fingerprint images must not match any existing record in the 1.4 billion database, with &lt;0.1% False Acceptance Rate.</td><td>ABIS (Automated Biometric Identification System), 1:N matching at scale</td></tr>
+      <tr><td>Iris Uniqueness</td><td>Both iris patterns must be unique in the entire database. Secondary biometric verification.</td><td>Iris recognition AI, 99.99% accuracy requirement</td></tr>
+      <tr><td>Age-Photo Consistency</td><td>Claimed age must be within 7 years of AI-estimated age from the photo.</td><td>Computer vision age estimation model</td></tr>
+      <tr><td>Address Validation</td><td>PIN code must correspond to the district and state entered. "400001" cannot appear with "State: Karnataka".</td><td>India Post PIN code database lookup</td></tr>
+      <tr><td>Cross-field: Age + Photo</td><td>If claimed age is 35 but photo age estimation says 65, flag for manual review.</td><td>AI model output checked against claimed age</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0;font-size:13px;color:var(--muted)">Result: Aadhaar has a duplicate rate of &lt;0.001% — extraordinarily low for a 1.4 billion record system. For comparison, the US Social Security number database has an estimated 4-6% duplication/misuse rate. India's multi-factor biometric validation fundamentally changed what's possible in national identity systems.</p>
+</div>
+</div></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ S3: ROADMAP ═══ -->
+<section class="section" id="s3">
+<div class="s-meta"><span class="s-chip s3">Session 3</span><div class="s-line"></div></div>
+<h2 class="stitle">Industry Roadmap — From Student to Professional</h2>
+<p class="s-desc">A full-scale, end-to-end worked example showing how everything connects, plus an honest picture of what a professional data scientist's working day actually looks like.</p>
+
+<h3 class="seg"><span class="seg-num">1</span>What Data Scientists Actually Do (The Honest Version)</h3>
+<p>There's a huge gap between what people think data scientists do and what they actually spend their time on. Here's the truth, from the 2023 Kaggle State of Data Science survey (3,500 professionals):</p>
+
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:20px 0">
+  <h4 style="margin-top:0;margin-bottom:20px">A Typical Week — Where Time Goes</h4>
+  <div class="meter-row"><span class="meter-label">Data Cleaning & Prep</span><div class="meter-bar"><div class="meter-fill" style="width:65%;background:var(--orange)"></div></div><span class="meter-val">~65%</span></div>
+  <div class="meter-row"><span class="meter-label">Data Collection & Sourcing</span><div class="meter-bar"><div class="meter-fill" style="width:14%;background:var(--white)"></div></div><span class="meter-val">~14%</span></div>
+  <div class="meter-row"><span class="meter-label">Exploratory Analysis (EDA)</span><div class="meter-bar"><div class="meter-fill" style="width:10%;background:var(--teal)"></div></div><span class="meter-val">~10%</span></div>
+  <div class="meter-row"><span class="meter-label">Model Building</span><div class="meter-bar"><div class="meter-fill" style="width:7%;background:var(--green)"></div></div><span class="meter-val">~7%</span></div>
+  <div class="meter-row"><span class="meter-label">Deployment & Monitoring</span><div class="meter-bar"><div class="meter-fill" style="width:4%;background:var(--purple)"></div></div><span class="meter-val">~4%</span></div>
+  <p style="margin-top:20px;margin-bottom:0;font-size:13px;color:var(--muted)">Note: The 7% model building is what everyone talks about on LinkedIn. The 65% data cleaning is what actually determines whether the model works.</p>
+</div>
+
+<h3 class="seg"><span class="seg-num">2</span>Full Worked Case Study: E-Commerce Dataset — End to End</h3>
+
+<div class="box case" style="margin-bottom:24px">
+  <div class="box-tag">🛒 Scenario — Your First Real Project</div>
+  <p>You join a mid-sized Indian e-commerce company (₹500 crore GMV, 2 million customers) as a Data Analyst. Your manager assigns you: <em>"Clean the customer transaction dataset so the ML team can build a Customer Lifetime Value (CLV) model."</em></p>
+  <p>You receive a CSV export: 85,000 rows × 18 columns, merged from 3 legacy systems 6 months ago. Nobody has looked at it since the merge. Your deadline: 2 weeks.</p>
+</div>
+
+<div class="timeline">
+  <div class="tl-item" data-n="1">
+    <h5>Day 1 Morning: First Look — Profiling (2 hours)</h5>
+    <p><strong>What you do:</strong> Load the data. Print the shape (85,000 × 18). Look at the first 20 and last 20 rows. Check data types of every column. Count nulls per column. Find unique value counts for text columns.</p>
+    <p><strong>What you find:</strong> 2 unnamed columns (probably Excel row numbers from export). 3 columns with wrong data types (Price stored as String because of ₹ symbol, OrderDate stored as mixed text formats, CustomerID stored as Integer). 1 column "Referral_Code_V2" is 91% null.</p>
+  </div>
+  <div class="tl-item" data-n="2">
+    <h5>Day 1 Afternoon: Structural Cleanup (3 hours)</h5>
+    <p><strong>What you do:</strong> Drop 2 unnamed columns (confirmed: they are row-number artifacts from Excel export). Drop "Referral_Code_V2" column — 91% null, no business value in a CLV model. Rename 4 inconsistently named columns to snake_case standard (CustomerID → customer_id, OrderDate → order_date).</p>
+    <p><strong>Dataset now:</strong> 85,000 × 15 columns. Cleaner structure, consistent naming.</p>
+  </div>
+  <div class="tl-item" data-n="3">
+    <h5>Day 2: Fix Data Types (4 hours)</h5>
+    <p><strong>Challenge:</strong> "order_date" column has THREE different date formats mixed together — the 3 legacy systems used different formats. You run a format detection script and find: 38,000 rows in "DD/MM/YYYY", 31,000 in "DD-MMM-YYYY", 16,000 in "YYYY-MM-DD".</p>
+    <p><strong>What you do:</strong> Write a parsing function that handles all 3 formats and converts to a unified DateTime (ISO 8601). Test on 100 rows manually, then run on all 85,000. Verify: 0 parsing failures, no nulls introduced.</p>
+    <p><strong>Also:</strong> Strip ₹ and commas from "order_amount", convert to Float. Flag customer_id as String (to preserve any leading zeros).</p>
+  </div>
+  <div class="tl-item" data-n="4">
+    <h5>Day 3: Deduplication (2 hours)</h5>
+    <p><strong>What you find:</strong> 847 fully duplicate rows (1.0% of data) — confirmed artefacts from the 3-system merge. Additionally: 234 rows share an order_id but have different amounts (possible data corruption during merge).</p>
+    <p><strong>Decision:</strong> Remove 847 exact duplicates immediately. Escalate the 234 conflicting order_id rows to the engineering team for source-system verification. Mark these as "Pending_Review" rather than guessing which version is correct.</p>
+    <p><strong>Lesson learned:</strong> Never assume which conflicting duplicate is "right" without checking the source system. Guessing wrong creates worse errors than the original duplicates.</p>
+  </div>
+  <div class="tl-item" data-n="5">
+    <h5>Days 4–5: Missing Value Treatment (Full Day)</h5>
+    <p><strong>"customer_age" column: 8% missing</strong> → Pattern analysis: missingness is random across all city tiers and purchase amounts. Decision: Impute with median age per city tier (Tier-1 median: 29, Tier-2: 32, Tier-3: 35). Document: "Age imputed using city-tier median; flagged in 'age_imputed' column."</p>
+    <p><strong>"product_category" column: 3% missing</strong> → Mode imputation ("Fashion" is most common at 31% of orders). Note: This introduces a slight Fashion over-representation. Acceptable for CLV model but documented.</p>
+    <p><strong>"delivery_date" column: 15% missing</strong> → IMPORTANT DISCOVERY: All rows with missing delivery_date have order_status = "Cancelled" or "Returned". This is NOT missing data — it's expected! Cancelled orders never get a delivery date. Decision: Fill with "N/A" as a category. Add note to ML team: "Delivery_Date absence is a feature, not missing data."</p>
+  </div>
+  <div class="tl-item" data-n="6">
+    <h5>Day 6: Invalid Value Detection (6 hours)</h5>
+    <p><strong>23 orders with amount = ₹0:</strong> Verify with payment team → These are 100% discount gift orders. Completely valid! Keep them AND add a flag "is_gift_order = True". They're important for the CLV model because gifting behaviour IS a customer loyalty signal.</p>
+    <p><strong>12 orders with amount > ₹2,00,000:</strong> Cross-reference with payment gateway records. 11 are valid bulk B2B orders from corporate accounts. 1 is a decimal error: ₹2,50,000 should be ₹2,500. Fix the 1. Keep the 11 but flag as "order_type = B2B" for separate treatment in the CLV model.</p>
+    <p><strong>5 customers with age = 0:</strong> Cross-reference with date_of_birth column. All 5 have a valid birth date — the age field was miscalculated during a system migration. Recalculate age from DOB. Problem solved without data loss.</p>
+  </div>
+  <div class="tl-item" data-n="7">
+    <h5>Day 7: Standardisation (3 hours)</h5>
+    <p><strong>City column:</strong> 47 unique text variants → 28 actual cities. Map: "mumbai", "MUMBAI", "Bombay" → "Mumbai". "bangalore", "Bengaluru", "BANGALORE" → "Bengaluru". etc. All now Title Case.</p>
+    <p><strong>Product_Category:</strong> "fashion", "Fashion", "FASHION", "Clothing", "clothes" → "Fashion". Run similar consolidation for all categories. 71 variants → 12 standard categories.</p>
+    <p><strong>Phone numbers:</strong> Standardise to 10-digit no-prefix format. Flag invalid phones (too short, wrong starting digit).</p>
+  </div>
+  <div class="tl-item" data-n="8">
+    <h5>Day 8: Outlier Analysis (4 hours)</h5>
+    <p><strong>IQR analysis on order_amount:</strong> Upper fence = ₹14,800. 99 orders above this. Investigate: 95 are valid (confirmed B2B bulk orders, already flagged in Day 6). 4 are errors. Fix the 4.</p>
+    <p><strong>Orders per customer analysis:</strong> 2 customers have 2,400+ orders each (vs average of 8). Investigate: These are testing accounts used by the QA team. Decision: Remove these accounts from the CLV dataset. They're not real customers.</p>
+  </div>
+  <div class="tl-item" data-n="9">
+    <h5>Day 9: Final Validation + Report (2 hours)</h5>
+    <p><strong>Final dataset:</strong> 84,012 rows (98.8% of original, high retention) × 16 columns (2 dropped, 1 added: "is_gift_order").</p>
+    <p><strong>Data Quality Report delivered:</strong> 12-page document covering every cleaning decision, why it was made, what was found, what was changed, what was escalated, and what known caveats remain. Plus: recommended additional features for the ML team to engineer from the clean data.</p>
+    <p><strong>ML team's response:</strong> "This is the cleanest dataset we've received from this source. We can actually trust the model we'll build on this."</p>
+  </div>
+</div>
+
+<h3 class="seg"><span class="seg-num">3</span>The Complete Tools Ecosystem</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Tool</th><th>Category</th><th>What It Does for You</th><th>Analogy</th><th>When You'll Use It</th></tr></thead>
+  <tbody>
+    <tr><td>Python + Pandas</td><td>Core Language</td><td>Read, manipulate, clean data in code. 85,000 row cleanup in seconds.</td><td>Excel on steroids, capable of millions of rows in seconds</td><td>All data cleaning work</td></tr>
+    <tr><td>Jupyter Notebook</td><td>Environment</td><td>Write code interactively, see results immediately, add documentation alongside code</td><td>A smart laboratory notebook that also runs experiments</td><td>Exploration, prototyping, presenting to stakeholders</td></tr>
+    <tr><td>NumPy</td><td>Numerics</td><td>Fast mathematical operations on entire arrays at once</td><td>A scientific calculator that processes a million numbers as fast as one</td><td>Statistical calculations, matrix operations, numerical transformations</td></tr>
+    <tr><td>Matplotlib / Seaborn</td><td>Visualisation</td><td>Create charts: histograms (distribution), boxplots (outliers), scatter plots (correlations)</td><td>Your drawing board — turns numbers into visual insights</td><td>EDA, outlier detection, communicating findings</td></tr>
+    <tr><td>Scikit-learn</td><td>ML Library</td><td>KNN imputation, feature scaling, ML algorithms, model evaluation — all in one toolkit</td><td>A complete ML toolbox: every algorithm imaginable, ready to use</td><td>Advanced imputation, feature preprocessing, model building</td></tr>
+    <tr><td>SQL</td><td>Query Language</td><td>Extract specific data from company databases: "Give me all orders from Q4 2023 where city = Mumbai and amount > 5000"</td><td>The language for asking a database exactly what you need</td><td>Data extraction, joins, aggregations at the database level</td></tr>
+    <tr><td>Great Expectations</td><td>Data Validation</td><td>Define data quality rules once, run them automatically against every new dataset</td><td>A quality control robot that checks every incoming shipment against your standards</td><td>Production pipelines, automated data quality monitoring</td></tr>
+    <tr><td>Tableau / Power BI</td><td>BI Dashboards</td><td>Create interactive business dashboards for stakeholders who don't code</td><td>Turning data into visual stories that decision-makers can understand</td><td>Presenting findings, business reporting, executive dashboards</td></tr>
+    <tr><td>Git / GitHub</td><td>Version Control</td><td>Save every version of your code; collaborate without overwriting each other's work</td><td>A time machine for your code — go back to any previous version</td><td>All coding work, collaborative projects, reproducible research</td></tr>
+    <tr><td>dbt (Data Build Tool)</td><td>Data Transformation</td><td>Write and organise SQL transformations in a structured, tested, version-controlled way</td><td>Professional-grade SQL organisation for large teams</td><td>Production data pipelines, enterprise-scale data warehousing</td></tr>
+  </tbody>
+</table></div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ CHEATSHEET ═══ -->
+<section class="section" id="cheat">
+<div class="s-meta"><span class="s-chip ref">Reference</span><div class="s-line"></div></div>
+<h2 class="stitle">Master Cheatsheet</h2>
+<p class="s-desc">Every essential term from this guide, explained in plain English. Bookmark this page for revision.</p>
+
+<div class="cheat-grid">
+  <div class="cheat"><div class="t">Data</div><div class="d">Any recorded observation: numbers, text, images, dates, locations. Raw material for AI.</div></div>
+  <div class="cheat"><div class="t">Dataset</div><div class="d">A structured table of data. Rows = individual records. Columns = attributes.</div></div>
+  <div class="cheat"><div class="t">Primary Data</div><div class="d">Collected by you, for your specific question. Fresh, relevant, but expensive.</div></div>
+  <div class="cheat"><div class="t">Secondary Data</div><div class="d">Collected by someone else. Cheaper, larger, but not designed for your question.</div></div>
+  <div class="cheat"><div class="t">Structured Data</div><div class="d">Organised in rows and columns. 20% of world data. Easy for computers.</div></div>
+  <div class="cheat"><div class="t">Unstructured Data</div><div class="d">Free-form: emails, images, audio. 80% of world data. Needs AI to process.</div></div>
+  <div class="cheat"><div class="t">API</div><div class="d">A standardised connector to access another system's data. Like a digital waiter: you send an order, it brings back data.</div></div>
+  <div class="cheat"><div class="t">Data Lake</div><div class="d">Raw, unprocessed data storage in any format. Everything in, sorted later.</div></div>
+  <div class="cheat"><div class="t">Data Warehouse</div><div class="d">Clean, structured, organised data ready for analysis. The well-sorted library.</div></div>
+  <div class="cheat"><div class="t">ETL</div><div class="d">Extract (get data), Transform (clean it), Load (put it in the warehouse). The classic data pipeline.</div></div>
+  <div class="cheat"><div class="t">GIGO</div><div class="d">Garbage In, Garbage Out. Bad data → bad model, always, regardless of algorithm quality.</div></div>
+  <div class="cheat"><div class="t">NULL / NaN</div><div class="d">A missing value. The field exists but has no value in it.</div></div>
+  <div class="cheat"><div class="t">Imputation</div><div class="d">Filling in missing values with estimated replacements.</div></div>
+  <div class="cheat"><div class="t">MCAR</div><div class="d">Missing Completely at Random. Pure chance, no pattern to missingness. Safest to impute.</div></div>
+  <div class="cheat"><div class="t">MAR</div><div class="d">Missing at Random (conditional on another variable). Use other columns to guide imputation.</div></div>
+  <div class="cheat"><div class="t">MNAR</div><div class="d">Missing NOT at Random. Missing because of the value itself. Most dangerous — can introduce bias.</div></div>
+  <div class="cheat"><div class="t">Outlier</div><div class="d">A value extremely different from the rest. Could be an error OR the most important signal.</div></div>
+  <div class="cheat"><div class="t">IQR</div><div class="d">Interquartile Range. Q3 - Q1. Distance between 25th and 75th percentile. Used to define outlier boundaries.</div></div>
+  <div class="cheat"><div class="t">Z-Score</div><div class="d">How many standard deviations a value is from the mean. |Z| > 3 → investigate as outlier.</div></div>
+  <div class="cheat"><div class="t">Winsorising</div><div class="d">Capping outliers at the fence boundary instead of removing them. Reduces influence without data loss.</div></div>
+  <div class="cheat"><div class="t">Normalisation</div><div class="d">Scaling values to 0–1 range. Min becomes 0, Max becomes 1.</div></div>
+  <div class="cheat"><div class="t">Standardisation</div><div class="d">Transforming data to mean=0, std=1 using Z-score. Different from "normalise" — common confusion!</div></div>
+  <div class="cheat"><div class="t">Log Transform</div><div class="d">Applying logarithm to compress wide-range data. ₹1Cr and ₹1000 become much closer in scale.</div></div>
+  <div class="cheat"><div class="t">Schema</div><div class="d">A whiteprint: what type, format, and rules each column must follow.</div></div>
   <div class="cheat"><div class="t">Deduplication</div><div class="d">Finding and removing or merging duplicate records.</div></div>
   <div class="cheat"><div class="t">Data Contract</div><div class="d">Formal agreement on what valid data looks like between data producers and consumers.</div></div>
   <div class="cheat"><div class="t">Feature</div><div class="d">A column used as INPUT for a machine learning model. Height, age, income = features.</div></div>
