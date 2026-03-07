@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning Algorithms — The Complete Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0d0d14;
+  --surface: #13131e;
+  --card: #1a1a2a;
+  --border: #2a2a40;
+  --accent1: #ff6b35;
+  --accent2: #00d4aa;
+  --accent3: #7c6fcd;
+  --accent4: #ffd166;
+  --accent5: #ef476f;
+  --text: #e8e8f0;
+  --muted: #6e6e8a;
+  --white: #ffffff;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ══ SCROLLBAR ══ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent1); border-radius: 3px; }
+
+/* ══ DOWNLOAD BTN ══ */
+#dlBtn {
+  position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+  background: linear-gradient(135deg, var(--accent1), #ff3d00);
+  color: white; border: none; padding: 14px 24px;
+  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+  border-radius: 50px; display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 32px rgba(255,107,53,.5);
+  transition: all .3s; white-space: nowrap;
+}
+#dlBtn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(255,107,53,.6); }
+#dlBtn svg { width: 16px; height: 16px; }
+
+/* ══ PROGRESS BAR ══ */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+  z-index: 99999; transition: width .1s linear;
+  width: 0%;
+}
+
+/* ══════════════════════════════════════════════ */
+/* ══ COVER PAGE ══ */
+/* ══════════════════════════════════════════════ */
+.cover {
+  width: 100%; min-height: 100vh;
+  background: var(--bg);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.cover-stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 50%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 40% 90%, rgba(255,107,53,.8) 0%, transparent 100%),
+    radial-gradient(2px 2px at 60% 30%, rgba(0,212,170,.8) 0%, transparent 100%),
+    radial-gradient(2px 2px at 25% 45%, rgba(124,111,205,.8) 0%, transparent 100%);
+}
+
+.cover-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,111,205,.15) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.1); } }
+
+.cover-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,107,53,.15); border: 1px solid rgba(255,107,53,.4);
+  color: var(--accent1); padding: 8px 20px; border-radius: 50px;
+  font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  margin-bottom: 32px; position: relative; z-index: 2;
+}
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 900; line-height: .95;
+  position: relative; z-index: 2;
+  margin-bottom: 24px;
+}
+.cover-title .line1 { color: var(--white); display: block; }
+.cover-title .line2 {
+  background: linear-gradient(135deg, var(--accent1) 0%, var(--accent4) 50%, var(--accent2) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; display: block;
+}
+.cover-title .line3 { color: rgba(255,255,255,.4); display: block; font-style: italic; }
+
+.cover-subtitle {
+  font-size: 18px; color: var(--muted); max-width: 560px;
+  position: relative; z-index: 2; margin-bottom: 48px; line-height: 1.7;
+}
+.cover-subtitle strong { color: var(--accent2); }
+
+.cover-grid-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; max-width: 700px; width: 100%;
+  position: relative; z-index: 2; margin-bottom: 48px;
+}
+.stat-block {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 20px 16px; text-align: center;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 900; color: var(--accent1);
+  line-height: 1;
+}
+.stat-label { font-size: 11px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 4px; }
+
+.cover-roadmap {
+  display: flex; align-items: center; gap: 0;
+  position: relative; z-index: 2; flex-wrap: wrap; justify-content: center;
+}
+.road-item {
+  display: flex; align-items: center; gap: 0;
+}
+.road-dot {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: white;
+}
+.road-line { width: 30px; height: 2px; background: var(--border); }
+.road-label { font-size: 10px; color: var(--muted); text-align: center; margin-top: 4px; max-width: 60px; }
+.road-wrap { display: flex; flex-direction: column; align-items: center; }
+
+/* ══════════════════════════════════════════════ */
+/* ══ SHARED SECTION STYLES ══ */
+/* ══════════════════════════════════════════════ */
+.section {
+  page-break-before: always;
+  padding: 60px 50px;
+  max-width: 900px; margin: 0 auto;
+  position: relative;
+}
+
+.section-divider {
+  page-break-before: always;
+  width: 100%; padding: 40px 50px;
+  display: flex; align-items: center; gap: 24px;
+  position: relative; overflow: hidden;
+}
+.section-divider::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(255,107,53,.08) 0%, transparent 100%);
+}
+.div-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px; font-weight: 900;
+  color: rgba(255,255,255,.06); line-height: 1; flex-shrink: 0;
+}
+.div-info {}
+.div-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px; color: var(--accent1); letter-spacing: .2em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.div-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 700; color: var(--white);
+}
+
+/* ══ ALGO HEADER ══ */
+.algo-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent1);
+  padding: 40px; margin-bottom: 32px;
+  position: relative; overflow: hidden;
+}
+.algo-header::after {
+  content: attr(data-num);
+  position: absolute; right: -10px; top: -20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 120px; font-weight: 900;
+  color: rgba(255,255,255,.03); line-height: 1;
+}
+.algo-tag-line {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.algo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px; font-weight: 900; line-height: .95;
+  margin-bottom: 16px;
+}
+.algo-tagline {
+  font-size: 16px; color: var(--muted); font-style: italic;
+  border-left: 3px solid var(--accent1); padding-left: 16px;
+}
+
+/* ══ DEF BOX ══ */
+.def-box {
+  background: linear-gradient(135deg, rgba(255,107,53,.08), rgba(255,107,53,.03));
+  border: 1px solid rgba(255,107,53,.3);
+  border-left: 4px solid var(--accent1);
+  padding: 24px 28px; margin-bottom: 28px;
+  border-radius: 0 8px 8px 0; position: relative;
+}
+.def-box::before {
+  content: 'DEFINITION';
+  display: block; font-family: 'Fira Code', monospace;
+  font-size: 9px; letter-spacing: .25em; color: var(--accent1);
+  margin-bottom: 10px; font-weight: 500;
+}
+.def-box p { font-size: 15px; line-height: 1.8; }
+.def-box strong { color: var(--accent2); }
+
+/* ══ PLAIN ENGLISH BOX ══ */
+.plain-box {
+  background: linear-gradient(135deg, rgba(0,212,170,.08), rgba(0,212,170,.03));
+  border: 1px solid rgba(0,212,170,.3);
+  border-left: 4px solid var(--accent2);
+  padding: 20px 24px; margin-bottom: 28px;
+  border-radius: 0 8px 8px 0;
+}
+.plain-box::before {
+  content: '💬 IN PLAIN ENGLISH';
+  display: block; font-family: 'Fira Code', monospace;
+  font-size: 9px; letter-spacing: .2em; color: var(--accent2);
+  margin-bottom: 10px;
+}
+.plain-box p { font-size: 14px; line-height: 1.8; color: rgba(232,232,240,.85); }
+
+/* ══ EXAMPLE BOXES ══ */
+.examples-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px; margin-bottom: 28px;
+}
+.ex-box {
+  padding: 18px; border: 1px solid var(--border);
+  background: var(--card); border-radius: 8px; position: relative;
+}
+.ex-level {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 8px; font-weight: 500;
+}
+.ex-level.easy { color: var(--accent2); }
+.ex-level.medium { color: var(--accent4); }
+.ex-level.hard { color: var(--accent5); }
+.ex-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; color: var(--white); }
+.ex-desc { font-size: 12px; line-height: 1.6; color: var(--muted); }
+
+/* ══ STEPS ══ */
+.steps { margin-bottom: 28px; }
+.step {
+  display: flex; gap: 0; margin-bottom: 2px;
+}
+.step-num {
+  background: var(--accent1); color: white;
+  width: 48px; flex-shrink: 0; display: flex;
+  align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+}
+.step-body {
+  background: var(--card); border: 1px solid var(--border);
+  border-left: none; flex: 1; padding: 16px 20px;
+}
+.step-body strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--white); }
+.step-body span { font-size: 13px; color: var(--muted); }
+
+/* ══ PRO/CON ══ */
+.pro-con {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-bottom: 28px;
+}
+.pros { background: rgba(0,212,170,.06); border: 1px solid rgba(0,212,170,.2); border-top: 3px solid var(--accent2); padding: 20px; }
+.cons { background: rgba(239,71,111,.06); border: 1px solid rgba(239,71,111,.2); border-top: 3px solid var(--accent5); padding: 20px; }
+.pc-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+.pros .pc-title { color: var(--accent2); }
+.cons .pc-title { color: var(--accent5); }
+.pc-list { list-style: none; }
+.pc-list li { font-size: 13px; line-height: 1.7; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.05); display: flex; gap: 8px; }
+.pc-list li:last-child { border-bottom: none; }
+.pc-list li::before { flex-shrink: 0; margin-top: 1px; }
+.pros li::before { content: '✓'; color: var(--accent2); }
+.cons li::before { content: '✗'; color: var(--accent5); }
+
+/* ══ FORMULA ══ */
+.formula {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 4px solid var(--accent3); padding: 20px 24px;
+  font-family: 'Fira Code', monospace; font-size: 18px;
+  text-align: center; color: var(--white); margin-bottom: 28px;
+  border-radius: 0 8px 8px 0;
+}
+.formula small { display: block; font-size: 11px; color: var(--muted); margin-top: 8px; letter-spacing: .05em; }
+
+/* ══ USE CASES ══ */
+.use-cases {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin-bottom: 28px;
+}
+.use-case {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 20px; text-align: center; border-radius: 8px;
+  transition: all .2s;
+}
+.use-case:hover { border-color: var(--accent1); transform: translateY(-2px); }
+.use-icon { font-size: 32px; margin-bottom: 10px; }
+.use-title { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .08em; }
+.use-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ══ CHART CONTAINERS ══ */
+.chart-wrap {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 24px; margin-bottom: 28px; border-radius: 8px;
+}
+.chart-label {
+  font-family: 'Fira Code', monospace; font-size: 11px;
+  letter-spacing: .15em; color: var(--accent1); text-transform: uppercase;
+  margin-bottom: 16px; text-align: center;
+}
+.chart-sub { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
+canvas { display: block; margin: 0 auto; }
+
+/* ══ DIAGRAM SVG ══ */
+.svg-wrap {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 24px; margin-bottom: 28px; border-radius: 8px;
+  overflow-x: auto;
+}
+
+/* ══ HIGHLIGHT BOX ══ */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(124,111,205,.12), rgba(124,111,205,.04));
+  border: 1px solid rgba(124,111,205,.3);
+  padding: 24px; margin-bottom: 28px; border-radius: 8px;
+}
+.highlight-box h4 {
+  font-family: 'Fira Code', monospace; font-size: 11px; font-weight: 500;
+  color: var(--accent3); letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.highlight-box ul { list-style: none; }
+.highlight-box li { font-size: 13px; line-height: 1.7; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.05); display: flex; gap: 10px; }
+.highlight-box li::before { content: '▸'; color: var(--accent3); flex-shrink: 0; }
+.highlight-box li:last-child { border-bottom: none; }
+
+/* ══ COMPARISON TABLE ══ */
+.comp-table-wrap { overflow-x: auto; margin-bottom: 28px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th {
+  background: var(--surface); color: var(--white);
+  padding: 14px 16px; text-align: left;
+  font-family: 'Fira Code', monospace; font-size: 10px;
+  letter-spacing: .12em; text-transform: uppercase;
+  border-bottom: 2px solid var(--accent1);
+}
+tbody td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+tbody tr:hover td { background: rgba(255,107,53,.05); }
+
+/* ══ SECTION HEADER ══ */
+.section-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700; margin-bottom: 20px; color: var(--white);
+  display: flex; align-items: center; gap: 12px;
+}
+.section-h2::before { content: ''; width: 4px; height: 28px; background: var(--accent1); display: block; flex-shrink: 0; }
+
+/* ══ INTRO SECTION ══ */
+.big-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-style: italic; color: var(--white);
+  border-left: 4px solid var(--accent1); padding: 20px 28px;
+  background: rgba(255,107,53,.05); margin-bottom: 32px; line-height: 1.5;
+}
+
+.type-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 32px; }
+.type-card {
+  padding: 24px; border: 1px solid var(--border);
+  background: var(--card); border-radius: 8px;
+  border-top: 4px solid;
+}
+.type-card:nth-child(1) { border-top-color: var(--accent1); }
+.type-card:nth-child(2) { border-top-color: var(--accent3); }
+.type-card:nth-child(3) { border-top-color: var(--accent2); }
+.type-card-icon { font-size: 32px; margin-bottom: 12px; }
+.type-card-title { font-weight: 800; font-size: 15px; color: var(--white); margin-bottom: 8px; }
+.type-card-desc { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.type-card-examples { font-size: 11px; color: var(--accent4); margin-top: 10px; font-family: 'Fira Code', monospace; }
+
+/* ══ REAL-WORLD STRIP ══ */
+.rw-strip {
+  background: linear-gradient(135deg, rgba(255,209,102,.08), rgba(255,107,53,.04));
+  border: 1px solid rgba(255,209,102,.2);
+  padding: 20px 24px; margin-bottom: 28px; border-radius: 8px;
+}
+.rw-strip::before {
+  content: '🌍 REAL WORLD IMPACT';
+  display: block; font-family: 'Fira Code', monospace;
+  font-size: 9px; letter-spacing: .25em; color: var(--accent4);
+  margin-bottom: 12px;
+}
+.rw-strip p { font-size: 13px; line-height: 1.7; color: rgba(232,232,240,.85); }
+.rw-strip strong { color: var(--accent4); }
+
+/* ══ PAGE FOOTER ══ */
+.page-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 50px; border-top: 1px solid var(--border);
+  font-family: 'Fira Code', monospace; font-size: 10px; color: var(--muted);
+}
+
+/* ══ FINALE ══ */
+.finale {
+  background: linear-gradient(135deg, rgba(255,107,53,.15) 0%, rgba(124,111,205,.15) 50%, rgba(0,212,170,.15) 100%);
+  border-top: 4px solid var(--accent1);
+  padding: 80px 50px; text-align: center;
+}
+.finale h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px; font-weight: 900; line-height: .95;
+  margin-bottom: 24px; color: var(--white);
+}
+.finale p { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto 48px; line-height: 1.7; }
+.finale-rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 800px; margin: 0 auto; }
+.finale-rule {
+  background: rgba(0,0,0,.3); border: 1px solid var(--border);
+  padding: 24px; text-align: left; border-radius: 8px;
+}
+.finale-rule-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: rgba(255,255,255,.08); line-height: 1; margin-bottom: 8px; }
+.finale-rule-text { font-size: 13px; line-height: 1.6; }
+
+/* ══ TOC ══ */
+.toc-page { padding: 60px 50px; page-break-before: always; }
+.toc-title { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; margin-bottom: 8px; color: var(--white); }
+.toc-sub { font-size: 15px; color: var(--muted); margin-bottom: 40px; }
+.toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.toc-item {
+  display: flex; gap: 16px; padding: 18px 20px;
+  background: var(--card); border: 1px solid var(--border);
+  text-decoration: none; color: var(--text);
+  transition: all .2s; cursor: pointer;
+}
+.toc-item:hover { background: var(--accent1); border-color: var(--accent1); color: white; }
+.toc-item:hover .toc-type { color: rgba(255,255,255,.7); }
+.toc-item-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--border); line-height: 1; min-width: 36px; }
+.toc-item:hover .toc-item-num { color: rgba(255,255,255,.4); }
+.toc-item-name { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.toc-type { font-family: 'Fira Code', monospace; font-size: 10px; color: var(--muted); letter-spacing: .08em; }
+
+/* ══ PRINT ══ */
+@media print {
+  #dlBtn, .progress-bar { display: none !important; }
+  body { background: white !important; color: #111 !important; }
+  .cover { min-height: 297mm; }
+}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeInUp .8s ease-out both; }
+.delay-1 { animation-delay: .2s; }
+.delay-2 { animation-delay: .4s; }
+.delay-3 { animation-delay: .6s; }
+
+.tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 50px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-right: 6px; margin-bottom: 6px; }
+.tag-reg { background: rgba(255,107,53,.15); color: var(--accent1); border: 1px solid rgba(255,107,53,.3); }
+.tag-cls { background: rgba(124,111,205,.15); color: var(--accent3); border: 1px solid rgba(124,111,205,.3); }
+.tag-unsup { background: rgba(0,212,170,.15); color: var(--accent2); border: 1px solid rgba(0,212,170,.3); }
+.tag-deep { background: rgba(239,71,111,.15); color: var(--accent5); border: 1px solid rgba(239,71,111,.3); }
+
+.analogy-box {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 20px 24px; margin-bottom: 28px; border-radius: 8px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.analogy-icon { font-size: 36px; flex-shrink: 0; }
+.analogy-body {}
+.analogy-label { font-family: 'Fira Code', monospace; font-size: 9px; letter-spacing: .2em; color: var(--accent4); margin-bottom: 6px; }
+.analogy-text { font-size: 14px; line-height: 1.7; }
+
+.visual-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+
+/* Floating labels in SVGs */
+text { font-family: 'Outfit', sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<button id="dlBtn" onclick="downloadPDF()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  Download PDF
+</button>
+
+<div id="pdfContent">
+
+<!-- ══════════════════ COVER ══════════════════ -->
+<div class="cover">
+  <div class="cover-stars"></div>
+  <div class="cover-glow"></div>
+
+  <div class="cover-badge fade-in">
+    🤖 Complete Visual Guide · For Everyone
+  </div>
+
+  <h1 class="cover-title fade-in delay-1">
+    <span class="line1">Machine</span>
+    <span class="line2">Learning</span>
+    <span class="line3">Algorithms</span>
+  </h1>
+
+  <p class="cover-subtitle fade-in delay-2">
+    Everything from <strong>Linear Regression to Neural Networks</strong> — explained so clearly that even your grandmother will understand. No coding required. Just curiosity.
+  </p>
+
+  <div class="cover-grid-stats fade-in delay-3">
+    <div class="stat-block">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Algorithms</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">36+</div>
+      <div class="stat-label">Examples</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Diagrams</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Jargon (we explain it all)</div>
+    </div>
+  </div>
+
+  <div class="cover-roadmap fade-in delay-3">
+    <div class="road-wrap">
+      <div class="road-dot" style="background:var(--accent1)">🏗️</div>
+      <div class="road-label">What is ML?</div>
+    </div>
+    <div class="road-line"></div>
+    <div class="road-wrap">
+      <div class="road-dot" style="background:var(--accent3)">📊</div>
+      <div class="road-label">Regression</div>
+    </div>
+    <div class="road-line"></div>
+    <div class="road-wrap">
+      <div class="road-dot" style="background:var(--accent5)">🏷️</div>
+      <div class="road-label">Classification</div>
+    </div>
+    <div class="road-line"></div>
+    <div class="road-wrap">
+      <div class="road-dot" style="background:var(--accent2)">🧠</div>
+      <div class="road-label">Deep Learning</div>
+    </div>
+    <div class="road-line"></div>
+    <div class="road-wrap">
+      <div class="road-dot" style="background:var(--accent4)">🔍</div>
+      <div class="road-label">Unsupervised</div>
+    </div>
+    <div class="road-line"></div>
+    <div class="road-wrap">
+      <div class="road-dot" style="background:var(--muted)">🎯</div>
+      <div class="road-label">Pick the Right One</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TOC ══════════════════ -->
+<div class="toc-page">
+  <div class="toc-title">Contents</div>
+  <p class="toc-sub">Click any chapter to jump directly to it.</p>
+  <div class="toc-grid">
+    <a href="#ch01" class="toc-item"><div class="toc-item-num">01</div><div><div class="toc-item-name">What is Machine Learning?</div><div class="toc-type">Foundation</div></div></a>
+    <a href="#ch02" class="toc-item"><div class="toc-item-num">02</div><div><div class="toc-item-name">Supervised vs Unsupervised</div><div class="toc-type">Core Concepts</div></div></a>
+    <a href="#ch03" class="toc-item"><div class="toc-item-num">03</div><div><div class="toc-item-name">Linear Regression</div><div class="toc-type">Regression · Supervised</div></div></a>
+    <a href="#ch04" class="toc-item"><div class="toc-item-num">04</div><div><div class="toc-item-name">Logistic Regression</div><div class="toc-type">Classification · Supervised</div></div></a>
+    <a href="#ch05" class="toc-item"><div class="toc-item-num">05</div><div><div class="toc-item-name">K-Nearest Neighbors (KNN)</div><div class="toc-type">Instance-Based</div></div></a>
+    <a href="#ch06" class="toc-item"><div class="toc-item-num">06</div><div><div class="toc-item-name">Support Vector Machines</div><div class="toc-type">Classification · Supervised</div></div></a>
+    <a href="#ch07" class="toc-item"><div class="toc-item-num">07</div><div><div class="toc-item-name">Decision Trees</div><div class="toc-type">Tree-Based</div></div></a>
+    <a href="#ch08" class="toc-item"><div class="toc-item-num">08</div><div><div class="toc-item-name">Random Forest</div><div class="toc-type">Ensemble Method</div></div></a>
+    <a href="#ch09" class="toc-item"><div class="toc-item-num">09</div><div><div class="toc-item-name">Neural Networks</div><div class="toc-type">Deep Learning</div></div></a>
+    <a href="#ch10" class="toc-item"><div class="toc-item-num">10</div><div><div class="toc-item-name">K-Means Clustering</div><div class="toc-type">Unsupervised · Clustering</div></div></a>
+    <a href="#ch11" class="toc-item"><div class="toc-item-num">11</div><div><div class="toc-item-name">Principal Component Analysis</div><div class="toc-type">Dimensionality Reduction</div></div></a>
+    <a href="#ch12" class="toc-item"><div class="toc-item-num">12</div><div><div class="toc-item-name">How to Choose an Algorithm</div><div class="toc-type">Decision Guide</div></div></a>
+  </div>
+</div>
+
+<!-- ══════════════════ CH01: WHAT IS ML ══════════════════ -->
+<div id="ch01">
+<div class="section-divider">
+  <div class="div-num">01</div>
+  <div class="div-info">
+    <div class="div-tag">// Foundation</div>
+    <div class="div-title">What is Machine Learning?</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="big-quote">"Instead of writing a million rules, we teach computers to <em>discover</em> rules themselves — just by showing them examples."</div>
+
+  <div class="def-box">
+    <p>Machine Learning is a branch of Artificial Intelligence where computers <strong>learn from data</strong> to make predictions or decisions — without being explicitly programmed for every single case. The more data they see, the smarter they get.</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Imagine teaching a child to recognize dogs. You don't list every rule (has 4 legs, has fur, barks…). You just show them 1,000 pictures of dogs and non-dogs — and they figure out the pattern themselves. Machine learning works the same way: show the computer lots of examples, and it builds its own internal "rules."</p>
+  </div>
+
+  <h2 class="section-h2">Everyday ML You Already Use Daily</h2>
+  <div class="use-cases">
+    <div class="use-case"><div class="use-icon">📧</div><div class="use-title">Gmail Spam Filter</div><div class="use-desc">Learned from billions of emails to detect spam automatically</div></div>
+    <div class="use-case"><div class="use-icon">🎵</div><div class="use-title">Spotify Discover Weekly</div><div class="use-desc">Recommends songs you'll love based on listening patterns</div></div>
+    <div class="use-case"><div class="use-icon">🚗</div><div class="use-title">Google Maps ETA</div><div class="use-desc">Predicts arrival time from millions of past trips</div></div>
+    <div class="use-case"><div class="use-icon">🛒</div><div class="use-title">Amazon "You might also like"</div><div class="use-desc">Finds patterns in purchase history to suggest products</div></div>
+    <div class="use-case"><div class="use-icon">📷</div><div class="use-title">Face Unlock on Your Phone</div><div class="use-desc">Recognizes your unique face from thousands of training photos</div></div>
+    <div class="use-case"><div class="use-icon">🏦</div><div class="use-title">Fraud Detection</div><div class="use-desc">Your bank uses ML to flag suspicious transactions instantly</div></div>
+  </div>
+
+  <h2 class="section-h2">Traditional Programming vs Machine Learning</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// How Each Approach Works</div>
+    <svg width="100%" height="220" viewBox="0 0 760 220">
+      <!-- Traditional -->
+      <rect x="10" y="20" width="340" height="80" rx="6" fill="#1a1a2a" stroke="#2a2a40"/>
+      <text x="180" y="15" text-anchor="middle" fill="#6e6e8a" font-size="11" font-family="'Fira Code'" letter-spacing="2">TRADITIONAL PROGRAMMING</text>
+      <rect x="20" y="30" width="90" height="36" rx="4" fill="#ff6b35" opacity=".8"/>
+      <text x="65" y="52" text-anchor="middle" fill="white" font-size="11" font-weight="700">Data</text>
+      <rect x="130" y="30" width="90" height="36" rx="4" fill="#7c6fcd" opacity=".8"/>
+      <text x="175" y="52" text-anchor="middle" fill="white" font-size="11" font-weight="700">Rules (code)</text>
+      <rect x="240" y="30" width="90" height="36" rx="4" fill="#00d4aa" opacity=".8"/>
+      <text x="285" y="52" text-anchor="middle" fill="white" font-size="11" font-weight="700">Output</text>
+      <line x1="110" y1="48" x2="130" y2="48" stroke="white" stroke-width="2" marker-end="url(#arr)"/>
+      <line x1="220" y1="48" x2="240" y2="48" stroke="white" stroke-width="2" marker-end="url(#arr)"/>
+      <text x="180" y="108" text-anchor="middle" fill="#6e6e8a" font-size="11">You write all rules → computer follows them</text>
+
+      <!-- ML -->
+      <rect x="410" y="20" width="340" height="80" rx="6" fill="#1a1a2a" stroke="#2a2a40"/>
+      <text x="580" y="15" text-anchor="middle" fill="#6e6e8a" font-size="11" font-family="'Fira Code'" letter-spacing="2">MACHINE LEARNING</text>
+      <rect x="420" y="30" width="80" height="36" rx="4" fill="#ff6b35" opacity=".8"/>
+      <text x="460" y="52" text-anchor="middle" fill="white" font-size="11" font-weight="700">Data</text>
+      <rect x="520" y="30" width="80" height="36" rx="4" fill="#ff6b35" opacity=".5"/>
+      <text x="560" y="47" text-anchor="middle" fill="white" font-size="11" font-weight="700">Output</text>
+      <text x="560" y="59" text-anchor="middle" fill="white" font-size="9">(answers)</text>
+      <rect x="630" y="30" width="100" height="36" rx="4" fill="#00d4aa" opacity=".8"/>
+      <text x="680" y="47" text-anchor="middle" fill="white" font-size="11" font-weight="700">Rules</text>
+      <text x="680" y="59" text-anchor="middle" fill="white" font-size="9">(learned!)</text>
+      <line x1="500" y1="48" x2="520" y2="48" stroke="white" stroke-width="2"/>
+      <line x1="600" y1="48" x2="630" y2="48" stroke="white" stroke-width="2"/>
+      <text x="580" y="108" text-anchor="middle" fill="#6e6e8a" font-size="11">Computer discovers the rules from data</text>
+
+      <!-- VS badge -->
+      <circle cx="385" cy="60" r="22" fill="#ff6b35"/>
+      <text x="385" y="65" text-anchor="middle" fill="white" font-size="13" font-weight="900">VS</text>
+
+      <!-- Bottom summary -->
+      <text x="180" y="160" text-anchor="middle" fill="#ef476f" font-size="12" font-weight="700">❌ Breaks when new situations arise</text>
+      <text x="580" y="160" text-anchor="middle" fill="#00d4aa" font-size="12" font-weight="700">✓ Adapts to new data automatically</text>
+      <text x="180" y="180" text-anchor="middle" fill="#6e6e8a" font-size="11">E.g. Writing rules for every spam email</text>
+      <text x="580" y="180" text-anchor="middle" fill="#6e6e8a" font-size="11">E.g. Learn what spam looks like from examples</text>
+
+      <defs><marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3z" fill="white"/></marker></defs>
+    </svg>
+  </div>
+
+  <h2 class="section-h2">The Three Big Branches</h2>
+  <div class="type-cards">
+    <div class="type-card">
+      <div class="type-card-icon">👩‍🏫</div>
+      <div class="type-card-title">Supervised Learning</div>
+      <div class="type-card-desc">The algorithm learns from labeled examples — data where we already know the right answer. Like a student studying with an answer key.</div>
+      <div class="type-card-examples">→ Covered in Ch. 03–09</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-icon">🔍</div>
+      <div class="type-card-title">Unsupervised Learning</div>
+      <div class="type-card-desc">No labels, no right answers. The algorithm finds hidden patterns and groups on its own. Like sorting a pile of objects by shape without being told categories.</div>
+      <div class="type-card-examples">→ Covered in Ch. 10–11</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-icon">🎮</div>
+      <div class="type-card-title">Reinforcement Learning</div>
+      <div class="type-card-desc">Learns by trial and error, receiving rewards for good actions. Like training a dog with treats — or how AI learns to play chess and video games.</div>
+      <div class="type-card-examples">→ Used in ChatGPT, AlphaGo</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH02: SUPERVISED vs UNSUPERVISED ══════════════════ -->
+<div id="ch02">
+<div class="section-divider">
+  <div class="div-num">02</div>
+  <div class="div-info">
+    <div class="div-tag">// Core Concepts</div>
+    <div class="div-title">Supervised vs Unsupervised</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="analogy-box">
+    <div class="analogy-icon">👧</div>
+    <div class="analogy-body">
+      <div class="analogy-label">ANALOGY</div>
+      <div class="analogy-text"><strong>Supervised:</strong> A teacher shows a child 200 pictures and says "this is a cat, this is a dog." The child learns to tell them apart.<br><br><strong>Unsupervised:</strong> The same child is given 200 pictures with no labels and asked to "sort them into groups that look similar." The child finds patterns without being told what to look for.</div>
+    </div>
+  </div>
+
+  <div class="visual-row">
+    <div class="chart-wrap">
+      <div class="chart-label">// Supervised: Regression vs Classification</div>
+      <svg width="100%" height="200" viewBox="0 0 340 200">
+        <!-- Regression side -->
+        <text x="85" y="20" text-anchor="middle" fill="#ff6b35" font-size="12" font-weight="700">REGRESSION</text>
+        <text x="85" y="35" text-anchor="middle" fill="#6e6e8a" font-size="10">Predict a NUMBER</text>
+        <!-- Dots + line -->
+        <circle cx="30" cy="160" r="4" fill="#7c6fcd"/>
+        <circle cx="50" cy="140" r="4" fill="#7c6fcd"/>
+        <circle cx="70" cy="125" r="4" fill="#7c6fcd"/>
+        <circle cx="95" cy="105" r="4" fill="#7c6fcd"/>
+        <circle cx="115" cy="90" r="4" fill="#7c6fcd"/>
+        <circle cx="130" cy="75" r="4" fill="#7c6fcd"/>
+        <line x1="20" y1="170" x2="145" y2="60" stroke="#ff6b35" stroke-width="2.5"/>
+        <text x="85" y="185" text-anchor="middle" fill="#6e6e8a" font-size="10">Output: $350,000 house price</text>
+
+        <!-- Classification side -->
+        <text x="255" y="20" text-anchor="middle" fill="#7c6fcd" font-size="12" font-weight="700">CLASSIFICATION</text>
+        <text x="255" y="35" text-anchor="middle" fill="#6e6e8a" font-size="10">Predict a CATEGORY</text>
+        <circle cx="200" cy="80" r="5" fill="#00d4aa"/>
+        <circle cx="215" cy="95" r="5" fill="#00d4aa"/>
+        <circle cx="205" cy="115" r="5" fill="#00d4aa"/>
+        <circle cx="220" cy="70" r="5" fill="#00d4aa"/>
+        <circle cx="290" cy="75" r="5" fill="#ef476f"/>
+        <circle cx="305" cy="95" r="5" fill="#ef476f"/>
+        <circle cx="295" cy="115" r="5" fill="#ef476f"/>
+        <circle cx="310" cy="130" r="5" fill="#ef476f"/>
+        <line x1="250" y1="55" x2="250" y2="175" stroke="#ffd166" stroke-width="2.5" stroke-dasharray="5,4"/>
+        <text x="225" y="155" fill="#00d4aa" font-size="10" font-weight="700">Cat</text>
+        <text x="285" y="155" fill="#ef476f" font-size="10" font-weight="700">Dog</text>
+        <text x="255" y="185" text-anchor="middle" fill="#6e6e8a" font-size="10">Output: "Spam" or "Not Spam"</text>
+
+        <line x1="170" y1="20" x2="170" y2="190" stroke="#2a2a40" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-label">// Unsupervised: Clustering Example</div>
+      <svg width="100%" height="200" viewBox="0 0 340 200">
+        <!-- BEFORE -->
+        <text x="85" y="18" text-anchor="middle" fill="#6e6e8a" font-size="11" font-family="'Fira Code'">BEFORE</text>
+        <text x="85" y="32" text-anchor="middle" fill="#6e6e8a" font-size="10">All data looks the same</text>
+        <!-- Random grey dots -->
+        <circle cx="40" cy="60" r="4" fill="#4a4a6a"/>
+        <circle cx="55" cy="75" r="4" fill="#4a4a6a"/>
+        <circle cx="45" cy="90" r="4" fill="#4a4a6a"/>
+        <circle cx="80" cy="100" r="4" fill="#4a4a6a"/>
+        <circle cx="100" cy="65" r="4" fill="#4a4a6a"/>
+        <circle cx="115" cy="80" r="4" fill="#4a4a6a"/>
+        <circle cx="70" cy="140" r="4" fill="#4a4a6a"/>
+        <circle cx="90" cy="155" r="4" fill="#4a4a6a"/>
+        <circle cx="110" cy="130" r="4" fill="#4a4a6a"/>
+        <circle cx="130" cy="145" r="4" fill="#4a4a6a"/>
+        <text x="85" y="185" text-anchor="middle" fill="#6e6e8a" font-size="10">No labels</text>
+
+        <line x1="170" y1="20" x2="170" y2="190" stroke="#2a2a40" stroke-width="1"/>
+
+        <!-- AFTER -->
+        <text x="255" y="18" text-anchor="middle" fill="#00d4aa" font-size="11" font-family="'Fira Code'">AFTER K-MEANS</text>
+        <text x="255" y="32" text-anchor="middle" fill="#6e6e8a" font-size="10">Groups discovered!</text>
+        <!-- Cluster 1 (top) -->
+        <circle cx="210" cy="60" r="4" fill="#ff6b35"/>
+        <circle cx="225" cy="75" r="4" fill="#ff6b35"/>
+        <circle cx="215" cy="90" r="4" fill="#ff6b35"/>
+        <circle cx="240" cy="100" r="4" fill="#ff6b35"/>
+        <circle cx="230" cy="65" r="4" fill="#ff6b35"/>
+        <!-- Cluster 2 (bottom right) -->
+        <circle cx="285" cy="80" r="4" fill="#7c6fcd"/>
+        <circle cx="300" cy="65" r="4" fill="#7c6fcd"/>
+        <circle cx="310" cy="90" r="4" fill="#7c6fcd"/>
+        <!-- Cluster 3 (bottom) -->
+        <circle cx="245" cy="140" r="4" fill="#00d4aa"/>
+        <circle cx="260" cy="155" r="4" fill="#00d4aa"/>
+        <circle cx="275" cy="130" r="4" fill="#00d4aa"/>
+        <circle cx="290" cy="145" r="4" fill="#00d4aa"/>
+        <!-- Centroids -->
+        <circle cx="224" cy="78" r="8" fill="none" stroke="#ff6b35" stroke-width="2" stroke-dasharray="3,2"/>
+        <circle cx="299" cy="78" r="8" fill="none" stroke="#7c6fcd" stroke-width="2" stroke-dasharray="3,2"/>
+        <circle cx="268" cy="143" r="8" fill="none" stroke="#00d4aa" stroke-width="2" stroke-dasharray="3,2"/>
+        <text x="255" y="185" text-anchor="middle" fill="#6e6e8a" font-size="10">3 clusters found automatically</text>
+      </svg>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH03: LINEAR REGRESSION ══════════════════ -->
+<div id="ch03">
+<div class="section-divider">
+  <div class="div-num">03</div>
+  <div class="div-info">
+    <div class="div-tag">// Regression · Supervised Learning</div>
+    <div class="div-title">Linear Regression</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="03">
+    <div class="algo-tag-line" style="color:var(--accent1)">// 03 · REGRESSION · SUPERVISED LEARNING</div>
+    <div class="algo-name" style="color:var(--white)">Linear <em style="color:var(--accent1)">Regression</em></div>
+    <div class="algo-tagline">"The Mother of All ML Algorithms" — the foundation everything else builds upon</div>
+    <div style="margin-top:16px"><span class="tag tag-reg">Regression</span><span class="tag tag-cls">Supervised</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>Linear Regression finds the <strong>best straight line</strong> through your data points to predict one number from another. It answers questions like: "If I know X, what number should I predict for Y?"</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Imagine plotting every house's size (in sq ft) on the X-axis and its price on the Y-axis on graph paper. You'd see a cloud of dots trending upward. Linear Regression draws the single best line through those dots so you can say: "A 1500 sq ft house costs approximately $250,000." That line IS the model.</p>
+  </div>
+
+  <div class="formula">
+    y = mx + b
+    <small>y = what we predict (e.g., price) &nbsp;|&nbsp; m = slope (how much y changes per unit of x) &nbsp;|&nbsp; x = what we know (e.g., size) &nbsp;|&nbsp; b = starting point</small>
+  </div>
+
+  <h2 class="section-h2">Three Examples (Easy → Hard)</h2>
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Shoe Size → Height</div>
+      <div class="ex-desc">People with bigger feet are usually taller. Each extra shoe size = about 2 inches taller. Simple, one variable, obvious relationship.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">House Features → Price</div>
+      <div class="ex-desc">Use multiple inputs: bedrooms, bathrooms, zip code, age of house. Each feature has its own slope (weight). Price = w₁×beds + w₂×baths + w₃×zipcode + b</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Weather Data → Crop Yield</div>
+      <div class="ex-desc">Hundreds of variables: temperature, rainfall, soil pH, humidity on each of 365 days. Multi-variable linear regression finds which factors matter most for harvest prediction.</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Diagram: Scatter Plot with Best-Fit Line</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// House Size vs. Price — Finding the Best Line</div>
+    <canvas id="linRegChart" height="80"></canvas>
+    <p class="chart-sub">Each dot = one house. The orange line = the model's prediction. Red lines = "errors" (how wrong the model is for each house). Linear Regression minimizes these errors.</p>
+  </div>
+
+  <h2 class="section-h2">How It Actually Works — Step by Step</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Collect Data with Known Answers</strong><span>Gather examples where you know both input and output. E.g., 500 houses with their size AND their actual sale price.</span></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Plot and "Guess" a Line</strong><span>Start with any line through the data. Measure the total distance from all points to the line (called "Sum of Squared Errors").</span></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Adjust Until Error is Smallest</strong><span>The algorithm tries thousands of line positions and finds the one where total error is minimized. This is called "Least Squares."</span></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Use the Line to Predict</strong><span>For any new house size not in the training data, plug it into the formula: Price = m × (size) + b. You get a predicted price instantly.</span></div></div>
+  </div>
+
+  <div class="visual-row">
+    <div class="pro-con" style="display:block">
+      <div class="pros" style="margin-bottom:12px">
+        <div class="pc-title">Advantages</div>
+        <ul class="pc-list">
+          <li>Extremely fast to train, even on huge datasets</li>
+          <li>Easy to understand — you can see exactly how each feature affects the result</li>
+          <li>Works well with small, clean datasets</li>
+          <li>Foundation for understanding all other ML algorithms</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <div class="pc-title">Limitations</div>
+        <ul class="pc-list">
+          <li>Only works when the relationship IS actually a line (linear)</li>
+          <li>One extreme outlier can ruin the whole model</li>
+          <li>Cannot capture curves, spirals, or complex patterns</li>
+          <li>All features must be independent of each other</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="rw-strip">
+        <p><strong>Netflix</strong> predicts how many stars you'll rate a movie using your age, viewing history, and time of day.<br><br>
+        <strong>Insurance companies</strong> set your premium based on age, car model, driving record — all fed into a regression model.<br><br>
+        <strong>Doctors</strong> estimate a baby's birth weight from the mother's age, nutrition, and ultrasound measurements.</p>
+      </div>
+      <div class="use-cases" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="use-case"><div class="use-icon">🏠</div><div class="use-title">Real Estate</div><div class="use-desc">Predict property price from size and location</div></div>
+        <div class="use-case"><div class="use-icon">📈</div><div class="use-title">Sales</div><div class="use-desc">Revenue from ad spend</div></div>
+        <div class="use-case"><div class="use-icon">⚕️</div><div class="use-title">Medical</div><div class="use-desc">Blood pressure from BMI and age</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH04: LOGISTIC REGRESSION ══════════════════ -->
+<div id="ch04">
+<div class="section-divider">
+  <div class="div-num">04</div>
+  <div class="div-info">
+    <div class="div-tag">// Classification · Supervised Learning</div>
+    <div class="div-title">Logistic Regression</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="04">
+    <div class="algo-tag-line" style="color:var(--accent3)">// 04 · CLASSIFICATION · SUPERVISED LEARNING</div>
+    <div class="algo-name" style="color:var(--white)">Logistic <em style="color:var(--accent3)">Regression</em></div>
+    <div class="algo-tagline">"Linear Regression's smarter cousin — answers Yes/No questions with a probability"</div>
+    <div style="margin-top:16px"><span class="tag tag-cls">Classification</span><span class="tag tag-reg">Supervised</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>Despite its name, Logistic Regression is a <strong>classification algorithm</strong>. Instead of predicting a number, it predicts the <strong>probability of something being true</strong>. The output is always between 0% and 100%. "Is this email spam? 87% likely yes."</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Think of a light dimmer switch. Linear regression is like that dimmer — any value. But logistic regression is like a pressure sensor that gives you a percentage: "This email is 92% likely to be spam." If the probability crosses a threshold (usually 50%), it flips to a YES decision.</p>
+  </div>
+
+  <h2 class="section-h2">The S-Curve (Sigmoid Function) — The Key Idea</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// Sigmoid Function: Any Number → 0% to 100% Probability</div>
+    <canvas id="logisticChart" height="70"></canvas>
+    <p class="chart-sub">No matter how extreme the input, the S-curve always outputs between 0 and 1. The threshold line (50%) decides the final YES/NO answer.</p>
+  </div>
+
+  <h2 class="section-h2">Three Examples (Easy → Hard)</h2>
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Pass or Fail an Exam?</div>
+      <div class="ex-desc">Input: hours studied. Output: probability of passing. 0 hours = 5% chance. 10 hours = 98% chance. The S-curve models this naturally.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Spam Email Detection</div>
+      <div class="ex-desc">Features: "FREE" in subject, exclamation marks, unknown sender, suspicious links. Model outputs: 94% spam probability → moves to junk folder.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Cancer Diagnosis</div>
+      <div class="ex-desc">Input: tumor size, cell irregularity, patient age, 20 more biomarkers. Output: 73% probability of malignancy. Doctors use this to decide on biopsy.</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>Key Difference: Regression vs Logistic Regression</h4>
+    <ul>
+      <li><strong>Linear Regression output:</strong> "The house costs $347,000" — a specific number on an infinite scale</li>
+      <li><strong>Logistic Regression output:</strong> "There is a 73% chance this is spam" — always 0% to 100%</li>
+      <li><strong>The trick:</strong> It uses a sigmoid (S-curve) to squeeze any number into the 0–1 range</li>
+      <li><strong>Decision:</strong> Usually if P > 50%, predict "Yes" (Class 1). Otherwise predict "No" (Class 0)</li>
+    </ul>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>Gives probability, not just a label — very useful for decision-making</li>
+        <li>Fast to train; works with millions of features</li>
+        <li>Very hard to overfit (too memorize training data)</li>
+        <li>Can handle multiple categories (not just 2)</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>Assumes a linear boundary between classes</li>
+        <li>Cannot learn curved or complex decision shapes</li>
+        <li>Requires careful feature engineering for complex problems</li>
+        <li>Struggles when classes heavily overlap</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="use-cases">
+    <div class="use-case"><div class="use-icon">🏥</div><div class="use-title">Disease Detection</div><div class="use-desc">Diabetes risk from blood sugar, BMI, age</div></div>
+    <div class="use-case"><div class="use-icon">💳</div><div class="use-title">Loan Approval</div><div class="use-desc">Credit risk from income and history</div></div>
+    <div class="use-case"><div class="use-icon">🗳️</div><div class="use-title">Voter Prediction</div><div class="use-desc">Likelihood someone votes based on demographics</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH05: KNN ══════════════════ -->
+<div id="ch05">
+<div class="section-divider">
+  <div class="div-num">05</div>
+  <div class="div-info">
+    <div class="div-tag">// Instance-Based · Classification + Regression</div>
+    <div class="div-title">K-Nearest Neighbors (KNN)</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="05">
+    <div class="algo-tag-line" style="color:var(--accent2)">// 05 · CLASSIFICATION + REGRESSION · INSTANCE-BASED</div>
+    <div class="algo-name" style="color:var(--white)">K-Nearest <em style="color:var(--accent2)">Neighbors</em></div>
+    <div class="algo-tagline">"Tell me who your 5 closest friends are, and I'll tell you who you are"</div>
+    <div style="margin-top:16px"><span class="tag tag-cls">Classification</span><span class="tag tag-reg">Regression</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>KNN is the most intuitive algorithm. To predict something for a new data point, simply find the <strong>K most similar examples</strong> in your training data and take their majority vote (for categories) or average (for numbers).</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Imagine a new student joins a school. You don't know if they'll be a good student. But you notice they hang out with 5 specific kids — 4 of whom get A's and 1 gets C's. KNN would predict: this new student is probably a good student (4 out of 5 neighbors are). That's literally the whole algorithm.</p>
+  </div>
+
+  <h2 class="section-h2">Diagram: KNN in Action</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// KNN Classification — Who is the Mystery Point?</div>
+    <canvas id="knnChart" height="90"></canvas>
+    <p class="chart-sub">The gold star = new unknown point. Circle = K=5 neighborhood. 3 blue triangles + 2 red circles inside → Predicted: BLUE (majority vote)</p>
+  </div>
+
+  <h2 class="section-h2">Three Examples (Easy → Hard)</h2>
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Recommend a Movie</div>
+      <div class="ex-desc">Find 5 users with similar rating history. If they all loved "Inception," recommend "Inception" to you. Netflix's early recommendation engine worked this way.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Handwriting Recognition</div>
+      <div class="ex-desc">Your handwritten "7" is compared to thousands of stored digit examples. The 5 most similar images are all 7s → prediction: it's a "7".</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Drug Similarity Prediction</div>
+      <div class="ex-desc">Find the K most similar molecular structures to a new drug. If similar molecules treat inflammation, predict the new one likely does too.</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>The Critical Choice: How Many Neighbors (K)?</h4>
+    <ul>
+      <li><strong>K=1</strong> — Too sensitive. One weird neighbor poisons the prediction. Like judging a book by one review. OVERFITTING.</li>
+      <li><strong>K=3 to 7</strong> — Usually the sweet spot. Balances sensitivity with stability. Use an odd number to break ties.</li>
+      <li><strong>K=50+</strong> — Too many. The model becomes too vague and ignores important nearby patterns. UNDERFITTING.</li>
+      <li><strong>Rule of thumb:</strong> Start with K = √(number of training examples). Always use cross-validation to verify.</li>
+    </ul>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>Zero training time! Just store all examples and look them up later</li>
+        <li>Works for regression AND classification without changes</li>
+        <li>Instantly adapts when new training data is added</li>
+        <li>Makes no assumptions about data shape</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>Very slow at prediction time with large datasets</li>
+        <li>Needs to store ALL training data in memory</li>
+        <li>Irrelevant features confuse it badly</li>
+        <li>"Curse of dimensionality" — gets confused with many features</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH06: SVM ══════════════════ -->
+<div id="ch06">
+<div class="section-divider">
+  <div class="div-num">06</div>
+  <div class="div-info">
+    <div class="div-tag">// Maximum Margin Classifier · Supervised</div>
+    <div class="div-title">Support Vector Machines</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="06">
+    <div class="algo-tag-line" style="color:var(--accent5)">// 06 · CLASSIFICATION · SUPERVISED LEARNING</div>
+    <div class="algo-name" style="color:var(--white)">Support <em style="color:var(--accent5)">Vector Machines</em></div>
+    <div class="algo-tagline">"Drawing the widest possible street between two neighborhoods of data"</div>
+    <div style="margin-top:16px"><span class="tag tag-cls">Classification</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>SVM finds the <strong>decision boundary that is as far as possible from both classes</strong>. It maximizes the "margin" — the gap between the two groups. The data points closest to the boundary are called <strong>support vectors</strong> (they "support" and define the boundary).</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Imagine two rival gangs living in a city. You want to draw the safest possible line between their territories — as far from both sides as possible. That line is the SVM decision boundary. The gang members closest to the boundary are the "support vectors" — they define where the line must be.</p>
+  </div>
+
+  <div class="visual-row">
+    <div class="chart-wrap">
+      <div class="chart-label">// SVM: Maximum Margin Boundary</div>
+      <svg width="100%" height="240" viewBox="0 0 340 240">
+        <!-- Grid -->
+        <rect x="0" y="0" width="340" height="240" fill="#1a1a2a" rx="4"/>
+        <!-- Margin zone -->
+        <rect x="140" y="10" width="60" height="220" fill="rgba(255,209,102,.06)"/>
+        <!-- Margin lines -->
+        <line x1="140" y1="10" x2="140" y2="230" stroke="#ffd166" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <line x1="200" y1="10" x2="200" y2="230" stroke="#ffd166" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <!-- Decision boundary -->
+        <line x1="170" y1="10" x2="170" y2="230" stroke="#ff6b35" stroke-width="3"/>
+        <!-- Class A dots (left) -->
+        <circle cx="50" cy="60" r="6" fill="#00d4aa"/>
+        <circle cx="70" cy="90" r="6" fill="#00d4aa"/>
+        <circle cx="45" cy="120" r="6" fill="#00d4aa"/>
+        <circle cx="90" cy="75" r="6" fill="#00d4aa"/>
+        <circle cx="80" cy="140" r="6" fill="#00d4aa"/>
+        <circle cx="60" cy="165" r="6" fill="#00d4aa"/>
+        <circle cx="110" cy="100" r="6" fill="#00d4aa"/>
+        <!-- Support vectors Class A (circled) -->
+        <circle cx="120" cy="85" r="6" fill="#00d4aa"/>
+        <circle cx="120" cy="85" r="12" fill="none" stroke="#00d4aa" stroke-width="2"/>
+        <circle cx="115" cy="145" r="6" fill="#00d4aa"/>
+        <circle cx="115" cy="145" r="12" fill="none" stroke="#00d4aa" stroke-width="2"/>
+        <!-- Class B dots (right) -->
+        <circle cx="250" cy="70" r="6" fill="#ef476f"/>
+        <circle cx="275" cy="100" r="6" fill="#ef476f"/>
+        <circle cx="260" cy="140" r="6" fill="#ef476f"/>
+        <circle cx="300" cy="80" r="6" fill="#ef476f"/>
+        <circle cx="285" cy="155" r="6" fill="#ef476f"/>
+        <circle cx="310" cy="125" r="6" fill="#ef476f"/>
+        <!-- Support vectors Class B (circled) -->
+        <circle cx="215" cy="95" r="6" fill="#ef476f"/>
+        <circle cx="215" cy="95" r="12" fill="none" stroke="#ef476f" stroke-width="2"/>
+        <circle cx="218" cy="155" r="6" fill="#ef476f"/>
+        <circle cx="218" cy="155" r="12" fill="none" stroke="#ef476f" stroke-width="2"/>
+        <!-- Labels -->
+        <text x="75" y="200" text-anchor="middle" fill="#00d4aa" font-size="12" font-weight="700">Class A</text>
+        <text x="270" y="200" text-anchor="middle" fill="#ef476f" font-size="12" font-weight="700">Class B</text>
+        <text x="170" y="24" text-anchor="middle" fill="#ff6b35" font-size="10">Decision</text>
+        <text x="170" y="36" text-anchor="middle" fill="#ff6b35" font-size="10">Boundary</text>
+        <text x="100" y="220" text-anchor="middle" fill="#ffd166" font-size="10">← max margin →</text>
+        <text x="170" y="220" text-anchor="middle" fill="#ffd166" font-size="9">(widest gap)</text>
+        <text x="285" y="37" fill="#6e6e8a" font-size="9">Support Vectors</text>
+        <text x="285" y="48" fill="#6e6e8a" font-size="9">(circled points)</text>
+      </svg>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-label">// The Kernel Trick: Non-Linear Data</div>
+      <svg width="100%" height="240" viewBox="0 0 340 240">
+        <rect x="0" y="0" width="340" height="240" fill="#1a1a2a" rx="4"/>
+        <!-- 2D view (left) -->
+        <text x="85" y="20" text-anchor="middle" fill="#6e6e8a" font-size="11" font-family="'Fira Code'">2D: TANGLED</text>
+        <!-- Circular cluster (inner = red, outer = teal) -->
+        <circle cx="85" cy="120" r="40" fill="rgba(0,212,170,.08)" stroke="#00d4aa" stroke-width="1" stroke-dasharray="4,3"/>
+        <circle cx="85" cy="120" r="18" fill="rgba(239,71,111,.1)"/>
+        <!-- Red inner dots -->
+        <circle cx="80" cy="115" r="4" fill="#ef476f"/>
+        <circle cx="92" cy="125" r="4" fill="#ef476f"/>
+        <circle cx="78" cy="128" r="4" fill="#ef476f"/>
+        <circle cx="88" cy="112" r="4" fill="#ef476f"/>
+        <!-- Teal outer dots -->
+        <circle cx="55" cy="100" r="4" fill="#00d4aa"/>
+        <circle cx="115" cy="105" r="4" fill="#00d4aa"/>
+        <circle cx="60" cy="140" r="4" fill="#00d4aa"/>
+        <circle cx="112" cy="142" r="4" fill="#00d4aa"/>
+        <circle cx="85" cy="80" r="4" fill="#00d4aa"/>
+        <circle cx="85" cy="160" r="4" fill="#00d4aa"/>
+        <text x="85" y="200" text-anchor="middle" fill="#ef476f" font-size="10">Can't draw a line!</text>
+
+        <!-- Arrow -->
+        <path d="M165 120 L185 120" stroke="white" stroke-width="2" marker-end="url(#arw)"/>
+        <text x="175" y="112" text-anchor="middle" fill="#ffd166" font-size="9">Kernel</text>
+        <text x="175" y="122" text-anchor="middle" fill="#ffd166" font-size="9">Trick</text>
+        <text x="175" y="132" text-anchor="middle" fill="#ffd166" font-size="9">↓ 3D</text>
+
+        <!-- 3D view (right, approximated) -->
+        <text x="265" y="20" text-anchor="middle" fill="#6e6e8a" font-size="11" font-family="'Fira Code'">3D: SEPARABLE</text>
+        <line x1="210" y1="180" x2="320" y2="180" stroke="#2a2a40" stroke-width="1"/>
+        <!-- Low height dots (red, inside) -->
+        <ellipse cx="230" cy="170" rx="4" ry="3" fill="#ef476f"/>
+        <ellipse cx="250" cy="165" rx="4" ry="3" fill="#ef476f"/>
+        <ellipse cx="265" cy="160" rx="4" ry="3" fill="#ef476f"/>
+        <ellipse cx="245" cy="175" rx="4" ry="3" fill="#ef476f"/>
+        <!-- High height dots (teal, outside) -->
+        <ellipse cx="220" cy="130" rx="4" ry="3" fill="#00d4aa"/>
+        <ellipse cx="240" cy="100" rx="4" ry="3" fill="#00d4aa"/>
+        <ellipse cx="280" cy="95" rx="4" ry="3" fill="#00d4aa"/>
+        <ellipse cx="310" cy="120" rx="4" ry="3" fill="#00d4aa"/>
+        <ellipse cx="305" cy="155" rx="4" ry="3" fill="#00d4aa"/>
+        <!-- Separator plane -->
+        <polygon points="215,145 320,140 315,175 210,178" fill="rgba(255,209,102,.15)" stroke="#ffd166" stroke-width="1.5"/>
+        <text x="265" y="200" text-anchor="middle" fill="#00d4aa" font-size="10">Now a plane separates them!</text>
+        <defs><marker id="arw" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3z" fill="white"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Classify Emails</div>
+      <div class="ex-desc">Important vs spam. Simple linear boundary in word-feature space. SVM excels at high-dimensional text data with thousands of word features.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Face Recognition</div>
+      <div class="ex-desc">Each face is a high-dimensional point (1 value per pixel). SVM finds the max-margin boundary between "Alice's face" vs "not Alice's face."</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Protein Classification</div>
+      <div class="ex-desc">Classify proteins as cancerous vs healthy using thousands of molecular features. SVM with RBF kernel handles complex non-linear boundaries in biology.</div>
+    </div>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>Excellent for high-dimensional data (text, images)</li>
+        <li>Memory efficient — only stores support vectors, not all data</li>
+        <li>Robust against overfitting when margin is maximized</li>
+        <li>Kernel trick handles non-linear boundaries elegantly</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>Very slow to train on large datasets (millions of rows)</li>
+        <li>Choosing the right kernel requires expertise and trial</li>
+        <li>Doesn't directly give probabilities (needs extra calibration)</li>
+        <li>Must normalize/scale all features before using</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH07: DECISION TREES ══════════════════ -->
+<div id="ch07">
+<div class="section-divider">
+  <div class="div-num">07</div>
+  <div class="div-info">
+    <div class="div-tag">// Tree-Based · Classification + Regression</div>
+    <div class="div-title">Decision Trees</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="07">
+    <div class="algo-tag-line" style="color:var(--accent4)">// 07 · CLASSIFICATION + REGRESSION · TREE-BASED</div>
+    <div class="algo-name" style="color:var(--white)">Decision <em style="color:var(--accent4)">Trees</em></div>
+    <div class="algo-tagline">"A series of smart Yes/No questions that lead you to an answer — like 20 Questions"</div>
+    <div style="margin-top:16px"><span class="tag tag-cls">Classification</span><span class="tag tag-reg">Regression</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>A Decision Tree creates a <strong>flowchart of questions</strong>. At each step, it asks the most informative yes/no question about the data, splitting it into two groups. You follow the branches until you reach a leaf node — the final answer. It looks like an upside-down tree.</p>
+  </div>
+
+  <div class="plain-box">
+    <p>You come home and your plant looks sick. You ask: "Did I water it this week? YES → Did it get sun? NO → It's probably overwatered." You just ran a decision tree! The algorithm learns WHICH questions to ask and in WHAT ORDER to minimize wrong answers.</p>
+  </div>
+
+  <h2 class="section-h2">Full Decision Tree: Should You Play Tennis Today?</h2>
+  <div class="svg-wrap">
+    <div class="chart-label">// Decision Tree Diagram — Real Example from ML Education</div>
+    <svg width="100%" height="360" viewBox="0 0 700 360">
+      <defs>
+        <marker id="tarr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3z" fill="#6e6e8a"/>
+        </marker>
+      </defs>
+
+      <!-- ROOT NODE: WEATHER -->
+      <rect x="270" y="10" width="160" height="54" rx="6" fill="#ff6b35" opacity=".9"/>
+      <text x="350" y="32" text-anchor="middle" fill="white" font-size="13" font-weight="700">WEATHER?</text>
+      <text x="350" y="50" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="10">Sunny / Rainy / Overcast</text>
+
+      <!-- Branches from root -->
+      <line x1="300" y1="64" x2="130" y2="130" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#tarr)"/>
+      <text x="195" y="103" text-anchor="middle" fill="#ffd166" font-size="11" font-weight="700">SUNNY</text>
+      <line x1="350" y1="64" x2="350" y2="130" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#tarr)"/>
+      <text x="365" y="105" fill="#ffd166" font-size="11" font-weight="700">OVERCAST</text>
+      <line x1="400" y1="64" x2="570" y2="130" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#tarr)"/>
+      <text x="505" y="103" text-anchor="middle" fill="#ffd166" font-size="11" font-weight="700">RAINY</text>
+
+      <!-- LEVEL 1 LEFT: HUMIDITY -->
+      <rect x="50" y="130" width="160" height="54" rx="6" fill="#7c6fcd" opacity=".9"/>
+      <text x="130" y="152" text-anchor="middle" fill="white" font-size="13" font-weight="700">HUMIDITY?</text>
+      <text x="130" y="172" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="10">High or Normal?</text>
+
+      <!-- LEVEL 1 MIDDLE: ALWAYS YES -->
+      <rect x="265" y="130" width="170" height="54" rx="6" fill="#00d4aa" opacity=".9"/>
+      <text x="350" y="152" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓ PLAY!</text>
+      <text x="350" y="170" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="10">Overcast → always play</text>
+
+      <!-- LEVEL 1 RIGHT: WIND -->
+      <rect x="490" y="130" width="160" height="54" rx="6" fill="#7c6fcd" opacity=".9"/>
+      <text x="570" y="152" text-anchor="middle" fill="white" font-size="13" font-weight="700">WIND SPEED?</text>
+      <text x="570" y="172" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="10">Strong or Weak?</text>
+
+      <!-- Branches from HUMIDITY -->
+      <line x1="95" y1="184" x2="60" y2="250" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#tarr)"/>
+      <text x="65" y="228" fill="#ffd166" font-size="11">HIGH</text>
+      <line x1="160" y1="184" x2="195" y2="250" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#tarr)"/>
+      <text x="185" y="228" fill="#ffd166" font-size="11">NORMAL</text>
+
+      <!-- Branches from WIND -->
+      <line x1="535" y1="184" x2="490" y2="250" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#tarr)"/>
+      <text x="493" y="228" fill="#ffd166" font-size="11">STRONG</text>
+      <line x1="605" y1="184" x2="645" y2="250" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#tarr)"/>
+      <text x="635" y="228" fill="#ffd166" font-size="11">WEAK</text>
+
+      <!-- LEAF NODES -->
+      <!-- Don't play (high humidity) -->
+      <rect x="15" y="250" width="105" height="44" rx="6" fill="#ef476f"/>
+      <text x="67" y="268" text-anchor="middle" fill="white" font-size="12" font-weight="700">✗ DON'T</text>
+      <text x="67" y="283" text-anchor="middle" fill="white" font-size="12" font-weight="700">PLAY</text>
+      <!-- Play (normal humidity) -->
+      <rect x="150" y="250" width="105" height="44" rx="6" fill="#00d4aa"/>
+      <text x="202" y="272" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓ PLAY!</text>
+      <!-- Don't play (strong wind) -->
+      <rect x="445" y="250" width="105" height="44" rx="6" fill="#ef476f"/>
+      <text x="497" y="268" text-anchor="middle" fill="white" font-size="12" font-weight="700">✗ DON'T</text>
+      <text x="497" y="283" text-anchor="middle" fill="white" font-size="12" font-weight="700">PLAY</text>
+      <!-- Play (weak wind) -->
+      <rect x="600" y="250" width="105" height="44" rx="6" fill="#00d4aa"/>
+      <text x="652" y="272" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓ PLAY!</text>
+
+      <!-- Legend -->
+      <rect x="0" y="320" width="700" height="40" rx="4" fill="rgba(255,255,255,.03)"/>
+      <circle cx="20" cy="340" r="6" fill="#ff6b35"/>
+      <text x="34" y="344" fill="#6e6e8a" font-size="10">Root Node</text>
+      <circle cx="130" cy="340" r="6" fill="#7c6fcd"/>
+      <text x="144" y="344" fill="#6e6e8a" font-size="10">Internal Nodes (Questions)</text>
+      <circle cx="310" cy="340" r="6" fill="#00d4aa"/>
+      <text x="324" y="344" fill="#6e6e8a" font-size="10">Leaf Nodes = Final Answers</text>
+      <text x="500" y="344" fill="#ffd166" font-size="10" font-family="'Fira Code'">↓ follow branches to prediction</text>
+    </svg>
+  </div>
+
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Should I Carry an Umbrella?</div>
+      <div class="ex-desc">Questions: Is it cloudy? → Is rain forecast? → Temperature below 15°C? Easy tree, few questions, totally interpretable by humans.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Customer Churn Prediction</div>
+      <div class="ex-desc">Is tenure < 12 months? → Monthly bill > $70? → Support calls > 3? Businesses use these trees to identify at-risk customers and offer discounts.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Medical Triage</div>
+      <div class="ex-desc">Heart rate > 100? → Chest pain present? → Troponin level? → Oxygen saturation below 95%? Deep trees with 20+ questions guide ER doctors.</div>
+    </div>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>100% interpretable — you can draw it on paper and explain it to anyone</li>
+        <li>Works with numbers AND text/categories (mixed data types)</li>
+        <li>No need to normalize or scale features</li>
+        <li>Captures non-linear relationships naturally</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>Prone to overfitting — memorizes the training data too well</li>
+        <li>Small change in data = completely different tree structure</li>
+        <li>Biased toward features with many possible values</li>
+        <li>Single trees rarely achieve state-of-the-art accuracy</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH08: RANDOM FOREST ══════════════════ -->
+<div id="ch08">
+<div class="section-divider">
+  <div class="div-num">08</div>
+  <div class="div-info">
+    <div class="div-tag">// Ensemble Method · Supervised</div>
+    <div class="div-title">Random Forest</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="08">
+    <div class="algo-tag-line" style="color:var(--accent2)">// 08 · CLASSIFICATION + REGRESSION · ENSEMBLE</div>
+    <div class="algo-name" style="color:var(--white)">Random <em style="color:var(--accent2)">Forest</em></div>
+    <div class="algo-tagline">"Wisdom of the crowd: 500 imperfect trees vote together to beat any single perfect tree"</div>
+    <div style="margin-top:16px"><span class="tag tag-cls">Classification</span><span class="tag tag-reg">Regression</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>Random Forest trains <strong>hundreds of decision trees</strong>, each slightly different from the others (using random data subsets and random feature choices). Then it combines all their predictions by majority vote. The result is far more accurate and stable than any single tree.</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Imagine asking one doctor for a diagnosis — you might get a wrong answer. Now imagine asking 500 doctors, each with slightly different training and areas of expertise. If 420 of them say "it's Type 2 diabetes," you're pretty confident in that answer. Random Forest is exactly this — except the "doctors" are decision trees.</p>
+  </div>
+
+  <h2 class="section-h2">Chart: How Accuracy Grows with More Trees</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// Model Accuracy vs. Number of Trees in the Forest</div>
+    <canvas id="rfChart" height="70"></canvas>
+    <p class="chart-sub">Adding more trees always improves (or holds) accuracy — it never gets worse. The gain flattens after ~100-200 trees. 500 is the standard sweet spot.</p>
+  </div>
+
+  <h2 class="section-h2">The Two Sources of Randomness That Make It Work</h2>
+  <div class="highlight-box">
+    <h4>Why Random? Why is That Good?</h4>
+    <ul>
+      <li><strong>Bootstrap Sampling (Bagging):</strong> Each tree trains on a RANDOM sample of the training data (with replacement). About 37% of examples are left out per tree. This forces diversity — each tree sees different examples.</li>
+      <li><strong>Feature Randomness:</strong> At each split, only a RANDOM subset of features is considered (typically √n features). This prevents all trees from making identical splits, creating genuine diversity.</li>
+      <li><strong>Why diversity matters:</strong> If all trees make the same errors, voting doesn't help. But if their errors are different (random), errors cancel out when you vote!</li>
+      <li><strong>Feature Importance Bonus:</strong> Random Forest tells you which features were most useful across all 500 trees — a powerful free insight.</li>
+    </ul>
+  </div>
+
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Predict if It'll Rain</div>
+      <div class="ex-desc">500 trees each look at different weather patterns from past years. Most trees agree → high confidence forecast. Few agree → uncertain prediction.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Credit Score / Loan Approval</div>
+      <div class="ex-desc">Income, debt, employment history, age, past defaults — 500 trees vote. Banks prefer this over single models because it's harder to fool and more stable.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Drug Discovery Screening</div>
+      <div class="ex-desc">Random Forest screens millions of molecular compounds, predicting which are most likely to bind to a target protein. Used at Pfizer, AstraZeneca, and others.</div>
+    </div>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>One of the highest accuracy algorithms — state of the art in tabular data</li>
+        <li>Automatically handles overfitting through the ensemble mechanism</li>
+        <li>Gives feature importance rankings for free</li>
+        <li>Works out-of-the-box with almost no parameter tuning</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>"Black box" — much harder to explain than a single tree</li>
+        <li>Slower training and prediction than linear models</li>
+        <li>Requires more memory to store 500 trees</li>
+        <li>Overkill for simple, linear problems</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rw-strip">
+    <p><strong>Spotify</strong> uses Random Forest variants to decide which songs you'll skip. <strong>Microsoft Kinect</strong> uses Random Forest to detect human body poses in real time. <strong>Kaggle competitions</strong>: Random Forest and its cousin XGBoost win the majority of structured data contests. <strong>Medical imaging:</strong> Predicts 5-year survival rates from biopsy features.</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH09: NEURAL NETWORKS ══════════════════ -->
+<div id="ch09">
+<div class="section-divider">
+  <div class="div-num">09</div>
+  <div class="div-info">
+    <div class="div-tag">// Deep Learning · Most Powerful</div>
+    <div class="div-title">Neural Networks</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="09">
+    <div class="algo-tag-line" style="color:var(--accent5)">// 09 · DEEP LEARNING · CLASSIFICATION + REGRESSION</div>
+    <div class="algo-name" style="color:var(--white)">Neural <em style="color:var(--accent5)">Networks</em></div>
+    <div class="algo-tagline">"Inspired by the human brain — layers of connected nodes that learn hidden features automatically"</div>
+    <div style="margin-top:16px"><span class="tag tag-deep">Deep Learning</span><span class="tag tag-cls">Classification</span><span class="tag tag-reg">Regression</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>A Neural Network is made of layers of <strong>artificial neurons</strong> connected by adjustable weights. Training finds the right weights so the network correctly maps inputs to outputs. The deeper the network (more layers), the more complex the patterns it can learn — this is called <strong>Deep Learning</strong>.</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Your brain has 86 billion neurons. When you see a cat, signals flow from your eyes through millions of neurons, each firing or not based on what they detect: edges → shapes → ears → "cat!" Neural networks mimic this by stacking layers. Early layers detect simple features (edges). Later layers combine them into complex concepts (faces, objects, emotions).</p>
+  </div>
+
+  <h2 class="section-h2">Diagram: Neural Network Architecture</h2>
+  <div class="svg-wrap">
+    <div class="chart-label">// From Raw Pixels → Hidden Features → Final Prediction</div>
+    <svg width="100%" height="300" viewBox="0 0 700 300">
+      <!-- Layer backgrounds -->
+      <rect x="0" y="0" width="700" height="300" fill="#13131e" rx="4"/>
+      <rect x="5" y="20" width="120" height="260" rx="4" fill="rgba(255,107,53,.06)" stroke="rgba(255,107,53,.2)" stroke-width="1"/>
+      <rect x="135" y="20" width="120" height="260" rx="4" fill="rgba(124,111,205,.06)" stroke="rgba(124,111,205,.2)" stroke-width="1"/>
+      <rect x="265" y="20" width="120" height="260" rx="4" fill="rgba(124,111,205,.06)" stroke="rgba(124,111,205,.2)" stroke-width="1"/>
+      <rect x="395" y="20" width="120" height="260" rx="4" fill="rgba(0,212,170,.06)" stroke="rgba(0,212,170,.2)" stroke-width="1"/>
+      <rect x="540" y="20" width="155" height="260" rx="4" fill="rgba(255,209,102,.06)" stroke="rgba(255,209,102,.2)" stroke-width="1"/>
+
+      <!-- Layer labels -->
+      <text x="65" y="16" text-anchor="middle" fill="#ff6b35" font-size="10" font-family="'Fira Code'">INPUT</text>
+      <text x="195" y="16" text-anchor="middle" fill="#7c6fcd" font-size="10" font-family="'Fira Code'">HIDDEN 1</text>
+      <text x="325" y="16" text-anchor="middle" fill="#7c6fcd" font-size="10" font-family="'Fira Code'">HIDDEN 2</text>
+      <text x="455" y="16" text-anchor="middle" fill="#00d4aa" font-size="10" font-family="'Fira Code'">HIDDEN 3</text>
+      <text x="617" y="16" text-anchor="middle" fill="#ffd166" font-size="10" font-family="'Fira Code'">OUTPUT</text>
+
+      <!-- Input neurons (5) -->
+      <circle cx="65" cy="60" r="14" fill="#ff6b35" opacity=".8"/>
+      <circle cx="65" cy="105" r="14" fill="#ff6b35" opacity=".8"/>
+      <circle cx="65" cy="150" r="14" fill="#ff6b35" opacity=".8"/>
+      <circle cx="65" cy="195" r="14" fill="#ff6b35" opacity=".8"/>
+      <circle cx="65" cy="240" r="14" fill="#ff6b35" opacity=".8"/>
+      <text x="65" y="60" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="9">x₁</text>
+      <text x="65" y="105" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="9">x₂</text>
+      <text x="65" y="150" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="9">x₃</text>
+      <text x="65" y="195" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="9">x₄</text>
+      <text x="65" y="240" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="9">x₅</text>
+
+      <!-- H1 neurons (4) - draw connections first -->
+      <g opacity=".2">
+        <line x1="79" y1="60" x2="181" y2="75" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="79" y1="60" x2="181" y2="130" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="79" y1="105" x2="181" y2="75" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="79" y1="150" x2="181" y2="130" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="79" y1="195" x2="181" y2="185" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="79" y1="240" x2="181" y2="185" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="79" y1="240" x2="181" y2="245" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="79" y1="195" x2="181" y2="245" stroke="#7c6fcd" stroke-width="1"/>
+      </g>
+      <circle cx="195" cy="75" r="14" fill="#7c6fcd" opacity=".8"/>
+      <circle cx="195" cy="130" r="14" fill="#7c6fcd" opacity=".8"/>
+      <circle cx="195" cy="185" r="14" fill="#7c6fcd" opacity=".8"/>
+      <circle cx="195" cy="245" r="14" fill="#7c6fcd" opacity=".8"/>
+
+      <!-- H2 neurons (4) -->
+      <g opacity=".2">
+        <line x1="209" y1="75" x2="311" y2="75" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="209" y1="130" x2="311" y2="140" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="209" y1="185" x2="311" y2="200" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="209" y1="245" x2="311" y2="255" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="209" y1="75" x2="311" y2="140" stroke="#7c6fcd" stroke-width="1"/>
+        <line x1="209" y1="130" x2="311" y2="75" stroke="#7c6fcd" stroke-width="1"/>
+      </g>
+      <circle cx="325" cy="75" r="14" fill="#7c6fcd" opacity=".8"/>
+      <circle cx="325" cy="140" r="14" fill="#7c6fcd" opacity=".8"/>
+      <circle cx="325" cy="200" r="14" fill="#7c6fcd" opacity=".8"/>
+      <circle cx="325" cy="255" r="14" fill="#7c6fcd" opacity=".8"/>
+
+      <!-- H3 neurons (3) -->
+      <g opacity=".2">
+        <line x1="339" y1="75" x2="441" y2="100" stroke="#00d4aa" stroke-width="1"/>
+        <line x1="339" y1="140" x2="441" y2="165" stroke="#00d4aa" stroke-width="1"/>
+        <line x1="339" y1="200" x2="441" y2="225" stroke="#00d4aa" stroke-width="1"/>
+      </g>
+      <circle cx="455" cy="100" r="14" fill="#00d4aa" opacity=".8"/>
+      <circle cx="455" cy="165" r="14" fill="#00d4aa" opacity=".8"/>
+      <circle cx="455" cy="225" r="14" fill="#00d4aa" opacity=".8"/>
+
+      <!-- Output neurons (2) -->
+      <g opacity=".3">
+        <line x1="469" y1="100" x2="579" y2="130" stroke="#ffd166" stroke-width="1.5"/>
+        <line x1="469" y1="165" x2="579" y2="175" stroke="#ffd166" stroke-width="1.5"/>
+        <line x1="469" y1="225" x2="579" y2="130" stroke="#ffd166" stroke-width="1.5"/>
+      </g>
+      <circle cx="593" cy="130" r="18" fill="#ffd166" opacity=".9"/>
+      <circle cx="593" cy="185" r="18" fill="#ffd166" opacity=".9"/>
+      <text x="593" y="130" text-anchor="middle" dominant-baseline="middle" fill="#111" font-size="9" font-weight="700">Cat</text>
+      <text x="593" y="185" text-anchor="middle" dominant-baseline="middle" fill="#111" font-size="9" font-weight="700">Dog</text>
+      <text x="635" y="130" fill="#6e6e8a" font-size="10" dominant-baseline="middle">92%</text>
+      <text x="635" y="185" fill="#6e6e8a" font-size="10" dominant-baseline="middle">8%</text>
+
+      <!-- Feature labels below layers -->
+      <text x="65" y="285" text-anchor="middle" fill="#6e6e8a" font-size="9">Raw pixels</text>
+      <text x="195" y="285" text-anchor="middle" fill="#6e6e8a" font-size="9">Edges & lines</text>
+      <text x="325" y="285" text-anchor="middle" fill="#6e6e8a" font-size="9">Shapes & parts</text>
+      <text x="455" y="285" text-anchor="middle" fill="#6e6e8a" font-size="9">Eyes, ears, fur</text>
+      <text x="617" y="285" text-anchor="middle" fill="#ffd166" font-size="9">Final prediction</text>
+    </svg>
+  </div>
+
+  <h2 class="section-h2">How a Neural Network Learns: Backpropagation</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Forward Pass</strong><span>Input data flows forward through all layers. Each neuron multiplies its inputs by its weights and applies an activation function. Produces a prediction.</span></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Calculate Error (Loss)</strong><span>Compare the prediction to the correct answer. If the network predicted "Dog" but it was a "Cat," the error is large. This error is a number called "loss."</span></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Backpropagation</strong><span>The error flows BACKWARD through the network. Using calculus (chain rule), it figures out how much each weight contributed to the error. This is the "blame assignment" step.</span></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Update Weights (Gradient Descent)</strong><span>Adjust every weight slightly to reduce future error. Move weights in the direction that decreases loss. Like carefully turning knobs on a radio to reduce static.</span></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Repeat Millions of Times</strong><span>Do steps 1–4 for thousands of training examples, thousands of times (epochs). Weights gradually converge to good values. The model gets smarter with every pass.</span></div></div>
+  </div>
+
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Handwriting Recognition</div>
+      <div class="ex-desc">Input: 28×28 pixel image of a digit. 3-layer network learns: pixels → strokes → shape → digit. Powers your phone's check-deposit feature.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Voice Assistants (Siri/Alexa)</div>
+      <div class="ex-desc">Input: raw audio waveform. Recurrent Neural Network learns: sound waves → phonemes → words → meaning. Trained on thousands of hours of human speech.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">ChatGPT / Large Language Models</div>
+      <div class="ex-desc">Transformer neural network with 175 billion weights, trained on nearly the entire internet. Predicts the next most likely word — repeated to generate coherent text.</div>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-label">// Performance vs. Data: Neural Networks vs Traditional ML</div>
+    <canvas id="nnChart" height="70"></canvas>
+    <p class="chart-sub">Traditional algorithms plateau in performance as you add more data. Neural Networks keep improving — they shine with big data and are unbeatable on images, audio, and text.</p>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>Learns incredibly complex patterns with no manual feature engineering</li>
+        <li>State-of-the-art on images, text, audio, video — every unstructured data type</li>
+        <li>Performance scales with more data: give it more examples, it gets smarter</li>
+        <li>Foundation for ChatGPT, DALL-E, AlphaFold, self-driving cars</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>Needs massive training data — thousands to millions of labeled examples</li>
+        <li>Black box — very hard to explain WHY it made a decision</li>
+        <li>Requires GPU hardware; expensive and slow to train from scratch</li>
+        <li>Many hyperparameters to tune: layers, neurons, learning rate, etc.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH10: K-MEANS ══════════════════ -->
+<div id="ch10">
+<div class="section-divider">
+  <div class="div-num">10</div>
+  <div class="div-info">
+    <div class="div-tag">// Unsupervised · Clustering</div>
+    <div class="div-title">K-Means Clustering</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="10">
+    <div class="algo-tag-line" style="color:var(--accent4)">// 10 · CLUSTERING · UNSUPERVISED LEARNING</div>
+    <div class="algo-name" style="color:var(--white)">K-Means <em style="color:var(--accent4)">Clustering</em></div>
+    <div class="algo-tagline">"Finding natural neighborhoods in your data without anyone telling you where they are"</div>
+    <div style="margin-top:16px"><span class="tag tag-unsup">Unsupervised</span><span class="tag tag-cls">Clustering</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>K-Means automatically groups data into <strong>K clusters</strong> based on similarity. It's completely unsupervised — no labels needed. It iteratively assigns each data point to its nearest cluster center (centroid), then repositions the centroids until nothing changes.</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Imagine dropping K magnets onto a map of customers. Each magnet pulls nearby customers toward it. You reposition each magnet to the center of its group. Repeat until the magnets stop moving. The final groups are your K clusters! You never told the algorithm anything about the customers — it discovered groups on its own.</p>
+  </div>
+
+  <h2 class="section-h2">Chart: The K-Means Iteration Process</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// K-Means Step-by-Step: Random → Converged</div>
+    <canvas id="kmeansChart" height="80"></canvas>
+    <p class="chart-sub">Left: Random centroid placement. Right: After 5 iterations, centroids have moved to the true cluster centers. The algorithm is done when centroids stop moving.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Choose K (How Many Clusters)</strong><span>Decide in advance: "I want 3 customer segments." Use the Elbow Method to find the best K — plot total error vs K, pick where the "elbow" is.</span></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Place K Random Centroids</strong><span>Randomly place K cluster centers anywhere in the data space. These are starting guesses — they'll move to better positions.</span></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Assign Every Point to Nearest Centroid</strong><span>Each data point joins the cluster of the centroid closest to it (measured by Euclidean distance — straight line distance).</span></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Recalculate Centroids</strong><span>Move each centroid to the average (mean) position of all points assigned to it. The centroid is now the "center of gravity" of its cluster.</span></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Repeat Steps 3–4 Until Stable</strong><span>Keep reassigning and recalculating until centroids no longer move. Convergence is guaranteed — usually in 10–100 iterations.</span></div></div>
+  </div>
+
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Sort Emails into Categories</div>
+      <div class="ex-desc">K-Means groups your 1000 emails into clusters based on word similarity. You inspect groups and name them: "Work," "Shopping," "Social." Gmail does this for Primary/Social/Promotions tabs.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Customer Segmentation</div>
+      <div class="ex-desc">Amazon uses K-Means on purchase history, age, and income. Result: "Budget shoppers," "Premium buyers," "Tech enthusiasts" — 3 clusters that receive different marketing.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Image Compression</div>
+      <div class="ex-desc">An image has millions of unique colors. K-Means with K=256 finds the 256 most representative colors and maps every pixel to the nearest one — compressing the image dramatically.</div>
+    </div>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>Fast and scales to large datasets efficiently</li>
+        <li>Simple to understand, implement, and explain</li>
+        <li>No labels required — works on raw data</li>
+        <li>Guaranteed to converge to a (local) solution</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>You must specify K in advance — but you don't always know it</li>
+        <li>Sensitive to the initial random centroid placement</li>
+        <li>Assumes clusters are round/spherical and similarly sized</li>
+        <li>Outliers can dramatically skew centroid positions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH11: PCA ══════════════════ -->
+<div id="ch11">
+<div class="section-divider">
+  <div class="div-num">11</div>
+  <div class="div-info">
+    <div class="div-tag">// Dimensionality Reduction · Unsupervised</div>
+    <div class="div-title">Principal Component Analysis (PCA)</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="algo-header" data-num="11">
+    <div class="algo-tag-line" style="color:var(--accent3)">// 11 · DIMENSIONALITY REDUCTION · UNSUPERVISED</div>
+    <div class="algo-name" style="color:var(--white)">PCA — <em style="color:var(--accent3)">Principal Components</em></div>
+    <div class="algo-tagline">"Like compressing a 4K video to 720p — smaller, faster, but keeps everything that matters"</div>
+    <div style="margin-top:16px"><span class="tag tag-unsup">Unsupervised</span></div>
+  </div>
+
+  <div class="def-box">
+    <p>PCA reduces the number of features (dimensions) in a dataset while keeping as much useful information as possible. It finds new directions called <strong>Principal Components</strong> — each one capturing the maximum remaining variance (spread) in the data.</p>
+  </div>
+
+  <div class="plain-box">
+    <p>Imagine taking a 3D sculpture and taking its best photograph. A single 2D photo loses some 3D depth, but if you pick the right angle, it captures the sculpture's most important features. PCA finds the "best angle" — the new dimensions that preserve the most information in fewer numbers.</p>
+  </div>
+
+  <h2 class="section-h2">Chart: How Much Variance Each Component Captures</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// PCA: Variance Explained by Each Principal Component</div>
+    <canvas id="pcaChart" height="80"></canvas>
+    <p class="chart-sub">PC1 and PC2 alone capture 85% of all information from 6 original features. You can safely discard PC3–PC6 and lose only 15% of information while cutting your data in half.</p>
+  </div>
+
+  <div class="examples-row">
+    <div class="ex-box">
+      <div class="ex-level easy">🟢 Beginner</div>
+      <div class="ex-title">Summarize Student Performance</div>
+      <div class="ex-desc">Instead of 10 test scores per student, PCA might find that 1 component ("academic ability") explains 80% of variance. One number instead of ten.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level medium">🟡 Intermediate</div>
+      <div class="ex-title">Eigenfaces (Face Recognition)</div>
+      <div class="ex-desc">A face image has 10,000 pixels. PCA finds 100 "eigenfaces" (principal components) that together represent any face. Reduces 10,000 numbers to 100 — 100× compression.</div>
+    </div>
+    <div class="ex-box">
+      <div class="ex-level hard">🔴 Advanced</div>
+      <div class="ex-title">Genomics: 20,000 Genes → 50</div>
+      <div class="ex-desc">Human genome has 20,000+ genes. PCA reduces this to 50 components that capture population-level variation. Enabled discovery of human migration patterns across continents.</div>
+    </div>
+  </div>
+
+  <div class="rw-strip">
+    <p>PCA is used before other ML algorithms as a <strong>preprocessing step</strong>. Example: training a neural network on a dataset with 10,000 features is slow and prone to overfitting. Run PCA first to reduce to 200 features that capture 95% of variance — training is 50× faster with similar accuracy. Used at scale by <strong>Google, Spotify, pharmaceutical companies, and financial institutions</strong> for faster, better models.</p>
+  </div>
+
+  <div class="pro-con">
+    <div class="pros">
+      <div class="pc-title">Advantages</div>
+      <ul class="pc-list">
+        <li>Dramatically speeds up downstream ML algorithms</li>
+        <li>Enables visualization of high-dimensional data in 2D/3D</li>
+        <li>Removes redundant, correlated features automatically</li>
+        <li>Can improve model accuracy by removing noisy features</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <div class="pc-title">Limitations</div>
+      <ul class="pc-list">
+        <li>New principal components are mathematical combos — hard to explain</li>
+        <li>Only captures linear relationships between features</li>
+        <li>Must standardize features first (same scale)</li>
+        <li>Always loses some information — choose how much you can afford to lose</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ CH12: CHOOSING ══════════════════ -->
+<div id="ch12">
+<div class="section-divider">
+  <div class="div-num">12</div>
+  <div class="div-info">
+    <div class="div-tag">// Decision Guide · Reference</div>
+    <div class="div-title">How to Choose the Right Algorithm</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="big-quote">"There is no free lunch — no single algorithm wins on every problem. But there IS a smart order to try them."</div>
+
+  <h2 class="section-h2">Algorithm Comparison: The Complete Reference Table</h2>
+  <div class="comp-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Algorithm</th>
+          <th>Type</th>
+          <th>Problem Type</th>
+          <th>Data Size</th>
+          <th>Speed</th>
+          <th>Interpretable?</th>
+          <th>Best When...</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Linear Regression</strong></td><td>Supervised</td><td>Regression</td><td>Small–Large</td><td>⚡⚡⚡</td><td>★★★★★</td><td>Relationship is linear, need to explain results</td></tr>
+        <tr><td><strong>Logistic Regression</strong></td><td>Supervised</td><td>Classification</td><td>Small–Large</td><td>⚡⚡⚡</td><td>★★★★☆</td><td>Binary/probability output, medical/finance</td></tr>
+        <tr><td><strong>K-Nearest Neighbors</strong></td><td>Instance</td><td>Both</td><td>Small only</td><td>⚡ (slow predict)</td><td>★★★★☆</td><td>Baseline, recommendation systems</td></tr>
+        <tr><td><strong>Support Vector Machine</strong></td><td>Supervised</td><td>Classification</td><td>Small–Medium</td><td>⚡⚡</td><td>★★☆☆☆</td><td>High-dim data, clear class margins, text</td></tr>
+        <tr><td><strong>Decision Tree</strong></td><td>Supervised</td><td>Both</td><td>Any</td><td>⚡⚡⚡</td><td>★★★★★</td><td>Rules must be explainable to humans</td></tr>
+        <tr><td><strong>Random Forest</strong></td><td>Ensemble</td><td>Both</td><td>Medium–Large</td><td>⚡⚡</td><td>★★★☆☆</td><td>Best general-purpose accuracy, tabular data</td></tr>
+        <tr><td><strong>Neural Networks</strong></td><td>Deep Learning</td><td>Both</td><td>Large (millions)</td><td>⚡ (train slow)</td><td>★☆☆☆☆</td><td>Images, audio, text, complex unstructured data</td></tr>
+        <tr><td><strong>K-Means</strong></td><td>Unsupervised</td><td>Clustering</td><td>Any</td><td>⚡⚡⚡</td><td>★★★★☆</td><td>Find natural groups with no labels</td></tr>
+        <tr><td><strong>PCA</strong></td><td>Unsupervised</td><td>Dim. Reduction</td><td>Any</td><td>⚡⚡⚡</td><td>★★☆☆☆</td><td>Pre-processing, visualization, noise removal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-h2">The Algorithm Selection Flowchart</h2>
+  <div class="svg-wrap">
+    <div class="chart-label">// Decision Flow: How to Pick Your Algorithm</div>
+    <svg width="100%" height="420" viewBox="0 0 700 420">
+      <defs>
+        <marker id="flowArr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3z" fill="#6e6e8a"/>
+        </marker>
+      </defs>
+
+      <!-- START -->
+      <rect x="275" y="10" width="150" height="44" rx="22" fill="#ff6b35"/>
+      <text x="350" y="37" text-anchor="middle" fill="white" font-size="14" font-weight="700">START HERE</text>
+
+      <line x1="350" y1="54" x2="350" y2="80" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+
+      <!-- Q1: Labels? -->
+      <rect x="240" y="80" width="220" height="50" rx="6" fill="#1a1a2a" stroke="#7c6fcd" stroke-width="2"/>
+      <text x="350" y="101" text-anchor="middle" fill="#7c6fcd" font-size="12" font-weight="700">Do you have LABELS</text>
+      <text x="350" y="118" text-anchor="middle" fill="#7c6fcd" font-size="12">(known correct answers)?</text>
+
+      <!-- YES/NO branches -->
+      <line x1="240" y1="105" x2="100" y2="155" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <text x="155" y="138" fill="#00d4aa" font-size="11" font-weight="700" text-anchor="middle">YES</text>
+      <line x1="460" y1="105" x2="580" y2="155" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <text x="545" y="138" fill="#ef476f" font-size="11" font-weight="700" text-anchor="middle">NO</text>
+
+      <!-- SUPERVISED -->
+      <rect x="20" y="155" width="160" height="44" rx="6" fill="#1a1a2a" stroke="#00d4aa" stroke-width="1.5"/>
+      <text x="100" y="177" text-anchor="middle" fill="#00d4aa" font-size="13" font-weight="700">SUPERVISED</text>
+      <text x="100" y="191" text-anchor="middle" fill="#6e6e8a" font-size="10">Labeled data available</text>
+
+      <!-- UNSUPERVISED -->
+      <rect x="520" y="155" width="160" height="44" rx="6" fill="#1a1a2a" stroke="#ef476f" stroke-width="1.5"/>
+      <text x="600" y="177" text-anchor="middle" fill="#ef476f" font-size="13" font-weight="700">UNSUPERVISED</text>
+      <text x="600" y="191" text-anchor="middle" fill="#6e6e8a" font-size="10">No labels</text>
+
+      <!-- Q2: Number or Category? -->
+      <line x1="100" y1="199" x2="100" y2="230" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <rect x="10" y="230" width="180" height="50" rx="6" fill="#1a1a2a" stroke="#ffd166" stroke-width="1.5"/>
+      <text x="100" y="252" text-anchor="middle" fill="#ffd166" font-size="11" font-weight="700">Output is a...</text>
+      <text x="100" y="268" text-anchor="middle" fill="#ffd166" font-size="11">Number or Category?</text>
+
+      <!-- Unsupervised branches -->
+      <line x1="600" y1="199" x2="600" y2="230" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <rect x="510" y="230" width="180" height="50" rx="6" fill="#1a1a2a" stroke="#ffd166" stroke-width="1.5"/>
+      <text x="600" y="252" text-anchor="middle" fill="#ffd166" font-size="11" font-weight="700">Goal is to...</text>
+      <text x="600" y="268" text-anchor="middle" fill="#ffd166" font-size="11">Group or Compress?</text>
+
+      <!-- Regression path -->
+      <line x1="50" y1="280" x2="30" y2="320" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <text x="20" y="312" fill="#6e6e8a" font-size="10">Number</text>
+      <rect x="0" y="320" width="130" height="80" rx="6" fill="#ff6b35" opacity=".15" stroke="#ff6b35" stroke-width="1.5"/>
+      <text x="65" y="342" text-anchor="middle" fill="#ff6b35" font-size="11" font-weight="700">REGRESSION</text>
+      <text x="65" y="360" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">Linear Regression</text>
+      <text x="65" y="374" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">Neural Network</text>
+      <text x="65" y="388" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">Random Forest</text>
+
+      <!-- Classification path -->
+      <line x1="155" y1="280" x2="185" y2="320" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <text x="185" y="312" fill="#6e6e8a" font-size="10">Category</text>
+      <rect x="145" y="320" width="140" height="80" rx="6" fill="#7c6fcd" opacity=".15" stroke="#7c6fcd" stroke-width="1.5"/>
+      <text x="215" y="342" text-anchor="middle" fill="#7c6fcd" font-size="11" font-weight="700">CLASSIFICATION</text>
+      <text x="215" y="360" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">Logistic Regression</text>
+      <text x="215" y="374" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">SVM / Decision Tree</text>
+      <text x="215" y="388" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">Random Forest / NN</text>
+
+      <!-- Clustering path -->
+      <line x1="560" y1="280" x2="530" y2="320" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <text x="522" y="312" fill="#6e6e8a" font-size="10">Group</text>
+      <rect x="470" y="320" width="130" height="80" rx="6" fill="#00d4aa" opacity=".15" stroke="#00d4aa" stroke-width="1.5"/>
+      <text x="535" y="342" text-anchor="middle" fill="#00d4aa" font-size="11" font-weight="700">CLUSTERING</text>
+      <text x="535" y="360" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">K-Means</text>
+      <text x="535" y="374" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">DBSCAN</text>
+      <text x="535" y="388" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">Hierarchical</text>
+
+      <!-- Dim reduction path -->
+      <line x1="640" y1="280" x2="650" y2="320" stroke="#6e6e8a" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <text x="653" y="312" fill="#6e6e8a" font-size="10">Compress</text>
+      <rect x="600" y="320" width="100" height="80" rx="6" fill="#ef476f" opacity=".15" stroke="#ef476f" stroke-width="1.5"/>
+      <text x="650" y="342" text-anchor="middle" fill="#ef476f" font-size="11" font-weight="700">REDUCTION</text>
+      <text x="650" y="360" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">PCA</text>
+      <text x="650" y="374" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">t-SNE</text>
+      <text x="650" y="388" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="10">UMAP</text>
+    </svg>
+  </div>
+
+  <h2 class="section-h2">The Golden Rules Every ML Practitioner Follows</h2>
+  <div class="highlight-box">
+    <h4>🧠 Expert Advice from 10 Years of Real-World ML</h4>
+    <ul>
+      <li><strong>Always start simple.</strong> Try linear or logistic regression first. If it works well enough, you're done! Only escalate complexity if results demand it.</li>
+      <li><strong>Interpretability is often more valuable than accuracy.</strong> A doctor/judge/banker using your model NEEDS to understand why it made a decision. Use decision trees or linear models.</li>
+      <li><strong>Good features beat smart algorithms.</strong> A well-engineered dataset with a simple model will outperform a poorly-prepared dataset with a fancy neural network. Always.</li>
+      <li><strong>No free lunch theorem.</strong> Mathematically proven: no single algorithm is best for all problems. You must experiment. That's why data scientists test multiple models.</li>
+      <li><strong>Data volume matters enormously.</strong> With 100 rows, use linear models. With 100,000 rows, try Random Forest. With 10,000,000 rows, use Neural Networks.</li>
+      <li><strong>Overfitting is the silent killer.</strong> Your model must work on data it has never seen. Always split: 70% training, 15% validation, 15% testing. Never peek at test data.</li>
+      <li><strong>Cross-validation over single splits.</strong> Never trust a result from one train-test split. Use 5-fold or 10-fold cross-validation to get reliable performance estimates.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-h2">Chart: Which Algorithm to Try First Based on Problem</h2>
+  <div class="chart-wrap">
+    <div class="chart-label">// Algorithm Popularity by Problem Domain (Real Usage Data)</div>
+    <canvas id="domainChart" height="90"></canvas>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ FINALE ══════════════════ -->
+<div class="finale">
+  <h2>You Now<br>Understand ML.</h2>
+  <p>From a straight line through scatter plots to neural networks powering ChatGPT — you've seen the entire landscape. Every expert started exactly where you are today.</p>
+  <div class="finale-rules">
+    <div class="finale-rule"><div class="finale-rule-num">01</div><div class="finale-rule-text">Understand your data deeply before choosing an algorithm. Garbage in, garbage out — always.</div></div>
+    <div class="finale-rule"><div class="finale-rule-num">02</div><div class="finale-rule-text">Simple models are usually the best models. Complexity is a cost, not a feature.</div></div>
+    <div class="finale-rule"><div class="finale-rule-num">03</div><div class="finale-rule-text">Always validate on unseen data. Overfitting is the most common (and fatal) ML mistake.</div></div>
+    <div class="finale-rule"><div class="finale-rule-num">04</div><div class="finale-rule-text">Feature engineering is an art. The right representation of data makes everything easier.</div></div>
+    <div class="finale-rule"><div class="finale-rule-num">05</div><div class="finale-rule-text">Build fast, measure results, iterate. Theory means nothing without real experiments.</div></div>
+    <div class="finale-rule"><div class="finale-rule-num">06</div><div class="finale-rule-text">The best algorithm is the one that solves YOUR specific problem. Context is everything.</div></div>
+  </div>
+  <p style="margin-top:48px; font-size:13px; color:rgba(255,255,255,.3); font-family:'Fira Code', monospace; letter-spacing:.1em;">
+    Based on: "All Machine Learning Algorithms Explained in 17 min" by Tim, Data Scientist<br>
+    Expanded with: scikit-learn docs, Stanford ML, Deep Learning textbook, Andrew Ng's ML Course
+  </p>
+</div>
+
+</div><!-- #pdfContent -->
+
+<script>
+// ━━ PROGRESS BAR ━━
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+// ━━ CHART.JS CHARTS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const RUST='#ff6b35', TEAL='#00d4aa', PURPLE='#7c6fcd', GOLD='#ffd166', PINK='#ef476f', MUTED='rgba(110,110,138,.5)';
+
+// ── CH03: Linear Regression Scatter ──
+new Chart(document.getElementById('linRegChart'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      {
+        label: 'House Data Points',
+        data: [{x:800,y:120},{x:950,y:145},{x:1100,y:168},{x:1200,y:175},{x:1350,y:198},{x:1500,y:225},{x:1650,y:248},{x:1800,y:275},{x:2000,y:310},{x:2200,y:345},{x:2400,y:385},{x:2600,y:410},{x:900,y:155},{x:1400,y:205},{x:1750,y:255},{x:2100,y:320},{x:2300,y:365}],
+        backgroundColor: PURPLE+'cc', pointRadius: 6, pointHoverRadius: 8
+      },
+      {
+        label: 'Best-Fit Line',
+        type: 'line',
+        data: [{x:700,y:105},{x:2700,y:425}],
+        borderColor: RUST, borderWidth: 3, pointRadius: 0, fill: false
+      },
+      {
+        label: 'Confidence Band (upper)',
+        type: 'line',
+        data: [{x:700,y:135},{x:2700,y:455}],
+        borderColor: RUST+'33', borderWidth: 1, borderDash: [5,5], pointRadius: 0, fill: '+1', backgroundColor: RUST+'08'
+      },
+      {
+        label: 'Confidence Band (lower)',
+        type: 'line',
+        data: [{x:700,y:75},{x:2700,y:395}],
+        borderColor: RUST+'33', borderWidth: 1, borderDash: [5,5], pointRadius: 0, fill: false
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { labels: { color: '#e8e8f0', font: { family: 'Outfit' }, filter: i => i.text !== 'Confidence Band (lower)' } } },
+    scales: {
+      x: { title: { display: true, text: 'House Size (sq ft)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } },
+      y: { title: { display: true, text: 'Price ($000s)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } }
+    }
+  }
+});
+
+// ── CH04: Logistic Regression S-Curve ──
+(function(){
+  const labels = Array.from({length:101},(_,i)=>i-50);
+  const sig = labels.map(z => +(1/(1+Math.exp(-z/8))).toFixed(3));
+  new Chart(document.getElementById('logisticChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Sigmoid (S-Curve)',
+          data: sig, borderColor: PURPLE, borderWidth: 3, fill: false, pointRadius: 0, tension: .4
+        },
+        {
+          label: 'Decision Threshold (50%)',
+          data: labels.map(()=>0.5), borderColor: GOLD, borderWidth: 2, borderDash: [6,4], fill: false, pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: { legend: { labels: { color: '#e8e8f0' } } },
+      scales: {
+        x: { title: { display: true, text: 'Feature Score (e.g., spam indicators)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a', maxTicksLimit: 8 }, grid: { color: '#2a2a40' } },
+        y: { title: { display: true, text: 'Probability (0 to 1)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a', callback: v => (v*100)+'%' }, grid: { color: '#2a2a40' }, min: 0, max: 1 }
+      }
+    }
+  });
+})();
+
+// ── CH05: KNN scatter ──
+(function(){
+  const rnd = (min,max,n) => Array.from({length:n},()=>+((Math.random()*(max-min)+min).toFixed(1)));
+  const ax = rnd(1,4,12), ay = rnd(5,8,12);
+  const bx = rnd(6,9,12), by = rnd(1,4,12);
+  new Chart(document.getElementById('knnChart'), {
+    type: 'scatter',
+    data: {
+      datasets: [
+        { label: 'Class A (Blue Triangle)', data: ax.map((x,i)=>({x,y:ay[i]})), backgroundColor: TEAL+'cc', pointRadius: 7, pointStyle: 'triangle' },
+        { label: 'Class B (Red Circle)', data: bx.map((x,i)=>({x,y:by[i]})), backgroundColor: PINK+'cc', pointRadius: 7 },
+        { label: '? New Point', data: [{x:4.8,y:5.5}], backgroundColor: GOLD, pointRadius: 14, pointStyle: 'star', pointHoverRadius: 16 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: {
+        legend: { labels: { color: '#e8e8f0' } },
+        annotation: {}
+      },
+      scales: {
+        x: { min: 0, max: 10, title: { display: true, text: 'Feature 1', color: '#6e6e8a' }, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } },
+        y: { min: 0, max: 10, title: { display: true, text: 'Feature 2', color: '#6e6e8a' }, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } }
+      }
+    }
+  });
+})();
+
+// ── CH08: Random Forest accuracy growth ──
+new Chart(document.getElementById('rfChart'), {
+  type: 'line',
+  data: {
+    labels: ['1','5','10','20','50','100','200','500','1000'],
+    datasets: [
+      { label: 'Random Forest Accuracy', data: [72,81,85,87.5,91,93,94.2,95,95.2], borderColor: TEAL, borderWidth: 3, fill: true, backgroundColor: TEAL+'15', pointRadius: 5, tension: .4 },
+      { label: 'Single Decision Tree', data: [72,72,72,72,72,72,72,72,72], borderColor: RUST, borderWidth: 2, borderDash: [6,4], fill: false, pointRadius: 0 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { labels: { color: '#e8e8f0' } } },
+    scales: {
+      x: { title: { display: true, text: 'Number of Trees in Forest', color: '#6e6e8a' }, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } },
+      y: { title: { display: true, text: 'Accuracy (%)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a', callback: v => v+'%' }, grid: { color: '#2a2a40' }, min: 65, max: 100 }
+    }
+  }
+});
+
+// ── CH09: NN vs Traditional ML ──
+new Chart(document.getElementById('nnChart'), {
+  type: 'line',
+  data: {
+    labels: ['100','1K','10K','100K','1M','10M'],
+    datasets: [
+      { label: 'Traditional ML (plateaus)', data: [60,72,79,83,84,84.5], borderColor: MUTED.replace('0.5','0.9'), borderWidth: 2.5, fill: false, pointRadius: 4, tension: .4, borderDash: [6,4] },
+      { label: 'Neural Networks', data: [45,60,74,85,92,97], borderColor: PINK, borderWidth: 3, fill: true, backgroundColor: PINK+'15', pointRadius: 4, tension: .4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { labels: { color: '#e8e8f0' } } },
+    scales: {
+      x: { title: { display: true, text: 'Amount of Training Data (examples)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } },
+      y: { title: { display: true, text: 'Model Accuracy (%)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a', callback: v => v+'%' }, grid: { color: '#2a2a40' }, min: 40, max: 100 }
+    }
+  }
+});
+
+// ── CH10: K-Means Scatter ──
+(function(){
+  const cluster = (cx,cy,n,spread) => Array.from({length:n},()=>({
+    x: +(cx+(Math.random()-.5)*spread*2).toFixed(1),
+    y: +(cy+(Math.random()-.5)*spread*2).toFixed(1)
+  }));
+  const before = [...cluster(3,3,10,1.5), ...cluster(7,6,10,1.5), ...cluster(5,9,10,1.5)];
+  const c1 = cluster(3,3,10,1.5), c2 = cluster(7,6,10,1.5), c3 = cluster(5,9,10,1.5);
+  new Chart(document.getElementById('kmeansChart'), {
+    type: 'scatter',
+    data: {
+      datasets: [
+        { label: 'Before: Unclassified', data: before.map((p,i)=>i<15?{x:p.x*0.45+0.5,y:p.y}:{x:p.x*0.45+0.5,y:p.y}), backgroundColor: '#4a4a6aaa', xAxisID:'x', yAxisID:'y' },
+        { label: 'After: Cluster 1', data: c1.map(p=>({x:p.x*0.45+6.5,y:p.y})), backgroundColor: RUST+'cc', xAxisID:'x', yAxisID:'y' },
+        { label: 'After: Cluster 2', data: c2.map(p=>({x:p.x*0.45+6.5,y:p.y})), backgroundColor: TEAL+'cc', xAxisID:'x', yAxisID:'y' },
+        { label: 'After: Cluster 3', data: c3.map(p=>({x:p.x*0.45+6.5,y:p.y})), backgroundColor: PURPLE+'cc', xAxisID:'x', yAxisID:'y' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: { legend: { labels: { color: '#e8e8f0', font: { size: 11 } } } },
+      scales: {
+        x: { min: 0, max: 12, ticks: { color: '#6e6e8a', callback: v => v<5?'Before':'After' }, grid: { color: '#2a2a40' } },
+        y: { min: 0, max: 12, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } }
+      }
+    }
+  });
+})();
+
+// ── CH11: PCA Variance ──
+new Chart(document.getElementById('pcaChart'), {
+  type: 'bar',
+  data: {
+    labels: ['PC1','PC2','PC3','PC4','PC5','PC6'],
+    datasets: [
+      {
+        label: 'Variance Explained (%)',
+        data: [48, 27, 12, 7, 4, 2],
+        backgroundColor: [RUST+'cc', TEAL+'cc', PURPLE+'55', MUTED, MUTED, MUTED],
+        borderColor: [RUST, TEAL, PURPLE+'88', '#4a4a6a', '#4a4a6a', '#4a4a6a'],
+        borderWidth: 2
+      },
+      {
+        label: 'Cumulative (%)',
+        type: 'line',
+        data: [48, 75, 87, 94, 98, 100],
+        borderColor: GOLD, borderWidth: 2.5, fill: false, pointRadius: 5,
+        yAxisID: 'y1', tension: .4
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { labels: { color: '#e8e8f0' } } },
+    scales: {
+      x: { ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' } },
+      y: { title: { display: true, text: 'Individual %', color: '#6e6e8a' }, ticks: { color: '#6e6e8a', callback: v => v+'%' }, grid: { color: '#2a2a40' }, max: 100 },
+      y1: { position: 'right', title: { display: true, text: 'Cumulative %', color: GOLD }, ticks: { color: GOLD, callback: v => v+'%' }, grid: { display: false }, max: 100 }
+    }
+  }
+});
+
+// ── CH12: Domain chart ──
+new Chart(document.getElementById('domainChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Healthcare', 'Finance', 'E-commerce', 'NLP/Text', 'Computer Vision', 'Manufacturing'],
+    datasets: [
+      { label: 'Linear/Logistic Reg.', data: [85,90,60,50,10,65], backgroundColor: RUST+'99' },
+      { label: 'Random Forest / XGBoost', data: [70,85,90,40,20,80], backgroundColor: TEAL+'99' },
+      { label: 'Neural Networks', data: [60,40,55,95,98,45], backgroundColor: PURPLE+'99' },
+      { label: 'SVM / KNN', data: [50,40,30,35,25,30], backgroundColor: GOLD+'99' }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { labels: { color: '#e8e8f0', font: { size: 11 } } } },
+    scales: {
+      x: { ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' }, stacked: false },
+      y: { title: { display: true, text: 'Usage Frequency Score (0-100)', color: '#6e6e8a' }, ticks: { color: '#6e6e8a' }, grid: { color: '#2a2a40' }, max: 100 }
+    }
+  }
+});
+
+// ━━ PDF DOWNLOAD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function downloadPDF() {
+  const btn = document.getElementById('dlBtn');
+  btn.innerHTML = '⏳ Building PDF...';
+  btn.disabled = true;
+
+  const el = document.getElementById('pdfContent');
+  const opt = {
+    margin: 0,
+    filename: 'ML-Algorithms-Complete-Guide.pdf',
+    image: { type: 'jpeg', quality: 0.95 },
+    html2canvas: {
+      scale: 1.5,
+      useCORS: true,
+      backgroundColor: '#0d0d14',
+      windowWidth: 900
+    },
+    jsPDF: {
+      unit: 'mm',
+      format: 'a4',
+      orientation: 'portrait'
+    },
+    pagebreak: { mode: ['css', 'legacy'], before: '.section-divider, .toc-page, .cover' }
+  };
+
+  html2pdf().set(opt).from(el).save().then(() => {
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF`;
+    btn.disabled = false;
+  }).catch(() => {
+    btn.innerHTML = '⚠️ Retry PDF';
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>
